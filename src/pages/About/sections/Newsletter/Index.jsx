@@ -2,8 +2,7 @@ import React from 'react';
 import './styles.css'
 import properties from "./Newsletter.module.css"
 import magzine from "../../../../images/magazine.png"
-import Splide from '@splidejs/react-splide/dist/js/components/Splide';
-import SplideSlide from '@splidejs/react-splide/dist/js/components/SplideSlide';
+import {Splide, SplideSlide} from "@splidejs/react-splide";
 
 const Newsletter = (props) => {
 
@@ -15,17 +14,17 @@ const Newsletter = (props) => {
                 <div className={properties.wrapper}>
                     {/* <img className={properties.magzine} src={magzine}/> */}
                     <div className={properties.slider}>
-                    <Splide 
+                    <Splide
          options={ {
              type:'fade',
              arrows:false,
              height:"60vh"
-   
+
 
           } }
             className={properties.slider}>
-            
-        
+
+
                <SplideSlide>
                    <div className={properties.magzine}>
                        <img alt="magzine" src={magzine}></img>
@@ -33,17 +32,17 @@ const Newsletter = (props) => {
                </SplideSlide>
                <SplideSlide>
                <div className={properties.magzine}>
-                   
+
                        <img alt="magzine" src={magzine}></img>
-                      
+
                    </div>
                </SplideSlide>
-            
+
             </Splide>
                     </div>
 
                     <div className={properties.mail}>
-                  
+
                     <h1 className={properties.heading}>
                        <span>
                        News Letter
@@ -59,8 +58,8 @@ const Newsletter = (props) => {
                    <p >
                    <i className="bi bi-download"></i>
                        Download</p>
-                   
-                 
+
+
                    </div>
 
                    <div className={properties.metadata}>

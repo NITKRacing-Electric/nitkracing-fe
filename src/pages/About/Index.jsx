@@ -25,7 +25,7 @@ const About = (props) => {
 
             <Intro/>
             <Achivements/>
-             <Newsletter/>
+             {/*<Newsletter/>*/}
         </Fragment>
     );
 };

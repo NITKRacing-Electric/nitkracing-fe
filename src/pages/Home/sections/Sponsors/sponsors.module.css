@@ -22,7 +22,7 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
-  
+
 }
 
 
@@ -50,7 +50,3 @@
     border-bottom: 3px solid red;
 }
 
-
-@media screen and (max-width:"768px") {
-  
-}

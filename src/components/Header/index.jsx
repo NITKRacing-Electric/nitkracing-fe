@@ -15,39 +15,24 @@ const Header = (props) => {
                  </div>
               </div>
               <div className={properties.links}>
-                  <ul className={properties.link_container}>
-                     <Link to="/">
-                      <li className={properties.link}>
-                          Home
-                      </li>
-                      </Link>
 
-                     <Link to="/About">
-                      <li className={properties.link}>
-                          About
-                      </li>
-                      </Link>
-
-                      {/* <li className={properties.link}>
-                          Contact
-                      </li>
-                      
-                      <li className={properties.link}>
-                          Team
-                      </li> */}
-                  </ul>
               </div>
               <div className={properties.actions}>
-                  
+
                   <ul className={properties.action_container}>
-                      <li className={properties.action}>
-                          Subscribe
-                          <i className="bi bi-envelope-open-fill"></i>                      </li>
-                      <li className={properties.action}>
-                          Let's Go
-                      </li>
+                      <Link to="/">
+                          <li className={properties.link}>
+                              Home
+                          </li>
+                      </Link>
+
+                      <Link to="/About">
+                          <li className={properties.link}>
+                              About
+                          </li>
+                      </Link>
                   </ul>
-                  
+
               </div>
 
               <div onClick={props.handleDrawerOpen} className={properties.navigation}>
@@ -82,7 +67,7 @@ c85 -13 310 -88 317 -105 3 -7 -22 -69 -55 -136 -195 -398 -522 -722 -917
 </g>
 </svg>
               </div>
-           
+
           </div>
         </header>
     );

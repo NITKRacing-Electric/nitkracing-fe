@@ -39,7 +39,7 @@
     width: 80%;
     line-height: 45px;
     position: absolute;
-    
+
 }
 
 .secondary_subheading{
@@ -68,7 +68,7 @@
     padding: 10px;
     display: inline-block;
     cursor: pointer;
-    
+
 }
 
 .slide__left:hover , .slide__right:hover{
@@ -117,6 +117,9 @@
     z-index: 0;
 }
 
+.button_group{
+    padding-top: 10px;
+}
 
 @media (max-width:768px) {
 

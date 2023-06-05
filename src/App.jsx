@@ -8,11 +8,10 @@ import About from "./pages/About/Index"
 import { Route, Switch } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import Drawer from './components/Drawer/Drawer';
+import {CssBaseline} from "@mui/material";
+import theme from "./theme/theme";
+import {ThemeProvider} from "@mui/material";
 
-/**
- * Adds two numbers together.
- * @return {JSX} Returns the main JSX code.
- */
 function App() {
     const [isVisible, setIsVisible] = useState(false);
     const [open, setOpen] = useState(false)
@@ -26,7 +25,10 @@ function App() {
     }
 
     return (
+        <ThemeProvider theme={theme}>
+
         <div className="App">
+            <CssBaseline/>
             <Header handleDrawerOpen={handleOpen} handleDrawerClose={handleClose} isVisible={isVisible}></Header>
             <Drawer handleClose={handleClose} open={open}/>
             <Switch>
@@ -42,6 +44,7 @@ function App() {
 
             <Footer/>
         </div>
+        </ThemeProvider>
     );
 }
 

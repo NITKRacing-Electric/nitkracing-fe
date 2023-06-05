@@ -3,8 +3,8 @@ import React from 'react';
 import './styles.css';
 import properties from './Achievement.module.css';
 
-const Achievement = (props) => {
-    const isRight = (props.index)%2==0;
+const Achievement = ({ title, description, index }) => {
+    const isRight = (index)%2==0;
 
     return (
         <div className={properties.achieve}>
@@ -16,11 +16,9 @@ const Achievement = (props) => {
             </div>
             <div className={properties.text_block}>
                 <h3 className={properties.heading}>
-                    FESV 1st place
+                    {title}
                 </h3>
-                <p>The team represented India at the FSAE competition
-                  held in Michigan in 2011 and in the following year
-                  it was placed in the top 10 in 2 of 7 events at FS-Hungary.
+                <p>{description}
                 </p>
                 </div>
             </div>

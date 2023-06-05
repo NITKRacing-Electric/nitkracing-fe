@@ -19,7 +19,7 @@ const Model = (props) => {
 
 
 
-                <model-viewer src={astro} camera-controls shadow-intensity="1">
+                <model-viewer auto-rotate loading='eager' src={astro} camera-controls shadow-intensity="1">
 
 <div className="progress-bar hide" slot="progress-bar">
     <div className="update-bar"></div>

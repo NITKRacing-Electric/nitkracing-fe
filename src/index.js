@@ -10,14 +10,21 @@ import {
   Link
 } from "react-router-dom";
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import {ThemeProvider} from "@mui/material/styles";
+import theme from "./theme/theme";
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+
+      <Router>
       <ScrollToTop/>
-    <App />
+
+        <App />
+
     </Router>
+
+
   </React.StrictMode>,
   document.getElementById('root')
 );

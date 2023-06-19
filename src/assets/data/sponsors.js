@@ -30,7 +30,9 @@ const Sponsors = [
         picture: bender
     },
     {
-        picture: winha
+        picture: winha,
+        name: '', 
+        tier: '' // eg. Gold, Platinum
     },
     {
         picture: tesla

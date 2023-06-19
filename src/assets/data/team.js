@@ -73,6 +73,12 @@ const Team = [
         info:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur ornare tincidunt. Vivamus vel facilisis mauris. Fusce id porta lectus, at efficitur est. Vivamus eget arcu a nulla volutpat auctor sed non arcu. Etiam at mattis mauris. Mauris quis tellus in elit rhoncus pretium.",
         heading:"D-FaQ Subsystem Head",
         url:"https://drive.google.com/open?id=1xlmy2j1WkR0KB1rkqzHHlTPeFogdMTSC"
+    },
+    {
+        memberName:"Aryan Agrawal",
+        info:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur ornare tincidunt. Vivamus vel facilisis mauris. Fusce id porta lectus, at efficitur est. Vivamus eget arcu a nulla volutpat auctor sed non arcu. Etiam at mattis mauris. Mauris quis tellus in elit rhoncus pretium.",
+        heading:"Electronics Subsystem Head",
+        url:"https://drive.google.com/open?id=1kBx3eAgQE_xGmpbD0Q47LzXk8kv6GMQJ"
     }
 ]
 

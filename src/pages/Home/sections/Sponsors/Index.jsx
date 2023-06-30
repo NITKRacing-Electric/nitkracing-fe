@@ -38,7 +38,7 @@ const TitleSponsor = () => {
         zIndex="200"
         variant="bgText"
         position="absolute"
-        right="10px"
+        left="0px"
         bottom="0px"
       >
         Title <br /> Sponsor

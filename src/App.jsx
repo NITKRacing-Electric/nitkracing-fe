@@ -1,7 +1,7 @@
 import Home from './pages/Home/Index';
 import Header from './components/Header/index';
 import './App.css';
-import {useState} from 'react';
+import {useLayoutEffect, useRef, useState} from 'react';
 import Footer from './components/Footer/index';
 import React from 'react';
 import About from "./pages/About/Index"
@@ -15,6 +15,7 @@ import {ThemeProvider} from "@mui/material";
 function App() {
     const [isVisible, setIsVisible] = useState(false);
     const [open, setOpen] = useState(false)
+    const appRef = useRef(null)
 
     const handleClose = ()=>{
         setOpen(false)
@@ -24,10 +25,11 @@ function App() {
         setOpen(true)
     }
 
+
     return (
         <ThemeProvider theme={theme}>
 
-        <div className="App">
+        <div className="App" ref={appRef}>
             <CssBaseline/>
             <Header handleDrawerOpen={handleOpen} handleDrawerClose={handleClose} isVisible={isVisible}></Header>
             <Drawer handleClose={handleClose} open={open}/>

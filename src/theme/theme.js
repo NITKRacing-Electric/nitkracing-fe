@@ -41,6 +41,9 @@ const theme = createTheme({
     primary: {
       main: "#FF1801",
     },
+    gradient: {
+      dark: "linear-gradient(to right, #434343 0%, black 100%)",
+    },
   },
 });
 

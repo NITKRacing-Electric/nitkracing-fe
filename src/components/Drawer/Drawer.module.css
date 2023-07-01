@@ -1,11 +1,12 @@
 .root{
   position: fixed;
-  background-color: red;
+
   width: 100vw;
   height: 100vh;
   z-index: 1000;
   transform: translateX(100%);
   transition: all 300ms ease;
+  background-image: linear-gradient(135deg, hsla(0, 0%, 27%, 1) 0%, hsla(0, 0%, 18%, 1) 3%, hsla(0, 0%, 7%, 1) 22%, hsla(0, 0%, 0%, 1) 100%);
 }
 
 .root.open{
@@ -22,7 +23,7 @@
 .links>*{
   font-size: 40px;
   font-weight: 800;
-  transition: all 300ms ease; 
+  transition: all 300ms ease;
 }
 
 .links>*:hover{

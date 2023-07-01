@@ -4,10 +4,12 @@ import { Box, Typography } from "@mui/material";
 const Title = ({ subtitle, children }) => {
   return (
     <Box pb={7}>
-      <Typography variant="subtitle" color="primary">
+      <Typography className="G_Subtitle" variant="subtitle" color="primary">
         {subtitle}
       </Typography>
-      <Typography variant="title">{children}</Typography>
+      <Typography className="G_Title" variant="title">
+        {children}
+      </Typography>
     </Box>
   );
 };

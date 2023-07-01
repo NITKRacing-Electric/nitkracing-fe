@@ -19,9 +19,9 @@ const theme = createTheme({
       letterSpacing: "3px",
     },
     bgText: {
-      fontSize: "7.5rem",
+      fontSize: "10rem",
       opacity: "0.1",
-      lineHeight: "7rem",
+      lineHeight: "10rem",
     },
   },
   components: {
@@ -32,6 +32,7 @@ const theme = createTheme({
           sectionHeading: "h1",
           title: "h2",
           bgText: "h3",
+          subtitle: "p",
         },
       },
     },

@@ -1,27 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import properties from "./sponsors.module.css";
 import SponsorsAPI from "../../../../services/SponsorsAPI";
-import { BACKGROUNDS, SPONSORS } from "../../../../assets/data";
+import { ANIMATIONS, BACKGROUNDS, SPONSORS } from "../../../../assets/data";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import { Title } from "../../../../components/Title";
 import { Section, SectionWithHue } from "../../../../components/Section";
+import useGsap from "../../../../hooks/useGsap";
+import gsap from "gsap";
 
 const Sponsors = () => {
+  const app = useRef();
   const [sponsors, setSponsors] = useState(SPONSORS);
-
+  useGsap(app, () => ANIMATIONS.heading(gsap, "#sponsors"));
   return (
-    <SectionWithHue id="sponsors" py={4}>
-      <Title subtitle="Season">Sponsors</Title>
-      <Grid container>
-        <Grid item xs={7}>
-          <TierSponsors />
+    <Box ref={app}>
+      <SectionWithHue id="sponsors" pt={10} pageHeight>
+        <Title subtitle="Season">Sponsors</Title>
+        <Grid container alignItems="center">
+          <Grid item xs={7}>
+            <TierSponsors />
+          </Grid>
+          <Grid item xs={5}>
+            <TitleSponsor />
+          </Grid>
         </Grid>
-        <Grid item xs={5}>
-          <TitleSponsor />
-        </Grid>
-      </Grid>
-    </SectionWithHue>
+      </SectionWithHue>
+    </Box>
   );
 };
 
@@ -59,7 +64,7 @@ const TierSponsors = () => {
   return (
     <Box position="relative">
       <Grid container>
-        {SPONSORS.slice(0, 4).map((_, index) => (
+        {SPONSORS.slice(0, 8).map((_, index) => (
           <Grid item xs={6} alignSelf="center">
             <img width="50%" src={_.picture} />
           </Grid>

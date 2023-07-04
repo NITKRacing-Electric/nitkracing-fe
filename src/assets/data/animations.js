@@ -36,7 +36,6 @@ const animations = {
         y: "0",
         scrollTrigger: {
           trigger: trigger,
-          toggleActions: "restart pause restart reverse",
         },
         stagger: 0.2,
         ease: "expo.out",

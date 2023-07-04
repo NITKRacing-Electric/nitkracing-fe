@@ -20,7 +20,7 @@ const theme = createTheme({
     },
     bgText: {
       fontSize: "10rem",
-      opacity: "0.1",
+      color: "rgba(255, 255, 255, 0.1)",
       lineHeight: "10rem",
     },
   },

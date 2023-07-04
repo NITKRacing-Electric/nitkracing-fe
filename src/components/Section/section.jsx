@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container } from "@mui/material";
+import { Box, Container, useMediaQuery, useTheme } from "@mui/material";
 import { BACKGROUNDS } from "../../assets/data";
 
 const Section = ({
@@ -43,13 +43,16 @@ export const SectionWithHue = ({
 };
 
 const Hue = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <img
+      className="appearStagger"
       style={{
         position: "absolute",
         display: "block",
         width: "1000px",
-        bottom: "-200px",
+        bottom: isMobile ? "150px" : "-200px",
         right: "-200px",
         transform: "rotateZ(-30deg)",
         zIndex: "0",

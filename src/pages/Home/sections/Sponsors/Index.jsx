@@ -30,7 +30,7 @@ const Sponsors = () => {
         end: "+=5000",
         pin: app.current,
         pinSpacing: true,
-        scrub: 10,
+        scrub: 1,
         toggleActions: "play null play null",
         immediateRender: false,
       },

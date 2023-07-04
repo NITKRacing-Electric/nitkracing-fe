@@ -30,7 +30,7 @@ const Sponsors = () => {
         end: "+=5000",
         pin: app.current,
         pinSpacing: true,
-        scrub: 1,
+        scrub: 10,
         toggleActions: "play null play null",
         immediateRender: false,
       },
@@ -74,7 +74,7 @@ const Sponsors = () => {
         opacity: 1,
         ease: "expo.in",
       },
-      ">-5"
+      ">-6"
     );
 
     timeline.to(
@@ -96,7 +96,7 @@ const Sponsors = () => {
         duration: 6,
         ease: "expo.out",
       },
-      ">+6"
+      ">+3"
     );
 
     timeline.to(
@@ -107,7 +107,7 @@ const Sponsors = () => {
         duration: 6,
         ease: "expo.out",
       },
-      ">-15"
+      ">-8"
     );
 
     timeline.fromTo(
@@ -121,7 +121,8 @@ const Sponsors = () => {
         y: "-250%",
         duration: 6,
         ease: "expo.out",
-      }
+      },
+      "<+1"
     );
   });
   return (

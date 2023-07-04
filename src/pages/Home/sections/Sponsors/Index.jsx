@@ -27,7 +27,7 @@ const Sponsors = () => {
       scrollTrigger: {
         trigger: app.current,
         start: "top top",
-        end: "+=5000",
+        end: "+=2500",
         pin: app.current,
         pinSpacing: true,
         scrub: 1,

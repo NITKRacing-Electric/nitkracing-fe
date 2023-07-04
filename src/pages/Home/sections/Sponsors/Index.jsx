@@ -107,7 +107,7 @@ const Sponsors = () => {
         duration: 6,
         ease: "expo.out",
       },
-      ">-8"
+      ">-14"
     );
 
     timeline.fromTo(
@@ -122,7 +122,7 @@ const Sponsors = () => {
         duration: 6,
         ease: "expo.out",
       },
-      "<+1"
+      "<+8"
     );
   });
   return (

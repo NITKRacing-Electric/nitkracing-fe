@@ -36,10 +36,29 @@ const animations = {
         y: "0",
         scrollTrigger: {
           trigger: trigger,
+          toggleActions: "restart pause restart reverse",
         },
         stagger: 0.2,
         ease: "expo.out",
         duration: "1",
+      }
+    );
+  },
+  emerge: (gsap, trigger, target) => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo(
+      target,
+      { y: "100", opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: trigger,
+        },
+        stagger: 0.2,
+        ease: "expo.out",
+        duration: "1",
+        delay: "0.5",
       }
     );
   },

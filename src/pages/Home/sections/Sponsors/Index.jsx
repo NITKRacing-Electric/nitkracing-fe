@@ -15,6 +15,7 @@ import { Title } from "../../../../components/Title";
 import { Section, SectionWithHue } from "../../../../components/Section";
 import useGsap from "../../../../hooks/useGsap";
 import gsap from "gsap";
+import Marquee from "react-fast-marquee";
 
 const Sponsors = () => {
   const app = useRef();
@@ -23,6 +24,8 @@ const Sponsors = () => {
   useGsap(app, () => {
     ANIMATIONS.heading(gsap, "#sponsors");
     ANIMATIONS.appearStagger(gsap, "#sponsors", ".appearStagger");
+    ANIMATIONS.emerge(gsap, "#sponsors", ".emergeContainer");
+
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: app.current,
@@ -30,7 +33,7 @@ const Sponsors = () => {
         end: "+=2500",
         pin: app.current,
         pinSpacing: true,
-        scrub: 1,
+        scrub: true,
         toggleActions: "play null play null",
         immediateRender: false,
       },
@@ -55,7 +58,7 @@ const Sponsors = () => {
         opacity: 0,
       },
       {
-        y: "-120%",
+        y: "-130%",
         duration: 6,
         opacity: 1,
         ease: "expo.out",
@@ -103,7 +106,7 @@ const Sponsors = () => {
       ".spnsr3",
       {
         opacity: 1,
-        y: "-220%",
+        y: "-240%",
         duration: 6,
         ease: "expo.out",
       },
@@ -146,6 +149,22 @@ const Sponsors = () => {
           </Grid>
         </Grid>
       </SectionWithHue>
+      <Box
+        className="emergeContainer"
+        pt={1}
+        position="absolute"
+        bottom={0}
+        width="100%"
+        bgcolor="black"
+      >
+        <Marquee>
+          {SPONSORS.map((_) => (
+            <Box px={1}>
+              <img height="25px" src={_.picture} />
+            </Box>
+          ))}
+        </Marquee>
+      </Box>
     </Box>
   );
 };
@@ -201,7 +220,7 @@ const TitleSponsor = () => {
 const TierSponsors = ({ tier }) => {
   return (
     <Box position="relative">
-      <Grid container className="spnsr1">
+      <Grid container className="spnsr1" pb={1}>
         <SponsorsList sponsors={SPONSORS.slice(0, 6)} />
       </Grid>
       <Grid container className="spnsr2">

@@ -29,6 +29,7 @@ const Team = (props) => {
                 autoplay: true,
                 interval: 2000,
                 arrows: false,
+                pagination: false,
               }}
               className={properties.slider}
             >

@@ -1,32 +1,31 @@
-import React from 'react';
-import properties from './threed.module.css';
-import './styles.css';
-import Model from '../../../../components/model/index';
+import React from "react";
+import properties from "./threed.module.css";
+import "./styles.css";
+import Model from "../../../../components/model/index";
+import { Section, SectionWithHue } from "../../../../components/Section";
+import { Grid, Typography } from "@mui/material";
+import { Title } from "../../../../components/Title";
 
 const ThreeD = (props) => {
-    return (
-        <section id="threeD">
-            <div className={properties.main_section}>
-                <h1 className={properties.heading}>
-                  NKR<span className={properties.heading_span}>2K23</span>
-                </h1>
-                <div className={properties.col_one}>
-
-                </div>
-                <div className={properties.col_two}>
-
-                </div>
-            </div>
-            <div>
-            <div className={properties.advanced_section}>
-                <Model></Model>
-                <Model></Model>
-                <Model></Model>
-
-            </div>
-            </div>
-        </section>
-    );
+  return (
+    <Section pt={2} id="threeD" position="relative">
+      <Title subtitle="models">Subsystem</Title>
+      <Typography variant="bgText">
+        Under <br /> Construction
+      </Typography>
+    </Section>
+  );
 };
 
+// <Grid container>
+//     <Grid item md={4} xs={12}>
+//         <Model />
+//     </Grid>
+//     <Grid item md={4} xs={12}>
+//         <Model />
+//     </Grid>
+//     <Grid item md={4} xs={12}>
+//         <Model />
+//     </Grid>
+// </Grid>
 export default ThreeD;

@@ -10,7 +10,7 @@ const ThreeD = (props) => {
   return (
     <Section pt={2} id="threeD" position="relative">
       <Title subtitle="models">Subsystem</Title>
-      <Typography variant="bgText">
+      <Typography variant="title">
         Under <br /> Construction
       </Typography>
     </Section>

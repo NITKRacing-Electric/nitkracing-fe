@@ -16,6 +16,7 @@ const ThreeD = (props) => {
     ANIMATIONS.heading(gsap, "#sponsors");
     ANIMATIONS.appearStagger(gsap, "#sponsors", ".appear");
     ANIMATIONS.flicker(gsap, "#sponsors", ".flicker");
+    ANIMATIONS.appearStagger(gsap, "#sponsors", "#threeD");
   });
 
   return (
@@ -24,7 +25,17 @@ const ThreeD = (props) => {
         <Box pt={5} />
         <Title subtitle="models">Subsystem</Title>
         <Grid container spacing={5}>
-          <Grid item md={5}>
+          <Grid
+            item
+            md={5}
+            xs={12}
+            sx={{
+              display: {
+                md: "block",
+                xs: "none",
+              },
+            }}
+          >
             <Box
               height="100%"
               sx={{
@@ -35,7 +46,7 @@ const ThreeD = (props) => {
               }}
             />
           </Grid>
-          <Grid item md={7}>
+          <Grid item md={7} xs={12}>
             <Typography variant="subtitle2" letterSpacing="2px" color="primary">
               Lorem
             </Typography>

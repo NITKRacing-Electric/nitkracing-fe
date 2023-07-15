@@ -1,6 +1,8 @@
 import gsap from "gsap";
 import { ANIMATIONS } from "./index";
 import ScrollTrigger from "gsap/ScrollTrigger";
+const dur = gsap.utils.random(0.1, 1, 0.2);
+const colors = ["blue", "red", "black"];
 
 const animations = {
   title: {
@@ -59,6 +61,42 @@ const animations = {
         ease: "expo.out",
         duration: "1",
         delay: "0.5",
+      }
+    );
+  },
+  fromBelow: (gsap, trigger, target) => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo(
+      target,
+      { opacity: 0, y: "100" },
+      {
+        opacity: 1,
+        y: "0",
+        scrollTrigger: {
+          trigger: trigger,
+          toggleActions: "restart pause restart reverse",
+        },
+        stagger: 0.2,
+        ease: "expo.out",
+        duration: "1",
+      }
+    );
+  },
+  flicker: (gsap, trigger, target) => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo(
+      target,
+      {
+        opacity: gsap.utils.random(0.5, 1, 0.4),
+      },
+      {
+        opacity: 1,
+        repeat: -1,
+        yoyo: true,
+        repeatRefresh: true,
+        ease: "expo.out",
+        duration: 1,
+        repeatDelay: gsap.utils.random(0.3, 3, 0.5),
       }
     );
   },

@@ -35,16 +35,20 @@ const Sponsors = [
         tier: '' // eg. Gold, Platinum
     },
     {
-        picture: tesla
+        picture: tesla,
+        tier:'Platinum'
     },
     {
-        picture: vishal
+        picture: vishal,
+        tier:
     },
     {
-        picture: tdps
+        picture: tdps,
+        tier:'Platinum'
     },
     {
         picture: simscale
+        tier:'Platinum'
     },
     {
         picture: quest

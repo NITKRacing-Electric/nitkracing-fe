@@ -31,7 +31,7 @@ const Sponsors = [
     },
     {
         picture: winha,
-        name: '', 
+        name: '',
         tier: '' // eg. Gold, Platinum
     },
     {
@@ -40,14 +40,14 @@ const Sponsors = [
     },
     {
         picture: vishal,
-        tier:
+        tier: 'Platinum'
     },
     {
         picture: tdps,
         tier:'Platinum'
     },
     {
-        picture: simscale
+        picture: simscale,
         tier:'Platinum'
     },
     {

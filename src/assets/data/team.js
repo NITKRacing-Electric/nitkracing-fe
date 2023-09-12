@@ -4,7 +4,7 @@
 const Team = [
     {
         memberName:"Dhruv Yadav",
-        info:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur ornare tincidunt. Vivamus vel facilisis mauris. Fusce id porta lectus, at efficitur est. Vivamus eget arcu a nulla volutpat auctor sed non arcu. Etiam at mattis mauris. Mauris quis tellus in elit rhoncus pretium.",
+        info:"As the team captain of NITK Racing Club, they serve as the driving force behind their success. Their unwavering commitment, deep expertise in motorsports, and leadership skills inspire the team. They oversee rigorous training, vehicle development, and race strategy, ensuring the team performs at their best. Their knowledge of racing techniques, engineering principles, and competition dynamics propels them to podium finishes. Beyond the track, they represent the club's values and forge valuable partnerships, acting as an ambassador for the organization. In sum, the NITK Racing Club's captain is the catalyst for their achievements, both on and off the circuit.",
         heading:"Team Captain",
         url:"https://drive.google.com/open?id=1UQawIjHq9c6GQABuxfslY8YnrDinN4Fz"
     },

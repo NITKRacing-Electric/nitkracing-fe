@@ -9,7 +9,7 @@ const Team = [
         memberName:"Dhruv Yadav",
         info:"As the team captain of NITK Racing Club, they serve as the driving force behind their success. Their unwavering commitment, deep expertise in motorsports, and leadership skills inspire the team. They oversee rigorous training, vehicle development, and race strategy, ensuring the team performs at their best. Their knowledge of racing techniques, engineering principles, and competition dynamics propels them to podium finishes. Beyond the track, they represent the club's values and forge valuable partnerships, acting as an ambassador for the organization. In sum, the NITK Racing Club's captain is the catalyst for their achievements, both on and off the circuit.",
         heading:"Team Captain",
-        url:"src/assets/teammembers/ME_NR23_pic-crpd - Dhruv Yadav (1).jpg"
+        picture: dhruv
     },
     {
         memberName:"Aditya Bilgundi",

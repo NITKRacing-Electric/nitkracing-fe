@@ -1,7 +1,7 @@
 
 // Todo: Complete the below data
 
-import dhruv from '../teammembers/ME_NR23_pic-crpd-DhruvYadav(1).jpg'
+import dhruv from '../teammembers/ME_NR23_pic-crpd - Dhruv Yadav(1).jpg'
 import aditya from '../teammembers/IMG_20220424_011428_553 - Aditya S Bilgundi.jpg'
 import prasad from '../teammembers/IMG_4028 - Prasad Savanur.heic'
 import kethan from '../teammembers/IMG-20230524-WA0039 - kethan ajmeera.jpg'

@@ -1,7 +1,7 @@
 
 // Todo: Complete the below data
 
-import dhruv from './teammembers/ME_NR23_pic-crpd - Dhruv Yadav (1).jpg'
+import dhruv from '../teammembers/ME_NR23_pic-crpd - Dhruv Yadav (1).jpg'
 
 
 const Team = [

@@ -72,7 +72,7 @@ const Team = [
         memberName:"Vinamra",
         info:"The D-FaQ (Driver Feedback and Quick Action) Subsystem Head at NITK Racing Club plays a crucial role in enhancing the driver's experience and vehicle performance. With a deep understanding of electronics and data analysis, they lead the development of real-time monitoring and feedback systems. These systems provide valuable insights to the driver, helping optimize driving strategies for better lap times. They oversee the integration of sensors, telemetry, and data logging, ensuring seamless communication between the vehicle and driver. The D-FaQ Subsystem Head's expertise contributes significantly to our ability to make quick, data-driven decisions, ultimately enhancing our competitive edge on the race track.",
         heading:"D-FaQ Subsystem Head",
-        url:"https://drive.google.com/file/d/1xlmy2j1WkR0KB1rkqzHHlTPeFogdMTSC/view?usp=sharing"
+        url:"src/assets/teammembers/2020_20230601-145657 - Vinamra Parakh.jpg"
     },
     {
         memberName:"Aryan Agrawal",

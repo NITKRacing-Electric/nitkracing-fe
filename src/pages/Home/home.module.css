@@ -4,7 +4,7 @@
     padding-top: 80px;
     color: white;
     position: relative;
-    overflow-x: hidden;
+    justify-content: space-between;
 }
 
 

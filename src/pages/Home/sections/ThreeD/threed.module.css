@@ -19,14 +19,14 @@
 
 .col_one{
     height: 100%;
-    
+
     background-color: rgba(255, 0, 0, 0.8);
 }
 
 .heading{
     position: absolute;
     left: 50%;
-    
+
     transform: translateX(-50%);
     font-size: 100px;
     color: #2A2A2A;

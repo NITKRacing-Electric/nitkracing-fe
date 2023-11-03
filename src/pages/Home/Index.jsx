@@ -18,6 +18,8 @@ import Sponsors from "./sections/Sponsors/Index";
 import useScrollSnap from "react-use-scroll-snap";
 import Hero from "./sections/Hero";
 import { Box } from "@mui/material";
+import About from "./sections/About/index.jsx";
+import Statistics from "./sections/Statistics/index.jsx";
 
 const Index = (props) => {
   const scrollRef = useRef(null);
@@ -27,6 +29,9 @@ const Index = (props) => {
     <Box ref={scrollRef}>
       <Hero />
 
+        <About/>
+
+        <Statistics/>
       <ThreeD />
 
       <Team />

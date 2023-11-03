@@ -3,6 +3,20 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   typography: {
     fontFamily: "'Titillium Web', sans-serif",
+    fontFamily2: 'Outfit, sans-serif',
+    body1: {
+      fontFamily: '"Outfit", sans-serif',
+    },
+    body2: {
+      fontFamily: '"Outfit", sans-serif',
+    },
+    // Use the custom font family for subtitle1 and subtitle2
+    subtitle1: {
+      fontFamily: '"Outfit", sans-serif',
+    },
+    subtitle2: {
+      fontFamily: '"Outfit", sans-serif',
+    },
     sectionHeading: {
       fontSize: "2rem",
       textAlign: "center",

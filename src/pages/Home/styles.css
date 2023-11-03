@@ -1,10 +1,19 @@
 section#home{
+    height: 120vh;
+    background-image: url("../../assets/background-mesh.png") ;
+    background-size: cover;
+    position: relative;
+}
 
-    height: 100vh;
-    background-image: hsla(0, 0%, 27%, 1);
-    background-image: linear-gradient(135deg, hsla(0, 0%, 27%, 1) 0%, hsla(0, 0%, 18%, 1) 3%, hsla(0, 0%, 7%, 1) 22%, hsla(0, 0%, 0%, 1) 100%) ;
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#464646", endColorstr="#2D2D2D", GradientType=1 );
-     background-size: cover;
+section#home:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    transition: background 0.3s ease;
+    position: absolute;
+    bottom: 0px;
 }
 
 

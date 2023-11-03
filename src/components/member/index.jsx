@@ -3,18 +3,20 @@ import properties from "./member.module.css";
 import { SplideSlide } from "@splidejs/react-splide";
 
 import React from "react";
+import urlFor from "../../config/image-uri-builder.js";
 
 const Member = (props) => {
   const name = props.data.memberName;
   const bio = props.data.info;
-  const image = props.data.url;
+
+  const image = props.data.image;
   const heading = props.data.heading;
 
   return (
     <SplideSlide>
       <div className={properties.wrapper}>
         <div className={properties.member}>
-          <img alt="member" width="350px" src={image} />
+          <img alt="member" width="350px" src={urlFor(image)} />
         </div>
 
         <div className={properties.info}>

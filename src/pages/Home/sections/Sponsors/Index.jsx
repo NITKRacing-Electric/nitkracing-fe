@@ -19,7 +19,6 @@ import Marquee from "react-fast-marquee";
 
 const Sponsors = () => {
   const app = useRef();
-  const [sponsors, setSponsors] = useState(SPONSORS);
   const [tier, setTier] = useState("Gold");
   useGsap(app, () => {
     ANIMATIONS.heading(gsap, "#sponsors");

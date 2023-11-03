@@ -3,7 +3,7 @@
 
 import dhruv from '../teammembers/ME_NR23_pic-crpd - Dhruv Yadav (1).jpg'
 import aditya from '../teammembers/IMG_20220424_011428_553 - Aditya S Bilgundi.jpg'
-import prasad from '../teammembers/IMG_4028 - Prasad Savanur.heic'
+// import prasad from '../teammembers/IMG_4028 - Prasad Savanur.heic'
 import kethan from '../teammembers/IMG-20230524-WA0039 - kethan ajmeera.jpg'
 import sanket from '../teammembers/IMG_20230601_001612 - Sanket Mane.jpg'
 import rajeev from '../teammembers/IMG_6635 - Rajeev Bhat.jpg'
@@ -14,6 +14,7 @@ import saee from '../teammembers/Saee_photo - Saee Sholapurkar.png'
 import saurabh from '../teammembers/IMG-20230531-WA0014 - Saurabh Maurya.jpg'
 import vinamra from '../teammembers/2020_20230601-145657 - Vinamra Parakh.jpg'
 import aryan from '../teammembers/IMG_20230526_203852 - Aryan Agrawal.jpg'
+import client from "../../config/sanity.js";
 
 const Team = [
     {
@@ -74,7 +75,7 @@ const Team = [
         memberName:"Saee Sholapurkar",
         info:"The Battery Packaging and Integration (BPI) Lead at NITK Racing Club is the linchpin of our electric vehicle development. With a profound understanding of electrical engineering and battery technology, they oversee the design and integration of our vehicle's energy storage system. Their role involves meticulous packaging and placement of batteries to optimize weight distribution and safety. They lead a dedicated team of engineers, ensuring seamless integration with other vehicle components. The BPI Lead's expertise is crucial in maximizing our electric vehicle's range, power, and reliability, making them instrumental in our pursuit of innovation and success in the world of sustainable motorsport.",
         heading:"Battery Packaging and Integration(BPI) lead ",
-        url : "saee" 
+        url : "saee"
     },
     {
         memberName:"Saurabh maurya",
@@ -92,8 +93,19 @@ const Team = [
         memberName:"Aryan Agrawal",
         info:"The Electronics Subsystem Head at NITK Racing Club is a pivotal figure in the team's pursuit of cutting-edge technology and performance. With a profound grasp of electrical engineering, they lead the development and integration of advanced electronic systems in our racing vehicles. This includes everything from engine control units to telemetry systems and safety features. They manage a dedicated team of engineers, fostering innovation and reliability in all electronic components. The Electronics Subsystem Head's expertise is essential for optimizing vehicle performance, data analysis, and safety measures. Their role is instrumental in maintaining our competitive edge and ensuring our vehicles are at the forefront of motorsport technology.",
         heading:"Electronics Subsystem Head",
-        url : "aryan"  
+        url : "aryan"
     }
 ]
 
-export default Team;
+
+async function fetchTeam() {
+    const query = '*[_type == "teamMember"]';
+    try {
+        return await client.fetch(query);
+    } catch (error) {
+        console.error('Fetching team failed', error);
+        return []; // return an empty array as a fallback
+    }
+}
+
+export default fetchTeam;

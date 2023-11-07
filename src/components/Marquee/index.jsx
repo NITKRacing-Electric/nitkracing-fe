@@ -31,7 +31,8 @@ const Marquee = ({children}) => {
                         display: 'flex',
                         alignItems: 'center',
                         flexShrink: 0,
-                        padding: '0 4px'
+                        padding: '0 4px',
+                        height: 'fit-content',
                     }}>
                         {_}                       <Box className='arrow'>
                             <LuSparkle />

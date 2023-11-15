@@ -157,9 +157,9 @@ const Sponsors = () => {
         bgcolor="black"
       >
         <Marquee>
-          {SPONSORS.map((_) => (
-            <Box px={1}>
-              <img height="25px" src={_.picture} />
+          {SPONSORS.map((_, index) => (
+            <Box px={1} key={index}>
+              <img className="h-[25px]" src={_.picture}/>
             </Box>
           ))}
         </Marquee>

@@ -71,7 +71,7 @@ const Statistics = () => {
           <div className={`${styles.hero} hero`}>
             <div className={`${styles.heroContent}`}>
               <p className={`${styles.hollowText} ${styles.hugeText}`}>WORLD'S</p>
-              <p className={`${styles.hollowText} ${styles.hugeText} bg-black`}>BEST</p>
+              <p className={`${styles.hollowText} ${styles.hugeText} `}>BEST</p>
               <p className={styles.boldText}>AUDIENCE</p>
             </div>
           </div>

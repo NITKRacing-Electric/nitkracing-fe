@@ -29,7 +29,7 @@ const Section = ({
 
         </Box>
             }
-        <Container id={id}>
+        <Container maxWidth='xl' id={id}>
           {children}
 
       </Container>

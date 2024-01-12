@@ -1,5 +1,5 @@
 section#home{
-    height: 120vh;
+    height: 100vh;
     background-image: url("../../assets/background-mesh.png") ;
     background-size: cover;
     position: relative;

@@ -14,7 +14,13 @@ import useGsap from "./hooks/useGsap.js";
 import Lenis from "@studio-freight/lenis";
 import { StyledDrawer } from "./components/index.js";
 import { StateContextProvider } from "./context/index.jsx";
-import { ContactPage, GalleryPage, SponsorsPage, TeamPage } from "./pages";
+import {
+  ContactPage,
+  CrowdfundingPage,
+  GalleryPage,
+  SponsorsPage,
+  TeamPage,
+} from "./pages";
 
 const queryClient = new QueryClient();
 
@@ -59,7 +65,7 @@ function App() {
                 <ContactPage />
               </Route>
               <Route exact path="/crowdfunding">
-                <About />
+                <CrowdfundingPage />
               </Route>
               <Route exact path="/alumni">
                 <About />

@@ -31,7 +31,6 @@ class Circle {
     this.p5.textFont("outfit");
     this.p5.textAlign(this.p5.CENTER);
     this.p5.textStyle(this.p5.BOLD);
-    this.p5.text("SPONSORS", this.p5.width / 2, this.p5.height / 2);
     this.p5.ellipse(this.pos.x, this.pos.y, this.rad * 2, this.rad * 2);
     this.p5.image(this.img, this.pos.x, this.pos.y);
 
@@ -41,7 +40,10 @@ class Circle {
   }
 
   move() {
-    this.pos.add(this.vel);
+    const limitVelocity = this.vel
+      .copy()
+      .setMag(this.p5.min(200, this.vel.mag()));
+    this.pos.add(limitVelocity.mult(0.05));
   }
 
   rotate() {

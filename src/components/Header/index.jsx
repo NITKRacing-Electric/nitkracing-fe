@@ -96,7 +96,7 @@ const Header = ({ ...props }) => {
 function MenuItems() {
   return (
     <div className="flex flex-row items-center gap-10">
-      <StyledLink to="/alumni" label="Alumni" />
+      <StyledLink to="/" label="Home" />
       <StyledLink to="/gallery" label="Gallery" />
       <StyledLink to="/sponsors" label="Sponsors" />
       <a href="/">

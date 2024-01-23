@@ -40,14 +40,14 @@ function Drawer() {
       <div className="py-10" />
 
       <div className="flex flex-col">
-        <BigLink label="Dashboard" to="/" />
-        <BigLink label="Alumni" to="/" />
+        <BigLink label="Crowdfunding" to="/crowdfunding" />
+        <BigLink label="Gallery" to="/gallery" />
 
-        <BigLink label="About" to="/" />
+        <BigLink label="Sponsors" to="/sponsors" />
 
-        <BigLink label="Crowdfunding" to="/" />
+        <BigLink label="About" to="/about" />
 
-        <BigLink label="Contact" to="/" />
+        <BigLink label="Contact" to="/contact" />
       </div>
       <div className="pl-20">
         <ToggleButton handleClick={handleDrawerClose} />
@@ -58,7 +58,7 @@ function Drawer() {
 
 function BigLink({ label, to }) {
   return (
-    <a>
+    <a href={to}>
       <h1 className="link opacity-100 text-6xl pl-20 py-5 font-[outfit] font-bold tracking-normal transition-all hover:bg-red-600 hover:text-red-950 hover:tracking-[0.5rem]">
         {label}
       </h1>

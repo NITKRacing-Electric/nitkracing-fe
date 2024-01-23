@@ -7,7 +7,7 @@ import { useState } from "react";
 const num = SPONSORS.length;
 const circles = [];
 const images = [];
-const e = 1;
+const e = 0.5;
 
 class Circle {
   constructor(pos, rad, p5, img) {

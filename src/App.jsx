@@ -1,7 +1,7 @@
 import Home from "./pages/Home/Index";
 import Header from "./components/Header/index";
 import "./App.css";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useEffect } from "react";
 import Footer from "./components/Footer/index";
 import React from "react";
 import About from "./pages/About/Index";
@@ -12,7 +12,7 @@ import { ThemeProvider } from "@mui/material";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import useGsap from "./hooks/useGsap.js";
 import Lenis from "@studio-freight/lenis";
-import { StyledDrawer } from "./components/index.js";
+import { MouseCircle, StyledDrawer } from "./components/index.js";
 import { StateContextProvider } from "./context/index.jsx";
 import {
   ContactPage,
@@ -21,6 +21,7 @@ import {
   SponsorsPage,
   TeamPage,
 } from "./pages";
+import gsap from "gsap";
 
 const queryClient = new QueryClient();
 
@@ -40,14 +41,38 @@ function App() {
     requestAnimationFrame(raf);
   });
 
+  useEffect(() => {
+    gsap.set(".ball", { xPercent: -50, yPercent: -50 });
+    const handleMouseMove = (e) => {
+      gsap.to(".cursor__ball--big", {
+        x: e.clientX - 15,
+        y: e.clientY - 15,
+        duration: 0.6,
+        ease: "power4.out",
+      });
+      gsap.to(".cursor__ball--small", {
+        x: e.clientX - 5,
+        y: e.clientY - 7,
+        duration: 0.1,
+        ease: "power4.out",
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <StateContextProvider>
-          <div className="App" ref={appRef}>
+          <div className="App overflow-x-hidden" ref={appRef}>
             <CssBaseline />
             <Header />
             <StyledDrawer />
+            <MouseCircle />
             <Switch>
               <Route exact path="/">
                 <Home />

@@ -13,17 +13,18 @@ class Circle {
   constructor(pos, rad, p5, img) {
     this.pos = pos;
     this.vel = p5.createVector(0, 0);
-    this.rad = rad;
+    this.rad = 0;
+    this.finalRad = rad;
     this.p5 = p5;
     this.img = img;
     this.col = p5.color(255);
     this.gravity = p5.createVector(0, 0.4);
     this.mass = p5.PI * rad * rad;
-    this.phase = p5.random(0, p5.PI);
+    this.inflating = true;
   }
 
   display() {
-    this.img.resize(this.rad * 1.5, 0);
+    if (!this.inflating) this.img.resize(this.rad * 1.5, 0);
     this.p5.push();
     // ALL THE OBJECT SPECIFIC THINGS GOES HERE
     this.p5.fill(this.col);
@@ -32,7 +33,7 @@ class Circle {
     this.p5.textAlign(this.p5.CENTER);
     this.p5.textStyle(this.p5.BOLD);
     this.p5.ellipse(this.pos.x, this.pos.y, this.rad * 2, this.rad * 2);
-    this.p5.image(this.img, this.pos.x, this.pos.y);
+    if (!this.inflating) this.p5.image(this.img, this.pos.x, this.pos.y);
 
     this.rotate();
 
@@ -55,6 +56,12 @@ class Circle {
     const center = this.pos;
     const rep = center.copy().sub(mouse).setMag(-0.2);
     this.vel.add(rep);
+  }
+
+  inflate() {
+    if (this.rad <= this.finalRad) {
+      this.rad = this.p5.lerp(this.rad, this.finalRad * 1.01, 0.05);
+    } else this.inflating = false;
   }
 
   bounce(other) {
@@ -193,7 +200,13 @@ function SponsorsPage() {
       // Pushing once it satisfies the criterion
 
       while (circles.length < num) {
-        const rad = p5.random(50, 100);
+        let rad;
+        const isMobile = p5.width <= 786;
+        if (isMobile) {
+          rad = p5.random(20, 60);
+        } else {
+          rad = p5.random(50, 100);
+        }
         const nextImage = images[circles.length];
 
         const xRandom = p5.random(rad, p5.width - rad);
@@ -235,6 +248,7 @@ function SponsorsPage() {
         circles[i].checkBoundary();
         circles[i].update();
         circles[i].mouseHover(handleMouseHover);
+        if (circles[i].inflating) circles[i].inflate();
         circles[i].move();
       }
     };

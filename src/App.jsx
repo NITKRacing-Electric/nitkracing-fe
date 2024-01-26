@@ -22,6 +22,7 @@ import {
   TeamPage,
 } from "./pages";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger.js";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,11 @@ function App() {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
+    lenis.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
     requestAnimationFrame(raf);
   });
 

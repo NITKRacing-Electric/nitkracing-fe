@@ -49,7 +49,7 @@ function Drawer() {
 
         <BigLink label="Contact" to="/contact" />
       </div>
-      <div className="pl-20">
+      <div className="pl-8 md:pl-20">
         <ToggleButton handleClick={handleDrawerClose} />
       </div>
     </div>
@@ -59,7 +59,7 @@ function Drawer() {
 function BigLink({ label, to }) {
   return (
     <a href={to}>
-      <h1 className="link opacity-100 text-6xl pl-20 py-5 font-[outfit] font-bold tracking-normal transition-all hover:bg-red-600 hover:text-red-950 hover:tracking-[0.5rem]">
+      <h1 className="link opacity-100 text-5xl md:text-6xl pl-10 md:pl-20 py-5 font-[outfit] font-bold tracking-normal transition-all hover:bg-red-600 hover:text-red-950 hover:tracking-[0.5rem]">
         {label}
       </h1>
     </a>

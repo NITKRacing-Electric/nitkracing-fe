@@ -30,7 +30,6 @@ function sketch(p5) {
   };
 
   p5.draw = () => {
-    console.log(p5.windowHeight, p5.windowWidth);
     p5.fill(0, 10);
     p5.noStroke();
     p5.translate(-p5.windowWidth / 2, -p5.windowHeight / 2);

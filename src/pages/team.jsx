@@ -12,11 +12,11 @@ function TeamPage() {
 
   return (
     <div>
-      <div className=" bg-red-700 py-10 pt-80 pr-10">
-        <h1 className="text-right text-6xl font-[outfit] font-semibold">
+      <div className=" bg-red-700 py-10 pt-80 pl-4 md:pr-10">
+        <h1 className="md:text-right text-left text-6xl font-[outfit] font-semibold">
           Who we are?
         </h1>
-        <p className="text-right pt-2 text-white opacity-70 text-sm">
+        <p className="md:text-right text-left pt-2 text-white opacity-70 text-sm">
           We are lorem ipsum dolor ipsum dolor ipsum We are lorem ipsum dolor{" "}
           <br />
           ipsum dolor ipsum We are lorem ipsum dolor ipsum dolor ipsum
@@ -38,7 +38,7 @@ function TeamPage() {
           ))}
         </div>
         <div className="p-5" />
-        <div className="flex justify-between">
+        <div className="flex justify-between flex-col items-center gap-10 md:flex-row">
           <PersonCard />
           <PersonCard />
           <PersonCard />

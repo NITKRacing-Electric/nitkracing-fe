@@ -4,11 +4,10 @@ import { Section } from "../../../../components/Section/index.js";
 import RacingBg from "../../../../assets/background/racing.png";
 import useGsap from "../../../../hooks/useGsap.js";
 import gsap from "gsap";
-import useEmblaCarousel from "embla-carousel-react";
 import Marquee from "../../../../components/Marquee/index.jsx";
 import ScrambleTextPlugin from "gsap/TextPlugin";
-import Autoplay from 'embla-carousel-autoplay'
-
+import Autoplay from "embla-carousel-autoplay";
+import useEmblaCarousel from "embla-carousel-react";
 
 const About = () => {
   gsap.registerPlugin(ScrambleTextPlugin);
@@ -35,7 +34,7 @@ const About = () => {
     <div className="bg-black" id="about">
       <Section>
         <div className="relative grid grid-cols-2 gap-4">
-          <div className="h-[98vh] border-red-700 border-[1px] p-4 bg-center bg-cover bg-[url('https://media.formula1.com/content/dam/fom-website/sutton/2022/Brazil/Saturday/1441003037.jpg.img.1536.high.jpg')] grayscale">
+          <div className="h-[90vh] border-red-700 border-[1px] p-4 bg-center bg-cover bg-[url('https://media.formula1.com/content/dam/fom-website/sutton/2022/Brazil/Saturday/1441003037.jpg.img.1536.high.jpg')] grayscale">
             <div className="absolute bottom-0 right-0 p-4">
               <p className="font-[outfit] text-sm">Dhruv Yadav</p>
             </div>
@@ -53,8 +52,10 @@ const About = () => {
                 <span className="char inline-block font-[outfit]">RACE</span>
               </p>
             </div>
-            <TeamMembers />
-            <div className="bg-white flex-grow  py-4 text-red-700">
+            <div className="h-full">
+              <TeamMembers />
+            </div>
+            <div className="bg-white h-[60px]  py-4 text-red-700">
               <Marquee>
                 <p>B'luru woman CEO tried to kill herself after son's murder</p>
                 <p>B'luru woman CEO tried to kill herself after son's murder</p>
@@ -84,19 +85,19 @@ function Stat({ label, data }) {
 }
 
 function TeamMembers() {
-  const [emblaRef] = useEmblaCarousel({loop: true}, [Autoplay()]);
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
   return (
-    <div className="embla overflow-hidden " ref={emblaRef}>
-      <div className="embla__container flex">
-        <div className="embla__slide flex-[0_0_100%] min-w-0">
+    <div className="embla overflow-hidden h-full" ref={emblaRef}>
+      <div className="embla__container flex h-full">
+        <div className="embla__slide flex-[0_0_100%] min-w-0 h-full">
           <Member title="Dhruv yadav" />
         </div>
-        <div className="embla__slide flex-[0_0_80%]">
+        <div className="embla__slide flex-[0_0_80%] h-full">
           {" "}
           <Member title="Dhruv yadav" />
         </div>
-        <div className="embla__slide flex-[0_0_100%]">
+        <div className="embla__slide flex-[0_0_100%] h-full">
           <Member title="Dhruv yadav" />
         </div>
       </div>
@@ -106,7 +107,7 @@ function TeamMembers() {
 
 function Member({ title, description, date }) {
   return (
-    <div className="mx-2 relative bg-red-500 flex-grow border-red-700 border-[1px] p-4 h-[550px] bg-contain bg-[url('https://media.formula1.com/content/dam/fom-website/sutton/2022/Brazil/Saturday/1441003037.jpg.img.1536.high.jpg')] grayscale">
+    <div className="mx-2 relative bg-red-500 flex-grow border-red-700 border-[1px] p-4 h-full bg-contain bg-[url('https://media.formula1.com/content/dam/fom-website/sutton/2022/Brazil/Saturday/1441003037.jpg.img.1536.high.jpg')] grayscale">
       <div className="absolute bottom-0 right-0 p-4">
         <p className="font-[outfit] text-sm">{title}</p>
       </div>

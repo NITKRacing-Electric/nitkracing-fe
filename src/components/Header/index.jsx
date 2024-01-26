@@ -63,7 +63,7 @@ const Header = ({ ...props }) => {
             alignItems: "center",
           }}
         >
-          <Box></Box>
+          <div className="hidden md:block"></div>
 
           <MenuItems />
 
@@ -82,7 +82,7 @@ const Header = ({ ...props }) => {
             alignItems: "center",
           }}
         >
-          <Box></Box>
+          <div className="hidden md:block"></div>
 
           <MenuItems />
 

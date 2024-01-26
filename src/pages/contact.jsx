@@ -10,8 +10,8 @@ function ContactPage() {
   return (
     <Section>
       <div className="h-[400px] bg-slate-800 mb-10" />
-      <div className="grid grid-cols-3">
-        <div className="flex items-center gap-5 text-gray-300">
+      <div className="grid grid-rows-3 md:grid-cols-3 justify-center">
+        <div className="flex items-center gap-5 text-gray-300 ">
           <BsHouseCheckFill fontSize={23} />
           <div>
             <p className="text-xl font-medium">Meet us at</p>

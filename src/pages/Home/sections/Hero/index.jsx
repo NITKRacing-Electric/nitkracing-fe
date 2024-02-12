@@ -18,6 +18,10 @@ import ScrollDown from "../../../../assets/scrolldown.gif";
 import gsap from "gsap";
 import useGsap from "../../../../hooks/useGsap";
 import { FlowFieldCanvas } from "../../../../components";
+import Header, { MenuItems } from "../../../../components/Header";
+import Marquee from "react-fast-marquee";
+import DividerSVG from "../../../../assets/divider.svg";
+import StarSVG from "../../../../assets/star.svg";
 
 const DUMMY_DATA = [
   {
@@ -50,21 +54,18 @@ const Hero = ({ props }) => {
   const containerRef = useRef(null);
 
   return (
-    <section id="home" className="overflow-hidden relative">
-     
-     <div className="relative z-10">
-      <Container maxWidth="xl">
-        <Box className={properties.wrapper}>
-          <MainItem />
-        </Box>
-        <div className="flex flex-row justify-center items-center gap-4">
-          <p className="text-xs">Scroll Down</p>
-          <img className="w-5" src={ScrollDown} />
+    <section id="home" className="overflow-hidden relative bg-black">
+      <div className="root">
+        <div className="absolute top-0 left-0 -z-0">
+          <FlowFieldCanvas />
         </div>
-      </Container>
-      </div>
-      <div className="absolute top-0 left-0 -z-0">
-        <FlowFieldCanvas />
+        <div className="trigger">
+          <Container maxWidth="xl">
+            <Box className={properties.wrapper}>
+              <MainItem />
+            </Box>
+          </Container>
+        </div>
       </div>
     </section>
   );
@@ -72,34 +73,42 @@ const Hero = ({ props }) => {
 
 function MainItem() {
   useGsap(".heromain", () => {
-    const timeline = gsap.timeline();
-    timeline.from(".heromain h1", {
-      opacity: 0,
-      y: 20,
-      ease: "power4.out",
-      duration: 1,
-      stagger: 0.1,
-    });
-
-    timeline.to(".heromain h1", {
-      opacity: 0,
-      y: -20,
-      duration: 1,
-      stagger: 0.1,
-      ease: "power4.in",
+    gsap.to(".star", {
+      rotate: -360,
+      repeat: -1,
+      ease: "linear",
+      duration: 40,
     });
   });
   return (
-    <div className="heromain w-full p-16">
-      <h1 className="text-center text-[200px] font-[outfit] font-bold text-gray-600 leading-[160px] opacity-75">
-        Live To Race
-      </h1>
-      <h1 className="text-center text-[200px] font-[outfit] font-bold text-gray-600 leading-[160px] opacity-40">
-        Live To Race
-      </h1>
-      <h1 className="text-center text-[200px] font-[outfit] font-bold text-gray-600 leading-[160px] opacity-20">
-        Live To Race
-      </h1>
+    <div className="heromain w-full p-0 md:p-16 relative">
+      <div className="w-3/4 mx-auto relative z-10">
+        <div className="appbar overflow-hidden">
+          <MenuItems />
+        </div>
+        <div className="wrapper bg-red-600 py-16 relative my-10">
+          <Marquee className="justify-center items-center gap-5" speed={20}>
+            <h1 className="text-9xl font-[outfit] text-black font-bold">
+              LIVE TO RACE
+            </h1>
+            <img src={DividerSVG} />
+            <h1 className="text-9xl font-[outfit] text-black font-bold">
+              LIVE TO RACE
+            </h1>
+            <img src={DividerSVG} />
+          </Marquee>
+          <img
+            src={StarSVG}
+            className="star absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 -z-10"
+          />
+        </div>
+
+        <div className="flex flex-row gap-10 links overflow-hidden">
+          <h1 className="text-5xl font-[prompt]">Explore</h1>
+          <h1 className="text-5xl font-[prompt]">Donate</h1>
+          <h1 className="text-5xl font-[prompt]">Follow</h1>
+        </div>
+      </div>
     </div>
   );
 }

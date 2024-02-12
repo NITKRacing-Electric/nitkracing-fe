@@ -93,13 +93,13 @@ const Header = ({ ...props }) => {
   );
 };
 
-function MenuItems() {
+export function MenuItems() {
   return (
-    <div className="flex flex-row items-center gap-10">
+    <div className="flex flex-row items-center gap-10 justify-between">
       <StyledLink to="/" label="Home" />
       <StyledLink to="/gallery" label="Gallery" />
       <StyledLink to="/sponsors" label="Sponsors" />
-      <a href="/">
+      <a href="/" className="">
         <img
           className="logo z-40 w-[100px]"
           src={whiteLogo}

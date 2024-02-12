@@ -76,8 +76,8 @@ function App() {
         <StateContextProvider>
           <div className="App overflow-x-hidden" ref={appRef}>
             <CssBaseline />
-            <Header />
-            <StyledDrawer />
+            {/* <Header /> */}
+            {/* <StyledDrawer /> */}
             <MouseCircle />
             <Switch>
               <Route exact path="/">

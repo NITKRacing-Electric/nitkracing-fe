@@ -11,36 +11,27 @@ import useEmblaCarousel from "embla-carousel-react";
 
 const About = () => {
   gsap.registerPlugin(ScrambleTextPlugin);
-  useGsap("#about", () => {
-    gsap.from("#about>div", {
-      backgroundPosition: "-50% 100%",
-      ease: "none", // Linear movement for a smooth parallax effect
-      scrollTrigger: {
-        trigger: "#about>div",
-        start: "top bottom", // When the top of the section hits the bottom of the viewport
-        end: "bottom top", // When the bottom of the section leaves the top of the viewport
-        scrub: true, // Makes the animation smooth and tied to the scroll bar
-      },
-    });
 
-    gsap.from(".racing .char", {
-      y: 100,
-      duration: 2,
-      ease: "power4.out",
-      stagger: 0.1,
-    });
-  });
   return (
-    <div className="bg-black" id="about">
+    <div className="bg-black px-20" id="about">
+      <div className="spacer my-20 text-center">Scroll</div>
+
       <Section>
-        <div className="relative grid grid-cols-2 gap-4">
-          <div className="h-[90vh] border-red-700 border-[1px] p-4 bg-center bg-cover bg-[url('https://media.formula1.com/content/dam/fom-website/sutton/2022/Brazil/Saturday/1441003037.jpg.img.1536.high.jpg')] grayscale">
+        <div className="bg-white h-[60px]  py-4 text-red-700">
+          <Marquee>
+            <p>B'luru woman CEO tried to kill herself after son's murder</p>
+            <p>B'luru woman CEO tried to kill herself after son's murder</p>
+            <p>B'luru woman CEO tried to kill herself after son's murder</p>
+          </Marquee>
+        </div>
+        <div className="relative flex gap-5 flex-col md:flex-row mt-5">
+          <div className="h-[70vh] w-3/4 border-red-700 border-[1px] p-4 bg-center bg-cover bg-[url('https://media.formula1.com/content/dam/fom-website/sutton/2022/Brazil/Saturday/1441003037.jpg.img.1536.high.jpg')] grayscale">
             <div className="absolute bottom-0 right-0 p-4">
               <p className="font-[outfit] text-sm">Dhruv Yadav</p>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
-            <div className="h-[100px] relative">
+          <div className="flex flex-grow flex-col gap-5">
+            {/* <div className="h-[100px] relative">
               <div className="flex justify-between">
                 <Stat label="Races" data="230K" />
                 <Stat label="Trophies" data="122L" />
@@ -51,16 +42,9 @@ const About = () => {
                 <span className="char inline-block font-[outfit]">TO</span>
                 <span className="char inline-block font-[outfit]">RACE</span>
               </p>
-            </div>
+            </div> */}
             <div className="h-full">
               <TeamMembers />
-            </div>
-            <div className="bg-white h-[60px]  py-4 text-red-700">
-              <Marquee>
-                <p>B'luru woman CEO tried to kill herself after son's murder</p>
-                <p>B'luru woman CEO tried to kill herself after son's murder</p>
-                <p>B'luru woman CEO tried to kill herself after son's murder</p>
-              </Marquee>
             </div>
           </div>
         </div>
@@ -72,7 +56,7 @@ const About = () => {
 function Stat({ label, data }) {
   return (
     <div>
-      <h1 className="text-6xl font-black font-[outfit] text-white z-20 relative">
+      <h1 className="md:text-6xl text-4xl font-black font-[outfit] text-white z-20 relative">
         <span className="relative font-[outfit]">
           <span className="tracking-[5px] text-sm font-normal block text-left">
             {label}

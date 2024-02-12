@@ -20,7 +20,7 @@ import Logo from "../../../../images/logo/logo_white.png";
 
 const Sponsors = () => {
   return (
-    <Section>
+    <Section className="px-20">
       <div className="flex justify-center items-center gap-5 mb-10">
         <img src={Logo} className="w-[80px]" />
         <div className="h-[40px] w-[1px] bg-white" />
@@ -30,19 +30,16 @@ const Sponsors = () => {
       <SponsorList items={SPONSORS} />
       <SponsorList items={SPONSORS} />
 
-      <div className="pb-16"/>
-
+      <div className="pb-16" />
     </Section>
   );
 };
 
 function SponsorList({ items }) {
   return (
-    <div className="flex gap-6 justify-center border-b-gray-800 p-10 border-b-[1px]">
+    <div className="flex gap-6 justify-center flex-wrap items-center border-b-gray-800 p-10 border-b-[1px]">
       {items.map((_) => (
-        <div>
-          <img src={_.picture} className="w-[100px] grayscale" />
-        </div>
+        <img src={_.picture} className="w-[60px] grayscale" />
       ))}
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import properties from "./sponsors.module.css";
-import SponsorsAPI from "../../../../services/SponsorsAPI";
+// import SponsorsAPI from "../../../../services/SponsorsAPI";
 import { ANIMATIONS, BACKGROUNDS, SPONSORS } from "../../../../assets/data";
 import {
   Box,

@@ -14,7 +14,7 @@
     "@material-tailwind/react": "^2.1.4",
     "@mui/material": "^5.13.3",
     "@p5-wrapper/react": "^4.3.2",
-    "@sanity/client": "^6.7.0",
+    "@sanity/client": "^6.15.2",
     "@sanity/image-url": "^1.0.2",
     "@splidejs/react-splide": "^0.7.12",
     "@studio-freight/lenis": "^1.0.27",

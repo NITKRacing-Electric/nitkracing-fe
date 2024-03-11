@@ -4,26 +4,37 @@ import { Section } from "../../../../components/Section/index.js";
 import RacingBg from "../../../../assets/background/racing.png";
 import useGsap from "../../../../hooks/useGsap.js";
 import gsap from "gsap";
-import Marquee from "../../../../components/Marquee/index.jsx";
 import ScrambleTextPlugin from "gsap/TextPlugin";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
+import {
+  BlueGradient,
+  Gradient,
+  RedGradient,
+  WhiteGradient,
+} from "../../../../components/Gradient.jsx";
+import Marquee from "react-fast-marquee";
 
 const About = () => {
   gsap.registerPlugin(ScrambleTextPlugin);
 
   return (
-    <div className="bg-black px-20" id="about">
+    <div className="bg-black px-20 relative" id="about">
       <Section>
-        <div className="bg-white h-[60px]  py-4 text-red-700">
-          <Marquee gradient>
+        <BlueGradient />
+
+        <div className="bg-white h-[60px]  py-4 text-red-700 relative">
+          <Marquee speed={10} autoFill>
+            <p>B'luru woman CEO tried to kill herself after son's murder</p>
             <p>B'luru woman CEO tried to kill herself after son's murder</p>
             <p>B'luru woman CEO tried to kill herself after son's murder</p>
             <p>B'luru woman CEO tried to kill herself after son's murder</p>
           </Marquee>
         </div>
         <div className="relative flex gap-5 flex-col md:flex-row mt-5">
-          <div className="h-[70vh] w-3/4 border-red-700 border-[1px] p-4 bg-center bg-cover bg-[url('https://media.formula1.com/content/dam/fom-website/sutton/2022/Brazil/Saturday/1441003037.jpg.img.1536.high.jpg')] grayscale">
+          <RedGradient />
+
+          <div className="relative z-10 h-[70vh] w-3/4 border-red-700 border-[1px] p-4 bg-center bg-cover bg-[url('https://media.formula1.com/content/dam/fom-website/sutton/2022/Brazil/Saturday/1441003037.jpg.img.1536.high.jpg')] grayscale">
             <div className="absolute bottom-0 right-0 p-4">
               <p className="font-[outfit] text-sm">Dhruv Yadav</p>
             </div>

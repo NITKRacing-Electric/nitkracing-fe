@@ -3,28 +3,35 @@ import properties from "./footer.module.css";
 import "./styles.css";
 import logo from "../../images/logo/logo_white.png";
 import { Typography } from "@material-tailwind/react";
+import { BlueGradient, RedGradient, WhiteGradient } from "../Gradient";
 
 const SITEMAP = [
   {
     title: "Main Menu",
     links: [
       {
-        head: "Alumni",url: "#alumni",
+        head: "Alumni",
+        url: "#alumni",
       },
       {
-        head: "Gallery",url: "#gallery",
+        head: "Gallery",
+        url: "#gallery",
       },
       {
-        head: "Sponsors",url: "#sponsors",
+        head: "Sponsors",
+        url: "#sponsors",
       },
       {
-        head: "About",url: "#about",
+        head: "About",
+        url: "#about",
       },
       {
-        head: "Contact",url: "#contact",
+        head: "Contact",
+        url: "#contact",
       },
       {
-        head: "Crowdfunding",url: "#crowdfunding",
+        head: "Crowdfunding",
+        url: "#crowdfunding",
       },
     ],
   },
@@ -61,7 +68,9 @@ const currentYear = new Date().getFullYear();
 
 const Footer = (props) => {
   return (
-    <footer className="relative w-full bg-white">
+    <footer className="relative w-full bg-black overflow-hidden rounded-t-[60px] py-20">
+      <RedGradient />
+      <BlueGradient />
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="mx-auto grid w-full grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
           {SITEMAP.map(({ title, links }, key) => (
@@ -69,7 +78,7 @@ const Footer = (props) => {
               <Typography
                 variant="small"
                 color="blue-gray"
-                className="mb-4 font-semibold uppercase opacity-50 text-sm font-[outfit] text-black"
+                className="mb-4 font-semibold uppercase opacity-50 text-sm font-[outfit] text-white"
               >
                 {title}
               </Typography>
@@ -83,7 +92,7 @@ const Footer = (props) => {
                   >
                     <a
                       href={url}
-                      className="inline-block py-1 pr-2 hover:text-red-600 transition-all duration-200 font-[outfit] text-black"
+                      className="inline-block py-1 pr-2 hover:text-red-600 transition-all duration-200 font-[outfit] text-white"
                     >
                       {head}
                     </a>
@@ -97,7 +106,11 @@ const Footer = (props) => {
         <div className="flex w-full flex-col items-center justify-center border-t border-gray-300 py-4 md:flex-row md:justify-between">
           <div>
             <a href="#">
-            <img alt="NITK racing logo" src={logo} className="w-[180px]"></img>
+              <img
+                alt="NITK racing logo"
+                src={logo}
+                className="w-[180px]"
+              ></img>
             </a>
           </div>
           <Typography
@@ -105,12 +118,16 @@ const Footer = (props) => {
             className="mb-4 text-center font-normal text-gray-900 md:mb-0"
           >
             &copy; {currentYear}{" "}
-            <a href="https://www.instagram.com/nitkracing/" target="_blank" className="hover:underline transition-all duration-200">
+            <a
+              href="https://www.instagram.com/nitkracing/"
+              target="_blank"
+              className="hover:underline transition-all duration-200"
+            >
               NITK Racing
             </a>
             . All Rights Reserved.
           </Typography>
-          <div className="flex gap-4 text-black sm:justify-center">
+          <div className="flex gap-4 text-white sm:justify-center">
             <Typography
               as="a"
               href="#"

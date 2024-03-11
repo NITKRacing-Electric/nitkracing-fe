@@ -20,6 +20,12 @@ import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { ScrollTrigger } from "gsap/all";
 import BackgroundSVG from "../../assets/background.svg";
+import {
+  BlueGradient,
+  RedGradient,
+  WhiteGradient,
+} from "../../components/Gradient.jsx";
+import AbstracrSVG from "../../assets/abstract.svg";
 
 const Index = (props) => {
   const scrollRef = useRef(null);
@@ -29,91 +35,34 @@ const Index = (props) => {
     <Box ref={scrollRef}>
       <Hero />
       <About />
+      <CallToAction />
       <Sponsors />
     </Box>
   );
 };
 
-function Description() {
-  useGsap(".root-wrapper", () => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".root-about",
-        scrub: true,
-        pin: false,
-      },
-    });
-
-    tl.fromTo(
-      ".about_image",
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-      }
-    );
-
-    tl.fromTo(
-      ".about_image",
-      {
-        yPercent: -20,
-        ease: "none",
-      },
-      {
-        yPercent: 20,
-        ease: "none",
-      },
-      "<"
-    );
-
-    for (let i = 0; i < 4; i++) {
-      const direction = (i + 1) % 2 == 0 ? 1 : -1;
-
-      tl.fromTo(
-        `.racing-wrapper-${i + 1}`,
-        {
-          yPercent: direction * 25,
-          ease: "none",
-        },
-        {
-          yPercent: -1 * direction * 25,
-          ease: "none",
-        },
-        "<"
-      );
-    }
-  });
-
+function CallToAction() {
   return (
-    <div id="achievements" className="root-wrapper relative">
-      <div className="absolute w-3/5 bg-red-600 h-3/4 bottom-1/2 translate-y-1/2 right-20">
-        <div className="w-full h-full relative">
-          <h1 className="font-[prompt] text-9xl font-thin [writing-mode:vertical-lr] absolute -right-16 bottom-0">
-            NR'24
+    <div className="py-10 px-20 bg-black">
+      <div className="flex justify-between relative overflow-hidden  items-center sm:my-16 my-6 sm:px-16 px-6 sm:py-12 py-4 sm:flex-row flex-col rounded-3xl  box-shadow">
+        <RedGradient />
+        <BlueGradient />
+        <img
+          src={AbstracrSVG}
+          className="absolute bottom-0 right-0 w-[400px] h-[400px]"
+        />
+        <div className="py-10">
+          <h1 className="text-6xl text-blue-200 font-semibold font-[prompt] mb-4">
+            Interested in <br />
+            Contrirbution?
           </h1>
+          <p className="ffont-[prompt] opacity-50">
+            Help us grow into a team everyone want to work with and
+            <br />
+            understand how things work around in racing clubs
+          </p>
         </div>
-      </div>
-      <img
-        src={BG}
-        className="about_image object-cover shadow-inner md:h-auto h-full -z-10 w-full absolute top-0 left-0 "
-      />
-
-      <div className="root-about h-[100vh] relative shadow-inner overflow-hidden px-20">
-        <div className="flex flex-row justify-start gap-10">
-          <div className="flex flex-col gap-10 h-full racing-wrapper-1">
-            <RacingCard />
-            <RacingCard />
-            <RacingCard />
-            <RacingCard />
-          </div>
-          <div className="flex flex-col gap-10 h-full racing-wrapper-2">
-            <RacingCard />
-            <RacingCard />
-            <RacingCard />
-            <RacingCard />
-          </div>
-        </div>
+        <div className="relative h-full"></div>
       </div>
     </div>
   );

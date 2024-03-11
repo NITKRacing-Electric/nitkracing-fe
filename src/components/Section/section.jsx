@@ -5,33 +5,43 @@ import Marquee from "../Marquee";
 import * as PropTypes from "prop-types";
 
 function Typography(props) {
-    return null;
+  return null;
 }
 
-Typography.propTypes = {children: PropTypes.node};
+Typography.propTypes = { children: PropTypes.node };
 const Section = ({
   id,
   bgcolor = "#000",
   pageHeight = false,
   children,
-    overlay=false,
+  overlay = false,
   ...props
 }) => {
   const sectionHeight = pageHeight ? "100vh" : "auto";
 
   return (
-    <Box position='relative' className='section' py={10} height={sectionHeight} bgcolor={bgcolor} {...props}>
-        {overlay && <Box position='absolute' top={0} left={0} width='100%' height='100%' sx={{
-            backgroundColor: 'rgba(255,0,0,0.1)'
-        }}>
-
-
-
-        </Box>
-            }
-        <Container maxWidth='xl' id={id}>
-          {children}
-
+    <Box
+      position="relative"
+      className="section z-20"
+      py={10}
+      height={sectionHeight}
+      bgcolor={bgcolor}
+      {...props}
+    >
+      {overlay && (
+        <Box
+          position="absolute"
+          top={0}
+          left={0}
+          width="100%"
+          height="100%"
+          sx={{
+            backgroundColor: "rgba(255,0,0,0.1)",
+          }}
+        ></Box>
+      )}
+      <Container maxWidth="xl" id={id}>
+        {children}
       </Container>
     </Box>
   );

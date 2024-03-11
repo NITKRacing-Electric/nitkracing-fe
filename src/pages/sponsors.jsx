@@ -3,289 +3,98 @@ import { Section } from "../components/Section/index";
 import background from "../assets/data/background";
 import { SPONSORS } from "../assets/data";
 import { useEffect, useState } from "react";
+import client from "../config/sanity";
 
-import {getSponsors} from "../services/SponsorsAPI" //sponsors from CMS
+import imageUrlBuilder from "@sanity/image-url";
 
-const num = SPONSORS.length;
-const circles = [];
-const images = [];
-const e = 0.5;
+const builder = imageUrlBuilder(client);
 
-class Circle {
-  constructor(pos, rad, p5, img) {
-    this.pos = pos;
-    this.vel = p5.createVector(0, 0);
-    this.rad = 0;
-    this.finalRad = rad;
-    this.p5 = p5;
-    this.img = img;
-    this.col = p5.color(255);
-    this.gravity = p5.createVector(0, 0.4);
-    this.mass = p5.PI * rad * rad;
-    this.inflating = true;
-  }
-
-  display() {
-    if (!this.inflating) this.img.resize(this.rad * 1.5, 0);
-    this.p5.push();
-    // ALL THE OBJECT SPECIFIC THINGS GOES HERE
-    this.p5.fill(this.col);
-    this.p5.textSize(200);
-    this.p5.textFont("outfit");
-    this.p5.textAlign(this.p5.CENTER);
-    this.p5.textStyle(this.p5.BOLD);
-    this.p5.ellipse(this.pos.x, this.pos.y, this.rad * 2, this.rad * 2);
-    if (!this.inflating) this.p5.image(this.img, this.pos.x, this.pos.y);
-
-    this.rotate();
-
-    this.p5.pop();
-  }
-
-  move() {
-    const limitVelocity = this.vel
-      .copy()
-      .setMag(this.p5.min(200, this.vel.mag()));
-    this.pos.add(limitVelocity.mult(0.05));
-  }
-
-  rotate() {
-    this.p5.translate(this.pos.x, this.pos.y);
-  }
-
-  update() {
-    const mouse = this.p5.createVector(this.p5.mouseX, this.p5.mouseY);
-    const center = this.pos;
-    const rep = center.copy().sub(mouse).setMag(-0.2);
-    this.vel.add(rep);
-  }
-
-  inflate() {
-    if (this.rad <= this.finalRad) {
-      this.rad = this.p5.lerp(this.rad, this.finalRad * 1.01, 0.05);
-    } else this.inflating = false;
-  }
-
-  bounce(other) {
-    // Change colors of both the circle
-
-    const center = this.pos;
-    const repel = center.copy().sub(other.pos).setMag(1);
-    this.pos.add(repel);
-    other.pos.sub(repel);
-
-    this.vel.set(this.calculateV1(other));
-    other.vel.set(this.calculateV2(other));
-  }
-
-  calculateV1(other) {
-    const r1 = ((1 + e) * other.mass) / (this.mass + other.mass);
-    const r2 = (this.mass - e * other.mass) / (this.mass + other.mass);
-    const v1 = this.vel.copy();
-    const v2 = other.vel.copy();
-    return v1.mult(r2).add(v2.mult(r1));
-  }
-
-  calculateV2(other) {
-    const r1 = ((1 + e) * this.mass) / (this.mass + other.mass);
-    const r2 = (other.mass - e * this.mass) / (this.mass + other.mass);
-    const v1 = this.vel.copy();
-    const v2 = other.vel.copy();
-    return v1.mult(r1).sub(v2.mult(r2));
-  }
-
-  changeColor() {
-    this.col = this.p5.color("#000");
-  }
-
-  intersects(other) {
-    let d = this.p5.dist(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
-    return d <= this.rad + other.rad;
-  }
-
-  mouseClicked() {
-    const mouse = this.p5.createVector(this.p5.mouseX, this.p5.mouseY);
-    const center = this.pos;
-    const rep = center.copy().sub(mouse).setMag(10);
-    this.vel.add(rep);
-  }
-
-  mouseHover(cb) {
-    const pos = this.pos;
-    if (
-      this.p5.dist(pos.x, pos.y, this.p5.mouseX, this.p5.mouseY) <= this.rad
-    ) {
-      this.col = this.p5.color("#fff");
-    } else {
-      this.col = this.p5.color("#000");
-    }
-  }
-
-  checkBoundary() {
-    const pos = this.pos;
-    const rad = this.rad;
-    const xmin = 0;
-    const xmax = this.p5.width;
-    const ymin = 0;
-    const ymax = this.p5.height;
-
-    if (pos.x > xmax - rad) {
-      const force = this.p5.createVector(xmax, pos.y).sub(this.pos).mag();
-      const dir = this.p5
-        .createVector(xmax, pos.y)
-        .sub(this.pos)
-        .div(force)
-        .mult(-2);
-      this.pos.add(dir);
-      this.pos.x = xmax - rad;
-      this.vel.mult(-0.5);
-    }
-    if (pos.x < xmin + rad) {
-      const force = this.p5.createVector(xmin, pos.y).sub(this.pos).mag();
-      const dir = this.p5
-        .createVector(xmin, pos.y)
-        .sub(this.pos)
-        .div(force)
-        .mult(-2);
-      this.pos.add(dir);
-      this.pos.x = xmin + rad;
-      this.vel.mult(-0.5);
-    }
-    if (pos.y > ymax - rad) {
-      const force = this.p5.createVector(pos.x, ymax).sub(this.pos).mag();
-      const dir = this.p5
-        .createVector(pos.x, ymax)
-        .sub(this.pos)
-        .div(force)
-        .mult(-2);
-      this.pos.add(dir);
-      this.pos.y = ymax - rad;
-      this.vel.mult(-0.5);
-    }
-    if (pos.y < ymin + rad) {
-      const force = this.p5.createVector(pos.x, ymin).sub(this.pos).mag();
-      const dir = this.p5
-        .createVector(pos.x, ymin)
-        .sub(this.pos)
-        .div(force)
-        .mult(-2);
-      this.pos.add(dir);
-      this.pos.y = ymin + rad;
-      this.vel.mult(-0.5);
-    }
-  }
+function urlFor(source) {
+  return builder.image(source);
 }
 
+import { getSponsors } from "../services/SponsorsAPI"; //sponsors from CMS
+import { RedGradient, WhiteGradient } from "../components/Gradient";
+
 function SponsorsPage() {
-  const [selectedSponsor, setSelectedSponsor] = useState(null);
-
-
-  const [sponsors, setSponsors] = useState([]);
-
-
+  const [sponsors, updateSponsors] = useState([]);
   useEffect(() => {
-    // Fetch sponsors when the component mounts
-    getSponsors()
-      .then((result) => setSponsors(result))
-      .catch((error) => console.error('Error:', error));
+    getSponsors().then((data) => {
+      updateSponsors(data);
+    });
   }, []);
-
-
-
-  const handleMouseHover = (sponsor) => {
-    setSelectedSponsor(sponsor);
-  };
-
-  function sketch(p5) {
-    p5.preload = () => {
-      for (let i = 0; i < num; i++) {
-        const img = p5.loadImage(SPONSORS[i].picture);
-        images.push(img);
-      }
-    };
-
-    p5.setup = () => {
-      // A canvas based on full width of the container
-      p5.createCanvas(p5.windowWidth, 500);
-      p5.imageMode(p5.CENTER);
-      p5.strokeWeight(2);
-      p5.stroke(p5.color("#fff"));
-
-      // Trying to create random circles
-      // Pushing once it satisfies the criterion
-
-      while (circles.length < num) {
-        let rad;
-        const isMobile = p5.width <= 786;
-        if (isMobile) {
-          rad = p5.random(20, 60);
-        } else {
-          rad = p5.random(50, 100);
-        }
-        const nextImage = images[circles.length];
-
-        const xRandom = p5.random(rad, p5.width - rad);
-        const yRandom = p5.random(rad, p5.width - rad);
-        const pos = p5.createVector(xRandom, yRandom);
-
-        const circle = new Circle(pos, rad, p5, nextImage);
-
-        let isOverlapping = false;
-        for (let j = 0; j < circles.length; j++) {
-          let other = circles[j];
-          if (circle.intersects(other)) {
-            isOverlapping = true;
-          }
-        }
-
-        if (!isOverlapping) {
-          circles.push(circle);
-        }
-      }
-    };
-
-    p5.draw = () => {
-      p5.background(0);
-
-      for (let i = 0; i < circles.length; i++) {
-        circles[i].display();
-
-        // Check bounce of circles against each other
-        for (let i = 0; i < circles.length; i++) {
-          for (let j = 0; j < circles.length; j++) {
-            if (i != j && circles[i].intersects(circles[j])) {
-              circles[i].bounce(circles[j]);
-            }
-          }
-        }
-
-        // circles[i].checkBounce();
-        circles[i].checkBoundary();
-        circles[i].update();
-        circles[i].mouseHover(handleMouseHover);
-        if (circles[i].inflating) circles[i].inflate();
-        circles[i].move();
-      }
-    };
-
-    p5.mouseClicked = () => {
-      for (let i = 0; i < num; i++) {
-        circles[i].mouseClicked();
-      }
-    };
-  }
-
+  if (!sponsors) return <p>ANS</p>;
   return (
-    <div>
-      <ReactP5Wrapper sketch={sketch} />
-
+    <div className="px-20 relative">
       <Section>
-        <h1 className="text-center text-4xl pb-5">
-          <span className=" bg-red-800">Tesla Motors</span>
-        </h1>
-        <p className="text-sm text-center">Gold Sponsor</p>
+        <Sponsor />
+
+        <div className="flex flex-wrap gap-4">
+          {sponsors &&
+            sponsors.map((sponsor) => (
+              <div className="w-[60px] h-[60px] rounded-full bg-neutral-900  overflow-hidden flex items-center relative">
+                <img width="100%" src={urlFor(sponsor.picture)} />
+              </div>
+            ))}
+        </div>
       </Section>
     </div>
+  );
+}
+
+function Sponsor() {
+  return (
+    <section>
+      <div class="relative items-center w-full py-12 mx-auto   ">
+        <div class="grid w-full grid-cols-1 gap-6 mx-auto lg:grid-cols-3">
+          <div class="p-6 border-4 border-blue-500  rounded-3xl">
+            <img
+              class="object-cover object-center w-full mb-8 lg:h-48 md:h-36 rounded-xl"
+              src="https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2020/02/Usign-Gradients-Featured-Image.jpg"
+              alt="blog"
+            />
+
+            <h1 class="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter  text-neutral-600 lg:text-3xl">
+              Silver Tier
+            </h1>
+            <p class="mx-auto text-base leading-relaxed text-gray-500">
+              Free and Premium themes, UI Kit's, templates and landing pages
+              built with Tailwind CSS, HTML &amp; Next.js.
+            </p>
+          </div>
+          <div class="p-6">
+            <img
+              class="object-cover object-center w-full mb-8 lg:h-48 md:h-36 rounded-xl"
+              src="https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2020/02/Usign-Gradients-Featured-Image.jpg"
+              alt="blog"
+            />
+
+            <h1 class="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-3xl">
+              Gold sponsor
+            </h1>
+            <p class="mx-auto text-base leading-relaxed text-gray-500">
+              Free and Premium themes, UI Kit's, templates and landing pages
+              built with Tailwind CSS, HTML &amp; Next.js.
+            </p>
+          </div>
+          <div class="p-6">
+            <img
+              class="object-cover object-center w-full mb-8 lg:h-48 md:h-36 rounded-xl"
+              src="https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2020/02/Usign-Gradients-Featured-Image.jpg"
+              alt="blog"
+            />
+
+            <h1 class="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-3xl">
+              Platinum Sponsor
+            </h1>
+            <p class="mx-auto text-base leading-relaxed text-gray-500">
+              Free and Premium themes, UI Kit's, templates and landing pages
+              built with Tailwind CSS, HTML &amp; Next.js.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

@@ -3,6 +3,11 @@
   font-display: swap;
 }
 
+body {
+  background-color: black !important;
+  overflow-x: hidden;
+}
+
 a {
   text-decoration: none;
   color: unset;
@@ -27,4 +32,37 @@ a {
 
 .rotating {
   animation: logo-spin infinite 40s linear;
+}
+
+.blue__gradient {
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+  filter: blur(123px);
+}
+
+.red__gradient {
+  background: linear-gradient(90deg, #f4c4f3 0%, #ff0000 100%);
+  filter: blur(900px);
+}
+
+.white__gradient {
+  background: rgba(255, 255, 255, 0.6);
+  filter: blur(750px);
+}
+
+.bg-black-gradient {
+  background: linear-gradient(
+    144.39deg,
+    transparent -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
+}
+
+.bg-black-gradient-2 {
+  background: linear-gradient(
+    -168.39deg,
+    #ffffff -278.56%,
+    rgba(255, 0, 0, 0.3) -78.47%,
+    transparent 91.61%
+  );
 }

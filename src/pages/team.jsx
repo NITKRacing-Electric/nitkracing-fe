@@ -1,14 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PersonCard } from "../components";
 import { Section } from "../components/Section";
+import { getTeamLeads } from "../services/TeamLeadsAPI"; //Fetch team leads from the service
+import {getTeamMembers} from "../services/TeamMembersAPI" //Fetch team members from the service
+
 
 function TeamPage() {
   const [activeYear, setActiveYear] = useState(2020);
+  const [teamLeads, setTeamLeads] = useState([]);
+  const [teamMembers, setTeamMembers] = useState([]);
 
   const handleChangeActiveYear = (activeYear) => () => {
     console.log(activeYear);
     setActiveYear(activeYear);
   };
+
+  useEffect(() => {
+    // Fetch team leads and team members when the component mounts
+    getTeamLeads()
+      .then((result) => setTeamLeads(result))
+      .catch((error) => console.error('Error:', error));
+
+    // Fetch team members when the component mounts
+    getTeamMembers()
+      .then((result) => setTeamMembers(result))
+      .catch((error) => console.error('Error:', error));
+
+      console.log("Fetched Team Leads", teamLeads);
+      console.log("Fetched Team Members", teamMembers);
+  }, []);
 
   return (
     <div>

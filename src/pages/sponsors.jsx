@@ -2,7 +2,9 @@ import { ReactP5Wrapper } from "@p5-wrapper/react";
 import { Section } from "../components/Section/index";
 import background from "../assets/data/background";
 import { SPONSORS } from "../assets/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import {getSponsors} from "../services/SponsorsAPI" //sponsors from CMS
 
 const num = SPONSORS.length;
 const circles = [];
@@ -176,6 +178,19 @@ class Circle {
 
 function SponsorsPage() {
   const [selectedSponsor, setSelectedSponsor] = useState(null);
+
+
+  const [sponsors, setSponsors] = useState([]);
+
+
+  useEffect(() => {
+    // Fetch sponsors when the component mounts
+    getSponsors()
+      .then((result) => setSponsors(result))
+      .catch((error) => console.error('Error:', error));
+  }, []);
+
+
 
   const handleMouseHover = (sponsor) => {
     setSelectedSponsor(sponsor);

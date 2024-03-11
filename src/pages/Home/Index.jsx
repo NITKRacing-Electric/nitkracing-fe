@@ -24,58 +24,11 @@ import BackgroundSVG from "../../assets/background.svg";
 const Index = (props) => {
   const scrollRef = useRef(null);
   // useScrollSnap({ ref: scrollRef, duration: 100, delay: 20 });
-  useGsap(scrollRef.current, () => {
-    gsap.registerPlugin(ScrollTrigger);
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        pin: "#home",
-        trigger: ".root",
-        start: "top top",
-        end: "+=1000",
-        markers: true,
-        scrub: true,
-        pinSpacing: false,
-      },
-    });
 
-    timeline.to(".appbar", {
-      height: "0px",
-    });
-
-    timeline.to(
-      ".links",
-      {
-        height: "0px",
-      },
-      "<"
-    );
-
-    timeline.to(".star", {
-      fill: "black",
-      scale: 100,
-      duration: 0.5,
-      ease: "power4.in",
-    });
-
-    timeline.to("#home", {
-      opacity: 0,
-      ease: "linear",
-    });
-
-    timeline.from(
-      "#about",
-      {
-        opacity: 0,
-      },
-      ">+0.2"
-    );
-  });
   return (
     <Box ref={scrollRef}>
       <Hero />
-
       <About />
-      <Description />
       <Sponsors />
     </Box>
   );
@@ -136,10 +89,6 @@ function Description() {
     <div id="achievements" className="root-wrapper relative">
       <div className="absolute w-3/5 bg-red-600 h-3/4 bottom-1/2 translate-y-1/2 right-20">
         <div className="w-full h-full relative">
-          <img
-            src={BackgroundSVG}
-            className="object-cover w-full shadow-inner md:h-auto-z-10 absolute top-0 left-0 "
-          />
           <h1 className="font-[prompt] text-9xl font-thin [writing-mode:vertical-lr] absolute -right-16 bottom-0">
             NR'24
           </h1>

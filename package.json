@@ -24,6 +24,7 @@
     "embla-carousel-autoplay": "^8.0.0-rc19",
     "embla-carousel-react": "^8.0.0-rc06",
     "gsap": "^3.12.2",
+    "masonic": "^3.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.0",

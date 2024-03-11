@@ -93,6 +93,52 @@ const Header = ({ ...props }) => {
   );
 };
 
+export const StaticHeader = ({ ...props }) => {
+  const { handleDrawerOpen } = useStateContext();
+  const appbarRef = useRef();
+
+  return (
+    <div>
+      <div
+        position="static"
+        color="transparent"
+        className="appbar absolute w-full z-50"
+      >
+        <Toolbar
+          sx={{
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <div className="hidden md:block"></div>
+
+          <MenuItems />
+
+          <ToggleButton handleClick={handleDrawerOpen} />
+        </Toolbar>
+      </div>
+      <div
+        position="absolute"
+        color="transparent"
+        className="hiddenappbar absolute w-full z-50 opacity-0 -top-40"
+        ref={appbarRef}
+      >
+        <Toolbar
+          sx={{
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <div className="hidden md:block"></div>
+
+          <MenuItems />
+
+          <ToggleButton handleClick={handleDrawerOpen} />
+        </Toolbar>
+      </div>
+    </div>
+  );
+};
 export function MenuItems() {
   return (
     <div className="flex flex-row items-center gap-10 justify-between">

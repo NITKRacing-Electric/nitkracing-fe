@@ -1,5 +1,5 @@
 import Home from "./pages/Home/Index";
-import Header from "./components/Header/index";
+import Header, { StaticHeader } from "./components/Header/index";
 import "./App.css";
 import { useLayoutEffect, useRef, useEffect } from "react";
 import Footer from "./components/Footer/index";
@@ -84,21 +84,32 @@ function App() {
                 <Home />
               </Route>
               <Route exact path="/about">
+                <StaticHeader />
+
                 <TeamPage />
               </Route>
               <Route exact path="/gallery">
+                <StaticHeader />
                 <GalleryPage />
               </Route>
               <Route exact path="/sponsors">
+                <StaticHeader />
+
                 <SponsorsPage />
               </Route>
               <Route exact path="/contact">
+                <StaticHeader />
+
                 <ContactPage />
               </Route>
               <Route exact path="/crowdfunding">
+                <StaticHeader />
+
                 <CrowdfundingPage />
               </Route>
               <Route exact path="/alumni">
+                <StaticHeader />
+
                 <About />
               </Route>
             </Switch>

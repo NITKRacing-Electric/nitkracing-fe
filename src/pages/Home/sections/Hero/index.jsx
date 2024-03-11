@@ -72,14 +72,6 @@ const Hero = ({ props }) => {
 };
 
 function MainItem() {
-  useGsap(".heromain", () => {
-    gsap.to(".star", {
-      rotate: -360,
-      repeat: -1,
-      ease: "linear",
-      duration: 40,
-    });
-  });
   return (
     <div className="heromain w-full p-0 md:p-16 relative">
       <div className="w-3/4 mx-auto relative z-10">
@@ -87,19 +79,18 @@ function MainItem() {
           <MenuItems />
         </div>
         <div className="wrapper bg-red-600 py-16 relative my-10">
-          <Marquee className="justify-center items-center gap-5" speed={20}>
+          <Marquee
+            autoFill
+            className="justify-center items-center gap-5"
+            speed={20}
+          >
             <h1 className="text-9xl font-[outfit] text-black font-bold">
               LIVE TO RACE
             </h1>
-            <img src={DividerSVG} />
-            <h1 className="text-9xl font-[outfit] text-black font-bold">
-              LIVE TO RACE
-            </h1>
-            <img src={DividerSVG} />
           </Marquee>
           <img
             src={StarSVG}
-            className="star absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 -z-10"
+            className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
           />
         </div>
 

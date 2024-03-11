@@ -14,11 +14,9 @@ const About = () => {
 
   return (
     <div className="bg-black px-20" id="about">
-      <div className="spacer my-20 text-center">Scroll</div>
-
       <Section>
         <div className="bg-white h-[60px]  py-4 text-red-700">
-          <Marquee>
+          <Marquee gradient>
             <p>B'luru woman CEO tried to kill herself after son's murder</p>
             <p>B'luru woman CEO tried to kill herself after son's murder</p>
             <p>B'luru woman CEO tried to kill herself after son's murder</p>

@@ -153,7 +153,8 @@ export function MenuItems() {
         />
       </a>
       <StyledLink to="/about" label="About" />
-      <StyledLink to="/contact" label="Contact" />
+      <StyledLink to="/achievements" label="Achievements" />
+      {/* <StyledLink to="/contact" label="Contact" /> */}
       <StyledLink to="/crowdfunding" label="Crowdfunding" />
     </div>
   );

@@ -15,43 +15,21 @@ import {
 } from "../../../../components/Gradient.jsx";
 import Marquee from "react-fast-marquee";
 
+import {InfiniteMovingCards} from '../../../../components/ui/infinite-moving-cards'
+
 const About = () => {
   gsap.registerPlugin(ScrambleTextPlugin);
 
   return (
-    <div className="bg-black px-20 relative" id="about">
+    <div className="bg-black lg:px-20 relative " id="about">
       <Section>
         <BlueGradient />
 
-        <div className="bg-white h-[60px]  py-4 text-red-700 relative">
-          <Marquee speed={10} autoFill>
-            <p>B'luru woman CEO tried to kill herself after son's murder</p>
-            <p>B'luru woman CEO tried to kill herself after son's murder</p>
-            <p>B'luru woman CEO tried to kill herself after son's murder</p>
-            <p>B'luru woman CEO tried to kill herself after son's murder</p>
-          </Marquee>
-        </div>
+        <h1 className="mx-auto mb-8 lg:text-7xl lg:text-start text-5xl text-center font-semibold leading-none tracking-tighter m-5 text-neutral-600">Our Team</h1>
         <div className="relative flex gap-5 flex-col md:flex-row mt-5">
           <RedGradient />
 
-          <div className="relative z-10 h-[70vh] w-3/4 border-red-700 border-[1px] p-4 bg-center bg-cover bg-[url('https://media.formula1.com/content/dam/fom-website/sutton/2022/Brazil/Saturday/1441003037.jpg.img.1536.high.jpg')] grayscale">
-            <div className="absolute bottom-0 right-0 p-4">
-              <p className="font-[outfit] text-sm">Dhruv Yadav</p>
-            </div>
-          </div>
           <div className="flex flex-grow flex-col gap-5">
-            {/* <div className="h-[100px] relative">
-              <div className="flex justify-between">
-                <Stat label="Races" data="230K" />
-                <Stat label="Trophies" data="122L" />
-                <Stat label="Alumnis" data="230W" />
-              </div>
-              <p className="racing z-0 font-black text-[98px] text-red-700 opacity-20 absolute left-1/2 -translate-x-1/2 w-full top-0">
-                <span className="char inline-block font-[outfit]">#LIVE</span>
-                <span className="char inline-block font-[outfit]">TO</span>
-                <span className="char inline-block font-[outfit]">RACE</span>
-              </p>
-            </div> */}
             <div className="h-full">
               <TeamMembers />
             </div>
@@ -78,23 +56,44 @@ function Stat({ label, data }) {
 }
 
 function TeamMembers() {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
+
+    const testimonials = [
+      {
+        imageUrl: "https://cdn.pixabay.com/photo/2014/01/17/14/53/cat-246933__480.jpg",
+        name: "Charles Dickens",
+        title: "A Tale of Two Cities",
+      },
+      {
+        imageUrl:"https://cdn.pixabay.com/photo/2015/04/16/15/21/cat-725793__480.jpg",
+        name: "William Shakespeare",
+        title: "Hamlet",
+      },
+      {
+        imageUrl: "https://cdn.pixabay.com/photo/2015/04/16/15/21/cat-725793__480.jpg",
+        name: "Edgar Allan Poe",
+        title: "A Dream Within a Dream",
+      },
+      {
+        imageUrl: "https://cdn.pixabay.com/photo/2015/04/16/15/21/cat-725793__480.jpg",
+        name: "Jane Austen",
+        title: "Pride and Prejudice",
+      },
+      {
+        imageUrl: "https://cdn.pixabay.com/photo/2015/04/16/15/21/cat-725793__480.jpg",
+        name: "Dhruv Yadav",
+        title: "Captain '23",
+      },
+    ];
 
   return (
-    <div className="embla overflow-hidden h-full" ref={emblaRef}>
-      <div className="embla__container flex h-full">
-        <div className="embla__slide flex-[0_0_100%] min-w-0 h-full">
-          <Member title="Dhruv yadav" />
-        </div>
-        <div className="embla__slide flex-[0_0_80%] h-full">
-          {" "}
-          <Member title="Dhruv yadav" />
-        </div>
-        <div className="embla__slide flex-[0_0_100%] h-full">
-          <Member title="Dhruv yadav" />
-        </div>
-      </div>
-    </div>
+
+      <div className="h-[20rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
+            <InfiniteMovingCards
+              items={testimonials}
+              direction="right"
+              speed="slow"
+            />
+            </div>
   );
 }
 

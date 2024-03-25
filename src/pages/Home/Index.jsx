@@ -26,6 +26,7 @@ import {
   WhiteGradient,
 } from "../../components/Gradient.jsx";
 import AbstracrSVG from "../../assets/abstract.svg";
+import { Link } from "react-router-dom";
 
 const Index = (props) => {
   const scrollRef = useRef(null);
@@ -43,6 +44,36 @@ const Index = (props) => {
 
 function CallToAction() {
   return (
+    <div className="py-10 px-4 sm:px-20 bg-black">
+      <div className="flex justify-between relative overflow-hidden items-center my-6 sm:my-16 px-4 sm:px-16 py-4 sm:py-12 flex-col sm:flex-row rounded-3xl box-shadow">
+        <RedGradient />
+        <BlueGradient />
+        <img
+          src={AbstracrSVG}
+          className="lg:absolute md:block block bottom-0 right-0 w-3/4 sm:w-[400px] h-3/4 sm:h-[400px]"
+        />
+        <div className="py-10">
+          <Link to={"/crowdfunding"}>
+            <h1 className="text-3xl sm:text-6xl text-blue-200 font-semibold font-[prompt] mb-4">
+            Interested in <br />
+            Contribution?
+            </h1>
+          </Link>
+
+          <p className="font-[prompt] opacity-50 text-sm sm:text-base">
+            Help us grow into a team everyone wants to work with and
+            understand how things work around in racing clubs.
+          </p>
+        </div>
+        <div className="relative h-full"></div>
+      </div>
+    </div>
+  );
+}
+
+
+function NewsLetter() {
+  return (
     <div className="py-10 px-20 bg-black">
       <div className="flex justify-between relative overflow-hidden  items-center sm:my-16 my-6 sm:px-16 px-6 sm:py-12 py-4 sm:flex-row flex-col rounded-3xl  box-shadow">
         <RedGradient />
@@ -52,14 +83,17 @@ function CallToAction() {
           className="absolute bottom-0 right-0 w-[400px] h-[400px]"
         />
         <div className="py-10">
-          <h1 className="text-6xl text-blue-200 font-semibold font-[prompt] mb-4">
+        <Link to={"/crowdfunding"}>
+            <h1 className="text-6xl text-blue-200 font-semibold font-[prompt] mb-4">
             Interested in <br />
-            Contrirbution?
-          </h1>
+            Contribution?
+            </h1>
+        </Link>
+
           <p className="ffont-[prompt] opacity-50">
             Help us grow into a team everyone want to work with and
             <br />
-            understand how things work around in racing clubs
+            understand how things work around in racing clubs.
           </p>
         </div>
         <div className="relative h-full"></div>

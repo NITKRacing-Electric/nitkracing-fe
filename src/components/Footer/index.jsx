@@ -115,7 +115,7 @@ const Footer = (props) => {
           </div>
           <Typography
             variant="small"
-            className="mb-4 text-center font-normal text-gray-900 md:mb-0"
+            className="mb-4 text-center font-normal text-gray-100 md:mb-0"
           >
             &copy; {currentYear}{" "}
             <a

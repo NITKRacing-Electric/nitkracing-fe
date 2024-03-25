@@ -20,6 +20,7 @@ import {
   GalleryPage,
   SponsorsPage,
   TeamPage,
+  AchievementPage
 } from "./pages";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger.js";
@@ -106,6 +107,11 @@ function App() {
                 <StaticHeader />
 
                 <CrowdfundingPage />
+              </Route>
+              <Route exact path="/achievements">
+                <StaticHeader />
+
+                <AchievementPage />
               </Route>
               <Route exact path="/alumni">
                 <StaticHeader />

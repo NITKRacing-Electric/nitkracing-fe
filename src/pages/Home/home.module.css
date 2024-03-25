@@ -142,3 +142,10 @@
         font-size: 12px;
     }
 }
+
+@media (max-width: 600px) {
+    .wrapper {
+        flex-direction: column;
+        padding-top: 40px;
+    }
+}

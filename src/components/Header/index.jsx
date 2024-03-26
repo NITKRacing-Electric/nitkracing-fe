@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import "./styles.css";
 import properties from "./header.module.css";
 import whiteLogo from "../../images/logo/logo_white.png";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {
   AppBar,
   Box,
@@ -18,6 +18,8 @@ import { useStateContext } from "../../context";
 import useGsap from "../../hooks/useGsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link} from "@nextui-org/react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const Header = ({ ...props }) => {
   const { handleDrawerOpen } = useStateContext();
@@ -67,7 +69,7 @@ const Header = ({ ...props }) => {
 
           <MenuItems />
 
-          <ToggleButton handleClick={handleDrawerOpen} />
+          {/* <ToggleButton handleClick={handleDrawerOpen} /> */}
         </Toolbar>
       </div>
       <div
@@ -86,7 +88,7 @@ const Header = ({ ...props }) => {
 
           <MenuItems />
 
-          <ToggleButton handleClick={handleDrawerOpen} />
+          {/* <ToggleButton handleClick={handleDrawerOpen} /> */}
         </Toolbar>
       </div>
     </div>
@@ -114,7 +116,7 @@ export const StaticHeader = ({ ...props }) => {
 
           <MenuItems />
 
-          <ToggleButton handleClick={handleDrawerOpen} />
+          {/* <ToggleButton handleClick={handleDrawerOpen} /> */}
         </Toolbar>
       </div>
       <div
@@ -133,30 +135,156 @@ export const StaticHeader = ({ ...props }) => {
 
           <MenuItems />
 
-          <ToggleButton handleClick={handleDrawerOpen} />
+          {/* <ToggleButton handleClick={handleDrawerOpen} /> */}
         </Toolbar>
       </div>
     </div>
   );
 };
+
+
+
+
+
 export function MenuItems() {
+
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+    const menuItems = [
+      {name: "Home", link: "/"},
+      {name: "Gallery", link: "/gallery"},
+      {name: "Sponsors", link: "/sponsors"},
+      {name: "About", link: "/about"},
+      {name: "Achievements", link: "/achievements"},
+      {name: "Crowdfunding", link: "/crowdfunding"},
+    ];
+
+
   return (
-    <div className="flex flex-row items-center gap-10 justify-between">
-      <StyledLink to="/" label="Home" />
-      <StyledLink to="/gallery" label="Gallery" />
-      <StyledLink to="/sponsors" label="Sponsors" />
-      <a href="/" className="">
-        <img
-          className="logo z-40 w-[100px]"
-          src={whiteLogo}
-          alt="nitk racing logo"
-        />
-      </a>
-      <StyledLink to="/about" label="About" />
-      <StyledLink to="/achievements" label="Achievements" />
-      {/* <StyledLink to="/contact" label="Contact" /> */}
-      <StyledLink to="/crowdfunding" label="Crowdfunding" />
-    </div>
+
+  <Navbar onMenuOpenChange={setIsMenuOpen}>
+
+
+
+        <NavbarContent>
+        {isMenuOpen ? <FiX className="sm:hidden"/> : <FiMenu className="sm:hidden"/>}
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? <FiX/> : <FiMenu/>}
+            className="sm:hidden text-transparent"
+          />
+
+        </NavbarContent>
+
+        <NavbarContent className="hidden sm:flex mx-auto gap-20 " justify="center">
+
+
+          <NavbarItem>
+            <Link color="foreground" href="/">
+              Home
+            </Link>
+          </NavbarItem>
+
+
+          <NavbarItem>
+            <Link href="/gallery" aria-current="">
+              Gallery
+            </Link>
+          </NavbarItem>
+
+
+          <NavbarItem>
+            <Link color="foreground" href="/sponsors">
+              Sponsors
+            </Link>
+          </NavbarItem>
+
+            <a href="/" className="">
+              <img
+                className="logo z-40 w-[100px]"
+                src={whiteLogo}
+                alt="nitk racing logo"
+              />
+            </a>
+
+          <NavbarItem>
+            <Link color="foreground" href="/about">
+              About
+            </Link>
+          </NavbarItem>
+
+          <NavbarItem>
+            <Link color="foreground" href="/achievements">
+              Achievements
+            </Link>
+          </NavbarItem>
+
+          <NavbarItem>
+            <Link color="foreground" href="/crowdfunding">
+              Crowdfunding
+            </Link>
+          </NavbarItem>
+
+
+
+
+            <NavbarMenu className="bg-black w-full flex flex-col items-center justify-center">
+            <a href="/" className="">
+              <img
+                className="logo z-40 w-[100px]"
+                src={whiteLogo}
+                alt="nitk racing logo"
+              />
+            </a>
+
+            {menuItems.map((item, index) => (
+                <NavbarMenuItem key={`${item}-${index}`}>
+                <Link
+                    color={
+                    index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
+                    }
+                    className="w-full"
+                    href={item.link}
+                    size="lg"
+                >
+                    {item.name}
+                </Link>
+                </NavbarMenuItem>
+
+
+
+            ))}
+            </NavbarMenu>
+
+        </NavbarContent>
+
+
+      </Navbar>
+
+
+
+
+
+
+    // <div className="flex flex-row items-center gap-10 justify-between">
+    //   <StyledLink to="/" label="Home" />
+    //   <StyledLink to="/gallery" label="Gallery" />
+    //   <StyledLink to="/sponsors" label="Sponsors" />
+    //   <a href="/" className="">
+    //     <img
+    //       className="logo z-40 w-[100px]"
+    //       src={whiteLogo}
+    //       alt="nitk racing logo"
+    //     />
+    //   </a>
+    //   <StyledLink to="/about" label="About" />
+    //   <StyledLink to="/achievements" label="Achievements" />
+    //   {/* <StyledLink to="/contact" label="Contact" /> */}
+    //   <StyledLink to="/crowdfunding" label="Crowdfunding" />
+    // </div>
+
+
+
+
   );
 }
 

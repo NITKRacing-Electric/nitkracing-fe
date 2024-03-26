@@ -4,6 +4,7 @@ import { Section } from "../components/Section";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "../components/ui/reveal";
+import { FiUpload } from "react-icons/fi";
 
 function AchievementPage() {
 
@@ -39,39 +40,41 @@ function AchievementPage() {
 
 export default AchievementPage;
 
-
-
-
 function CanvasRevealEffectDemo() {
+
+    const achievements = [
+        {
+            title: "In Baja'23",
+            upText: "Won 1st Prize"
+        },
+        {
+            title: "In 2023",
+            upText: "Best Car Award"
+        },
+    ]
+
+
   return (
     <>
       <div className="py-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4 mx-auto px-8">
-        <Card title="Sheetal is Nisha" icon={<AceternityIcon />}>
-          <CanvasRevealEffect
-            animationSpeed={5.1}
-            containerClassName="bg-emerald-900"
-          />
-        </Card>
-        <Card title="Nisha is Munni" icon={<AceternityIcon />}>
-          <CanvasRevealEffect
-            animationSpeed={3}
-            containerClassName="bg-black"
-            colors={[
-              [236, 72, 153],
-              [232, 121, 249],
-            ]}
-            dotSize={2}
-          />
-          {/* Radial gradient for the cute fade */}
-          <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
-        </Card>
-        <Card title="Munni is Aditi" icon={<AceternityIcon />}>
-          <CanvasRevealEffect
-            animationSpeed={3}
-            containerClassName="bg-sky-600"
-            colors={[[125, 211, 252]]}
-          />
-        </Card>
+
+      {
+          achievements.map((achievement) =>
+
+              <Card title={achievement.title} icon={<AceternityIcon />} upText={achievement.upText}>
+              <CanvasRevealEffect
+                animationSpeed={3}
+                containerClassName="bg-black"
+                colors={[
+                  [255, 221, 222],
+                  [255, 0, 0],
+                ]}
+                dotSize={2}
+              />
+              </Card>
+          )
+      }
+
       </div>
     </>
   );
@@ -80,6 +83,7 @@ function CanvasRevealEffectDemo() {
 const Card = ({
   title,
   icon,
+  upText,
   children,
 }) => {
   const [hovered, setHovered] = React.useState(false);
@@ -96,8 +100,8 @@ const Card = ({
 
 
       <div className={`absolute z-20 p-4 transition-opacity duration-200 ${hovered ? 'opacity-0' : 'opacity-100'}`}>
-              <h2 className="text-white text-xl font-bold mt-4">{title}</h2>
-            </div>
+              <h2 className="text-white text-xl font-bold mt-4">{upText}</h2>
+              </div>
 
 
       <AnimatePresence>
@@ -113,9 +117,9 @@ const Card = ({
       </AnimatePresence>
 
       <div className="relative z-20">
-        <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
+        {/* <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
           {icon}
-        </div>
+        </div> */}
         <h2 className="dark:text-white text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
           {title}
         </h2>

@@ -31,6 +31,7 @@ const About = () => {
 
           <div className="flex flex-grow flex-col gap-5">
             <div className="h-full">
+
               <TeamMembers />
             </div>
           </div>
@@ -40,20 +41,7 @@ const About = () => {
   );
 };
 
-function Stat({ label, data }) {
-  return (
-    <div>
-      <h1 className="md:text-6xl text-4xl font-black font-[outfit] text-white z-20 relative">
-        <span className="relative font-[outfit]">
-          <span className="tracking-[5px] text-sm font-normal block text-left">
-            {label}
-          </span>
-          {data}
-        </span>
-      </h1>
-    </div>
-  );
-}
+
 
 function TeamMembers() {
 

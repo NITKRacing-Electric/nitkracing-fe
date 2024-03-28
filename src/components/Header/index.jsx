@@ -157,6 +157,7 @@ export function MenuItems() {
       {name: "About", link: "/about"},
       {name: "Achievements", link: "/achievements"},
       {name: "Crowdfunding", link: "/crowdfunding"},
+      {name: "Formula Bharat", link: "/fbharat"}
     ];
 
 
@@ -186,8 +187,8 @@ export function MenuItems() {
 
 
           <NavbarItem>
-            <Link href="/gallery" aria-current="">
-              Gallery
+            <Link color="foreground" href="/fbharat">
+              FS
             </Link>
           </NavbarItem>
 
@@ -207,8 +208,8 @@ export function MenuItems() {
             </a>
 
           <NavbarItem>
-            <Link color="foreground" href="/about">
-              About
+            <Link color="foreground" href="/gallery">
+              Gallery
             </Link>
           </NavbarItem>
 
@@ -223,6 +224,8 @@ export function MenuItems() {
               Crowdfunding
             </Link>
           </NavbarItem>
+
+
 
 
 

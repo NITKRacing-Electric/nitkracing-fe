@@ -5,9 +5,9 @@ function MouseCircle() {
         <svg height="60" width="60">
           <circle
             className=" fill-[#f7f8fa]"
-            cx="20"
-            cy="20"
-            r="20"
+            cx="0"
+            cy="0"
+            r="0"
             stroke-width="0"
           ></circle>
         </svg>

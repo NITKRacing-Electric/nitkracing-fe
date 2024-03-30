@@ -3,6 +3,8 @@ import * as React from "react";
 import { Masonry } from "masonic";
 import Header, { StaticHeader } from "../components/Header";
 import {ParallaxScroll} from '../components/ui/parallax-scroll'
+import MobileView from "../components/mobileview/MobileView";
+import { useStateContext } from "../context";
 
 const cats = [
   "https://cdn.pixabay.com/photo/2017/06/12/19/02/cat-2396473__480.jpg",
@@ -24,9 +26,14 @@ const cats = [
 ];
 
 function GalleryPage() {
+    const {drawerOpen} = useStateContext()
   return (
-    
+
     <Section>
+        {
+            drawerOpen ? (<MobileView />) : null
+          }
+
       <h1 className="mx-auto mb-8 lg:text-7xl lg:text-start text-5xl text-center font-semibold leading-none tracking-tighter m-5 text-neutral-600">Gallery</h1>
       <ParallaxScroll images={cats} />
     </Section>

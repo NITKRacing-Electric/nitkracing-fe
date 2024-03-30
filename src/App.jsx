@@ -25,6 +25,8 @@ import {
 } from "./pages";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger.js";
+import NewsLetterPage from "./pages/About/sections/Newsletter/Index.jsx";
+
 
 const queryClient = new QueryClient();
 
@@ -120,6 +122,12 @@ function App() {
                 <StaticHeader />
 
                 <FormulaBharatPage />
+              </Route>
+
+              <Route exact path="/newsletter">
+                <StaticHeader />
+
+                <NewsLetterPage />
               </Route>
 
 

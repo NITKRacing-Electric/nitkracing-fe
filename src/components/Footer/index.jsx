@@ -29,6 +29,10 @@ const SITEMAP = [
         head: "Formula Student",
         url: "/fbharat",
       },
+      {
+        head: "News Letter",
+        url: "/newsletter",
+      },
     ],
   },
 ];

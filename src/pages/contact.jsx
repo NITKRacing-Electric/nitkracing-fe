@@ -5,10 +5,17 @@ import {
   BsSendCheck,
 } from "react-icons/bs";
 import { Section } from "../components/Section";
+import { useStateContext } from "../context";
+import MobileView from "../components/mobileview/MobileView";
 
 function ContactPage() {
+     const {drawerOpen} = useStateContext()
   return (
     <Section>
+        {
+            drawerOpen ? (<MobileView />) : null
+          }
+
       <div className="h-[400px] bg-slate-800 mb-10" />
       <div className="grid grid-rows-3 md:grid-cols-3 justify-center">
         <div className="flex items-center gap-5 text-gray-300 ">

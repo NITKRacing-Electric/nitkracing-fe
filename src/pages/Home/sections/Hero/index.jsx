@@ -6,6 +6,11 @@ import helmetLeft from "../../../../images/hero/helmet_left.png";
 import helmetFront from "../../../../images/hero/helmet_front.png";
 import helmetRight from "../../../../images/hero/helmet_right.png";
 import { Box, Container, Typography } from "@mui/material";
+import whiteLogo from "../../../../images/logo/logo_white.png";
+import { RxHamburgerMenu } from "react-icons/rx";
+import MobileView from "../../../../components/mobileview/MobileView";
+import { useStateContext } from "../../../../context";
+import { FiX } from "react-icons/fi";
 import {
   FiArrowRight,
   FiFacebook,
@@ -22,10 +27,6 @@ import Header, { MenuItems } from "../../../../components/Header";
 import Marquee from "react-fast-marquee";
 import DividerSVG from "../../../../assets/divider.svg";
 import StarSVG from "../../../../assets/star.svg";
-
-import { TypewriterEffectSmooth } from "../../../../components/ui/typewriter";
-
-import {ContainerScroll} from "../../../../components/ui/container-scroll-animation"
 
 const DUMMY_DATA = [
   {
@@ -76,185 +77,122 @@ const Hero = ({ props }) => {
 };
 
 function MainItem() {
+  //taking the screen size
+  const [screenSize , setScreenSize] = useState(window.innerWidth)
+  const {drawerOpen , handleOpenAndClose} = useStateContext()
 
+  useEffect(() => {
+      const handleResize = () => {
+        setScreenSize(prevSize => {
+          const newSize = window.innerWidth;
+          // Perform additional actions if needed
+          // console.log(newSize);
+          return newSize;
+        });
+      };
 
-    const users = [
-      {
-        name: "Manu Arora",
-        designation: "Founder, Algochurn",
-        image: "https://picsum.photos/id/10/300/300",
-        badge: "Mentor",
-      },
-      {
-        name: "Sarah Singh",
-        designation: "Founder, Sarah's Kitchen",
-        image: "https://picsum.photos/id/11/300/300",
-        badge: "Mentor",
-      },
-      {
-        name: "John Doe",
-        designation: "Software Engineer, Tech Corp",
-        image: "https://picsum.photos/id/12/300/300",
-        badge: "Mentor",
-      },
-      {
-        name: "Jane Smith",
-        designation: "Product Manager, Innovate Inc",
-        image: "https://picsum.photos/id/13/300/300",
-        badge: "Mentor",
-      },
-      {
-        name: "Robert Johnson",
-        designation: "Data Scientist, DataWorks",
-        image: "https://picsum.photos/id/14/300/300",
-        badge: "Mentor",
-      },
-      {
-        name: "Emily Davis",
-        designation: "UX Designer, DesignHub",
-        image: "https://picsum.photos/id/15/300/300",
-        badge: "Mentor",
-      },
-      {
-        name: "Michael Miller",
-        designation: "CTO, FutureTech",
-        image: "https://picsum.photos/id/16/300/300",
-        badge: "Mentor",
-      },
-      {
-        name: "Sarah Brown",
-        designation: "CEO, StartUp",
-        image: "https://picsum.photos/id/17/300/300",
-      },
-      {
-        name: "James Wilson",
-        designation: "DevOps Engineer, CloudNet",
-        image: "https://picsum.photos/id/18/300/300",
-        badge: "Something",
-      },
-      {
-        name: "Patricia Moore",
-        designation: "Marketing Manager, MarketGrowth",
-        image: "https://picsum.photos/id/19/300/300",
-        badge: "Mentor",
-      },
-      {
-        name: "Richard Taylor",
-        designation: "Frontend Developer, WebSolutions",
-        image: "https://picsum.photos/id/20/300/300",
-      },
-      {
-        name: "Linda Anderson",
-        designation: "Backend Developer, ServerSecure",
-        image: "https://picsum.photos/id/21/300/300",
-      },
-      {
-        name: "William Thomas",
-        designation: "Full Stack Developer, FullStack",
-        image: "https://picsum.photos/id/22/300/300",
-        badge: "Badger",
-      },
-      {
-        name: "Elizabeth Jackson",
-        designation: "Project Manager, ProManage",
-        image: "https://picsum.photos/id/23/300/300",
-        badge: "Mentor",
-      },
-      {
-        name: "David White",
-        designation: "Database Administrator, DataSafe",
-        image: "https://picsum.photos/id/24/300/300",
-        badge: "Advocate",
-      },
-      {
-        name: "Jennifer Harris",
-        designation: "Network Engineer, NetConnect",
-        image: "https://picsum.photos/id/25/300/300",
-      },
-      {
-        name: "Charles Clark",
-        designation: "Security Analyst, SecureIT",
-        image: "https://picsum.photos/id/26/300/300",
-      },
-      {
-        name: "Susan Lewis",
-        designation: "Systems Analyst, SysAnalyse",
-        image: "https://picsum.photos/id/27/300/300",
-      },
-      {
-        name: "Joseph Young",
-        designation: "Mobile Developer, AppDev",
-        image: "https://picsum.photos/id/28/300/300",
-        badge: "Mentor",
-      },
-      {
-        name: "Margaret Hall",
-        designation: "Quality Assurance, BugFree",
-        image: "https://picsum.photos/id/29/300/300",
-        badge: "Developer",
-      },
-    ];
+      window.addEventListener('resize', handleResize);
 
-    // const words = [
-    //     {
-    //       text: "Live",
-    //       className: "text-white dark:text-white",
-    //     },
-    //     {
-    //       text: "to",
-    //       className: "text-white dark:text-white",
-    //     },
-    //     {
-    //       text: "Race",
-    //       className: "text-red-500 dark:text-red-500",
-    //     },
-    //   ];
+      // Cleanup the event listener on component unmount
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+  }, []);
 
-
+  //every time keeping the record of the screen size
+  console.log(screenSize)
   return (
-    <div className="heromain w-full p-0 md:p-16 lg:relative">
+    <div className="heromain  w-full p-0 md:p-7 relative h-screen">
+      <div className="w-full mx-auto relative z-10">
+        <div className="appbar overflow-hidden">
 
-    <div className="w-3/4 mx-auto relative z-10 appbar overflow-hidden">
-      <MenuItems />
-    </div>
 
-      <div className="flex flex-col overflow-hidden">
+                {
+                    screenSize < "431" ? (<div className="flex justify-around items-center">
+                    <img
+                    className="logo z-40 w-[100px] block"
+                    src={whiteLogo}
+                    alt="nitk racing logo"
+                    />
+                    {
+                    !drawerOpen ? ( <RxHamburgerMenu size={24} onClick={handleOpenAndClose}/>): (<FiX size={24} onClick={handleOpenAndClose}/>)
+                    }
 
-{/*
-                <ContainerScroll
-        users={users}
-        titleComponent={
-          <>
-            <h1 className="text-4xl font-semibold text-white dark:text-white">
-              Living <br />
-              <span className="text-4xl md:text-[6rem] text-red-600 font-bold mt-1 leading-none">
-                To Race
-              </span>
-            </h1>
-          </>
+
+                </div>) :
+                        screenSize < "900" && screenSize > "430" ? (<div className="flex justify-around items-center">
+                        <img
+                        className="logo z-40 w-[100px] block"
+                        src={whiteLogo}
+                        alt="nitk racing logo"
+                        />
+                        {
+                    !drawerOpen ? ( <RxHamburgerMenu size={24} onClick={handleOpenAndClose}/>): (<FiX size={24} onClick={handleOpenAndClose}/>)
+                    }</div>) : (<MenuItems />)
+                    }
+
+
+        </div>
+
+
+        {
+        drawerOpen ? (<MobileView />) : null
         }
-      /> */}
+        {
+          screenSize < "431" ? (<div className="wrapper  bg-red-600 py-2 relative my-10">
+          <Marquee
+            autoFill
+            className="justify-center items-center gap-5"
+            speed={20}
+          >
+            <h1 className="text-9xl font-[outfit] text-black font-bold">
+              LIVE TO RACE
+            </h1>
+          </Marquee>
+          <img
+            src={StarSVG}
+            className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
+          />
+        </div>) :
+          screenSize < "900" && screenSize > "430" ? (<div className="wrapper  bg-red-600 py-2 relative my-10">
+          <Marquee
+            autoFill
+            className="justify-center items-center gap-5"
+            speed={20}
+          >
+            <h1 className="text-9xl font-[outfit] text-black font-bold">
+              LIVE TO RACE
+            </h1>
+          </Marquee>
+          <img
+            src={StarSVG}
+            className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
+          />
+        </div>) : (<div className="wrapper bg-red-600 py-16 relative my-10">
+          <Marquee
+            autoFill
+            className="justify-center items-center gap-5"
+            speed={20}
+          >
+            <h1 className="text-9xl font-[outfit] text-black font-bold">
+              LIVE TO RACE
+            </h1>
+          </Marquee>
+          <img
+            src={StarSVG}
+            className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
+          />
+        </div>)
+        }
 
 
 
 
-
-
-
-
-
-        {/* <div className="">
-            <TypewriterEffectSmooth words={words} />
-        </div> */}
-
-
-        {/* <div className="flex lg:flex-row flex-col items-center gap-10 links overflow-hidden">
-          <h1 className="lg:text-5xl font-[prompt] text-2xl">Explore</h1>
-          <h1 className="lg:text-5xl font-[prompt] text-2xl">Donate</h1>
-          <h1 className="lg:text-5xl font-[prompt] text-2xl">Follow</h1>
-        </div> */}
-
-
+        <div className="flex flex-col gap-y-4 sm:flex-row sm:gap-10 sm:links sm:overflow-hidden">
+          <h1 className="sm:text-5xl text-6xl font-[prompt]">Explore</h1>
+          <h1 className="sm:text-5xl text-6xl font-[prompt]">Donate</h1>
+          <h1 className="sm:text-5xl text-6xl font-[prompt]">Follow</h1>
+        </div>
       </div>
     </div>
   );

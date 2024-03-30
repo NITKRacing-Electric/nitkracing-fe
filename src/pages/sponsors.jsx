@@ -4,6 +4,8 @@ import background from "../assets/data/background";
 import { SPONSORS } from "../assets/data";
 import { useEffect, useState } from "react";
 import client from "../config/sanity";
+import MobileView from "../components/mobileview/MobileView";
+import { useStateContext } from "../context";
 
 import imageUrlBuilder from "@sanity/image-url";
 
@@ -27,6 +29,7 @@ function SponsorsPage() {
 }
 
 function Sponsor() {
+    const {drawerOpen} = useStateContext()
 
   const [sponsors, updateSponsors] = useState([]);
   useEffect(() => {
@@ -40,12 +43,15 @@ function Sponsor() {
   const tier_list = ["Silver", "Gold", "Platinum"]
   const tierColorClass = {
     gold: 'text-yellow-400',
-    silver: 'text-gray-400', 
-    platinum: 'text-blue-400', 
+    silver: 'text-gray-400',
+    platinum: 'text-blue-400',
   };
 
   return (
     <section>
+    {
+            drawerOpen ? (<MobileView />) : null
+          }
       <div class="relative items-center w-full py-12">
 
         <div className=" w-full gap-6 ">

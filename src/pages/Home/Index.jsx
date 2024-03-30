@@ -20,6 +20,10 @@ import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { ScrollTrigger } from "gsap/all";
 import BackgroundSVG from "../../assets/background.svg";
+
+import Newsletter from "../About/sections/Newsletter/Index.jsx";
+import Intro from "../About/sections/Intro/Index.jsx";
+
 import {
   BlueGradient,
   RedGradient,
@@ -29,6 +33,7 @@ import AbstracrSVG from "../../assets/abstract.svg";
 import { Link } from "react-router-dom";
 
 import newsletterPreviewImg from "../../assets/background/nkr_car_render.png"
+// import Newsletter from "../About/sections/Newsletter/Index.jsx";
 
 const Index = (props) => {
   const scrollRef = useRef(null);
@@ -37,6 +42,7 @@ const Index = (props) => {
   return (
     <Box ref={scrollRef}>
       <Hero />
+      <Intro />
       <About />
       <CallToAction />
       <Sponsors />
@@ -89,9 +95,9 @@ function NewsLetter() {
           <p className="font-[prompt] opacity-75 text-sm sm:text-lg mb-4">
             Catch up with our latest insights and developments. Click to dive in!
           </p>
-          <a href={googleDriveLink} target="_blank" className="text-red-500 hover:underline">
+          <Link to="/newsletter" target="_blank" className="text-red-500 hover:underline">
             Read More
-          </a>
+          </Link>
         </div>
         <div className="sm:w-1/2 w-full">
           <img

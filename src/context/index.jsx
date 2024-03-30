@@ -1,25 +1,21 @@
 import gsap from "gsap";
 import React, { createContext, useContext, useRef, useState } from "react";
+import MobileView from "../components/mobileview/MobileView"
 
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const handleDrawerOpen = () => {
-    setDrawerOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setDrawerOpen(false);
+  const handleOpenAndClose = () => {
+    setDrawerOpen((prev)=>(!prev));
   };
 
   return (
     <StateContext.Provider
       value={{
         drawerOpen,
-        handleDrawerClose,
-        handleDrawerOpen,
+        handleOpenAndClose,
       }}
     >
       {children}

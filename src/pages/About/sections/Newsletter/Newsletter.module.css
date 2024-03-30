@@ -20,16 +20,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex:1;
+    flex: 1;
 }
 
 .magzine img{
     width: 100%;
     filter: grayscale(1.0);
-
-}
-
-.heading{
 }
 
 .heading span{
@@ -53,17 +49,12 @@
 
 .info :nth-child(2) i{
     padding-right: 10px;
-
 }
-
 
 .info :nth-child(2):hover{
     color: red;
     transform: translateY(2px);
-
 }
-
-
 
 .metadata i{
     padding-right: 10px;
@@ -74,11 +65,33 @@
     text-align: right;
 }
 
-
-
-@media only screen and (max-width: 600px) {
+/* Responsive Adjustments */
+@media only screen and (max-width: 1024px) {
   .wrapper{
     flex-direction: column;
+    align-items: center;
+  }
+
+  .mail, .slider{
+    width: 90%; /* Adjust the width to suit mobile devices */
+  }
+
+  .info, .metadata{
+    text-align: center; /* Center align the text for better readability on smaller screens */
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .wrapper, .mail, .slider{
+    width: 100vw; /* Utilize the full viewport width */
+    padding: 20px; /* Add some padding for spacing */
+  }
+
+  .mail{
+    flex: none; /* Remove the flex sizing to let content define its size */
+  }
+
+  .info :nth-child(2), .metadata{
+    text-align: left; /* Adjust text alignment as needed */
+  }
+}

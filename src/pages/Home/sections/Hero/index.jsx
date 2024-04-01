@@ -27,6 +27,7 @@ import Header, { MenuItems } from "../../../../components/Header";
 import Marquee from "react-fast-marquee";
 import DividerSVG from "../../../../assets/divider.svg";
 import StarSVG from "../../../../assets/star.svg";
+import { getHomeData } from "../../../../services/HomeDataAPI"; //sponsors from CMS
 
 const DUMMY_DATA = [
   {
@@ -78,115 +79,112 @@ const Hero = ({ props }) => {
 
 function MainItem() {
   //taking the screen size
-  const [screenSize , setScreenSize] = useState(window.innerWidth)
-  const {drawerOpen , handleOpenAndClose} = useStateContext()
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
+  const { drawerOpen, handleOpenAndClose } = useStateContext();
 
   useEffect(() => {
-      const handleResize = () => {
-        setScreenSize(prevSize => {
-          const newSize = window.innerWidth;
-          // Perform additional actions if needed
-          // console.log(newSize);
-          return newSize;
-        });
-      };
+    const handleResize = () => {
+      setScreenSize((prevSize) => {
+        const newSize = window.innerWidth;
+        // Perform additional actions if needed
+        // console.log(newSize);
+        return newSize;
+      });
+    };
 
-      window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
-      // Cleanup the event listener on component unmount
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
-  //every time keeping the record of the screen size
-  console.log(screenSize)
   return (
-    <div className="heromain  w-full p-0 md:p-7 relative h-screen">
+    <div className="heromain p-0 md:p-7 relative h-screen w-full md:w-3/4 mx-auto">
       <div className="w-full mx-auto relative z-10">
         <div className="appbar overflow-hidden">
-
-
-                {
-                    screenSize < "431" ? (<div className="flex justify-around items-center">
-                    <img
-                    className="logo z-40 w-[100px] block"
-                    src={whiteLogo}
-                    alt="nitk racing logo"
-                    />
-                    {
-                    !drawerOpen ? ( <RxHamburgerMenu size={24} onClick={handleOpenAndClose}/>): (<FiX size={24} onClick={handleOpenAndClose}/>)
-                    }
-
-
-                </div>) :
-                        screenSize < "900" && screenSize > "430" ? (<div className="flex justify-around items-center">
-                        <img
-                        className="logo z-40 w-[100px] block"
-                        src={whiteLogo}
-                        alt="nitk racing logo"
-                        />
-                        {
-                    !drawerOpen ? ( <RxHamburgerMenu size={24} onClick={handleOpenAndClose}/>): (<FiX size={24} onClick={handleOpenAndClose}/>)
-                    }</div>) : (<MenuItems />)
-                    }
-
-
+          {screenSize < "431" ? (
+            <div className="flex justify-around items-center">
+              <img
+                className="logo z-40 w-[100px] block"
+                src={whiteLogo}
+                alt="nitk racing logo"
+              />
+              {!drawerOpen ? (
+                <RxHamburgerMenu size={24} onClick={handleOpenAndClose} />
+              ) : (
+                <FiX size={24} onClick={handleOpenAndClose} />
+              )}
+            </div>
+          ) : screenSize < "900" && screenSize > "430" ? (
+            <div className="flex justify-around items-center">
+              <img
+                className="logo z-40 w-[100px] block"
+                src={whiteLogo}
+                alt="nitk racing logo"
+              />
+              {!drawerOpen ? (
+                <RxHamburgerMenu size={24} onClick={handleOpenAndClose} />
+              ) : (
+                <FiX size={24} onClick={handleOpenAndClose} />
+              )}
+            </div>
+          ) : (
+            <MenuItems />
+          )}
         </div>
 
-
-        {
-        drawerOpen ? (<MobileView />) : null
-        }
-        {
-          screenSize < "431" ? (<div className="wrapper  bg-red-600 py-2 relative my-10">
-          <Marquee
-            autoFill
-            className="justify-center items-center gap-5"
-            speed={20}
-          >
-            <h1 className="text-9xl font-[outfit] text-black font-bold">
-              LIVE TO RACE
-            </h1>
-          </Marquee>
-          <img
-            src={StarSVG}
-            className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
-          />
-        </div>) :
-          screenSize < "900" && screenSize > "430" ? (<div className="wrapper  bg-red-600 py-2 relative my-10">
-          <Marquee
-            autoFill
-            className="justify-center items-center gap-5"
-            speed={20}
-          >
-            <h1 className="text-9xl font-[outfit] text-black font-bold">
-              LIVE TO RACE
-            </h1>
-          </Marquee>
-          <img
-            src={StarSVG}
-            className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
-          />
-        </div>) : (<div className="wrapper bg-red-600 py-16 relative my-10">
-          <Marquee
-            autoFill
-            className="justify-center items-center gap-5"
-            speed={20}
-          >
-            <h1 className="text-9xl font-[outfit] text-black font-bold">
-              LIVE TO RACE
-            </h1>
-          </Marquee>
-          <img
-            src={StarSVG}
-            className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
-          />
-        </div>)
-        }
-
-
-
+        {drawerOpen ? <MobileView /> : null}
+        {screenSize < "431" ? (
+          <div className="wrapper bg-red-600 py-2 relative my-10">
+            <Marquee
+              autoFill
+              className="justify-center items-center gap-5"
+              speed={20}
+            >
+              <h1 className="text-9xl font-[outfit] text-black font-bold">
+                LIVE TO RACE
+              </h1>
+            </Marquee>
+            <img
+              src={StarSVG}
+              className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
+            />
+          </div>
+        ) : screenSize < "900" && screenSize > "430" ? (
+          <div className="wrapper  bg-red-600 py-2 relative my-10">
+            <Marquee
+              autoFill
+              className="justify-center items-center gap-5"
+              speed={20}
+            >
+              <h1 className="text-9xl font-[outfit] text-black font-bold">
+                LIVE TO RACE
+              </h1>
+            </Marquee>
+            <img
+              src={StarSVG}
+              className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
+            />
+          </div>
+        ) : (
+          <div className="wrapper bg-red-600 py-16 relative my-10">
+            <Marquee
+              autoFill
+              className="justify-center items-center gap-5"
+              speed={20}
+            >
+              <h1 className="text-9xl font-[outfit] text-black font-bold">
+                LIVE TO RACE
+              </h1>
+            </Marquee>
+            <img
+              src={StarSVG}
+              className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
+            />
+          </div>
+        )}
 
         <div className="flex flex-col gap-y-4 sm:flex-row sm:gap-10 sm:links sm:overflow-hidden">
           <h1 className="sm:text-5xl text-6xl font-[prompt]">Explore</h1>

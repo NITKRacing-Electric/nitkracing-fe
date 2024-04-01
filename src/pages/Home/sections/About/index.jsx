@@ -14,8 +14,10 @@ import {
   WhiteGradient,
 } from "../../../../components/Gradient.jsx";
 import Marquee from "react-fast-marquee";
+import { useStateContext } from "../../../../context";
 
-import {InfiniteMovingCards} from '../../../../components/ui/infinite-moving-cards'
+import { InfiniteMovingCards } from "../../../../components/ui/infinite-moving-cards";
+import { urlFor } from "../../../sponsors.jsx";
 
 const About = () => {
   gsap.registerPlugin(ScrambleTextPlugin);
@@ -25,13 +27,14 @@ const About = () => {
       <Section>
         <BlueGradient />
 
-        <h1 className="mx-auto mb-8 lg:text-7xl lg:text-start text-5xl text-center font-semibold leading-none tracking-tighter m-5 text-neutral-600">Our Team</h1>
+        <h1 className="text-3xl sm:text-6xl text-blue-200 font-semibold font-[prompt] mb-4">
+          Our Team
+        </h1>
         <div className="relative flex gap-5 flex-col md:flex-row mt-5">
           <RedGradient />
 
           <div className="flex flex-grow flex-col gap-5">
             <div className="h-full">
-
               <TeamMembers />
             </div>
           </div>
@@ -41,47 +44,25 @@ const About = () => {
   );
 };
 
-
-
 function TeamMembers() {
+  const { isLoading, membersData } = useStateContext();
 
-    const testimonials = [
-      {
-        imageUrl: "https://cdn.pixabay.com/photo/2014/01/17/14/53/cat-246933__480.jpg",
-        name: "Charles Dickens",
-        title: "A Tale of Two Cities",
-      },
-      {
-        imageUrl:"https://cdn.pixabay.com/photo/2015/04/16/15/21/cat-725793__480.jpg",
-        name: "William Shakespeare",
-        title: "Hamlet",
-      },
-      {
-        imageUrl: "https://cdn.pixabay.com/photo/2015/04/16/15/21/cat-725793__480.jpg",
-        name: "Edgar Allan Poe",
-        title: "A Dream Within a Dream",
-      },
-      {
-        imageUrl: "https://cdn.pixabay.com/photo/2015/04/16/15/21/cat-725793__480.jpg",
-        name: "Jane Austen",
-        title: "Pride and Prejudice",
-      },
-      {
-        imageUrl: "https://cdn.pixabay.com/photo/2015/04/16/15/21/cat-725793__480.jpg",
-        name: "Dhruv Yadav",
-        title: "Captain '23",
-      },
-    ];
+  if (isLoading) return <p>Loading...</p>;
+
+  const testimonials = membersData.map((member) => ({
+    imageUrl: urlFor(member.image),
+    name: member.memberName,
+    title: member.memberName,
+  }));
 
   return (
-
-      <div className="h-[20rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
-            <InfiniteMovingCards
-              items={testimonials}
-              direction="right"
-              speed="slow"
-            />
-            </div>
+    <div className="h-[20rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
+      <InfiniteMovingCards
+        items={testimonials}
+        direction="right"
+        speed="slow"
+      />
+    </div>
   );
 }
 

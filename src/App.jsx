@@ -13,7 +13,7 @@ import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import useGsap from "./hooks/useGsap.js";
 import Lenis from "@studio-freight/lenis";
 import { MouseCircle, StyledDrawer } from "./components/index.js";
-import { StateContextProvider } from "./context/index.jsx";
+import { StateContextProvider, useStateContext } from "./context/index.jsx";
 import {
   ContactPage,
   CrowdfundingPage,
@@ -27,29 +27,28 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger.js";
 import NewsLetterPage from "./pages/About/sections/Newsletter/Index.jsx";
 
-
 const queryClient = new QueryClient();
 
 function App() {
   const appRef = useRef(null);
 
-  // useGsap(appRef.current, () => {
-  //   const lenis = new Lenis({
-  //     duration: 1.2,
-  //     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  //   });
+  useGsap(appRef.current, () => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
 
-  //   function raf(time) {
-  //     lenis.raf(time);
-  //     requestAnimationFrame(raf);
-  //   }
-  //   lenis.on("scroll", ScrollTrigger.update);
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    lenis.on("scroll", ScrollTrigger.update);
 
-  //   gsap.ticker.add((time) => {
-  //     lenis.raf(time * 1000);
-  //   });
-  //   requestAnimationFrame(raf);
-  // });
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    requestAnimationFrame(raf);
+  });
 
   useEffect(() => {
     gsap.set(".ball", { xPercent: -50, yPercent: -50 });
@@ -129,7 +128,6 @@ function App() {
 
                 <NewsLetterPage />
               </Route>
-
 
               <Route exact path="/alumni">
                 <StaticHeader />

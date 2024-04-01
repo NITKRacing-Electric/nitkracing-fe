@@ -11,7 +11,7 @@ import imageUrlBuilder from "@sanity/image-url";
 
 const builder = imageUrlBuilder(client);
 
-function urlFor(source) {
+export function urlFor(source) {
   return builder.image(source);
 }
 
@@ -29,39 +29,39 @@ function SponsorsPage() {
 }
 
 function Sponsor() {
-    const {drawerOpen} = useStateContext()
+  const { drawerOpen } = useStateContext();
 
   const [sponsors, updateSponsors] = useState([]);
+
   useEffect(() => {
     getSponsors().then((data) => {
       updateSponsors(data);
     });
   }, []);
-  if (!sponsors) return <p>ANS</p>;
 
+  if (!sponsors) return <p>Loading...</p>;
 
-  const tier_list = ["Silver", "Gold", "Platinum"]
+  const tier_list = ["Silver", "Gold", "Platinum"];
   const tierColorClass = {
-    gold: 'text-yellow-400',
-    silver: 'text-gray-400',
-    platinum: 'text-blue-400',
+    gold: "text-yellow-400",
+    silver: "text-gray-400",
+    platinum: "text-blue-400",
   };
 
   return (
     <section>
-    {
-            drawerOpen ? (<MobileView />) : null
-          }
+      {drawerOpen ? <MobileView /> : null}
       <div class="relative items-center w-full py-12">
-
         <div className=" w-full gap-6 ">
-
           {tier_list.map((tier) => (
             <div className="">
-
-          <h1 className={`mx-auto mb-8 lg:text-7xl lg:text-start text-5xl text-center font-semibold leading-none tracking-tighter m-5 ${tierColorClass[tier.toLowerCase()] || 'text-neutral-600'} `}>
-            {tier} Tier
-          </h1>
+              <h1
+                className={`mx-auto mb-8 lg:text-7xl lg:text-start text-5xl text-center font-semibold leading-none tracking-tighter m-5 ${
+                  tierColorClass[tier.toLowerCase()] || "text-neutral-600"
+                } `}
+              >
+                {tier} Tier
+              </h1>
 
               <div className="grid grid-col lg:grid-cols-4 grid-cols-1 items-center gap-4 mx-auto">
                 {sponsors &&
@@ -71,13 +71,8 @@ function Sponsor() {
                     </div>
                   ))}
               </div>
-
-
             </div>
-
-
           ))}
-
         </div>
       </div>
     </section>

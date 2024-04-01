@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min"
 
 const MobileView = ()=>{
     const location = useLocation()
-    console.log(location.pathname)
     const path = location.pathname
     const {handleOpenAndClose} = useStateContext()
     return (

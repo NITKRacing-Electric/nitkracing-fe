@@ -1,8 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef , useState, useEffect} from "react";
 import "./styles.css";
 import properties from "./header.module.css";
 import whiteLogo from "../../images/logo/logo_white.png";
 import { Link } from "react-router-dom";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { FiX } from "react-icons/fi";
 import {
   AppBar,
   Box,
@@ -94,15 +96,39 @@ const Header = ({ ...props }) => {
 };
 
 export const StaticHeader = ({ ...props }) => {
-  const { handleDrawerOpen } = useStateContext();
   const appbarRef = useRef();
+  const [screenSize , setScreenSize] = useState(window.innerWidth)
+  const {drawerOpen , handleOpenAndClose} = useStateContext()
+
+  useEffect(() => {
+      const handleResize = () => {
+        setScreenSize(prevSize => {
+          const newSize = window.innerWidth;
+          // Perform additional actions if needed
+          // console.log(newSize);
+          return newSize;
+        });
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      // Cleanup the event listener on component unmount
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+  }, []);
+
+  //every time keeping the record of the screen size
+  console.log(screenSize)
 
   return (
     <div>
+
+    {/* for laptop */}
       <div
         position="static"
         color="transparent"
-        className="appbar absolute w-full z-50"
+        className="appbar absolute w-full z-50 "
       >
         <Toolbar
           sx={{
@@ -114,13 +140,17 @@ export const StaticHeader = ({ ...props }) => {
 
           <MenuItems />
 
-          <ToggleButton handleClick={handleDrawerOpen} />
+          <ToggleButton handleClick={handleOpenAndClose} />
         </Toolbar>
+
+
       </div>
+
+      {/* for mobile */}
       <div
         position="absolute"
         color="transparent"
-        className="hiddenappbar absolute w-full z-50 opacity-0 -top-40"
+        className="hiddenappbar hidden absolute w-full z-50 opacity-0 -top-40"
         ref={appbarRef}
       >
         <Toolbar
@@ -133,16 +163,22 @@ export const StaticHeader = ({ ...props }) => {
 
           <MenuItems />
 
-          <ToggleButton handleClick={handleDrawerOpen} />
+          <ToggleButton handleClick={handleOpenAndClose} />
         </Toolbar>
       </div>
+
+
     </div>
   );
 };
+
+
+
+
 export function MenuItems() {
   return (
     <div className="flex flex-row items-center gap-10 justify-between">
-      <StyledLink to="/" label="Home" />
+      <StyledLink to="/"  label="Home"/>
       <StyledLink to="/gallery" label="Gallery" />
       <StyledLink to="/sponsors" label="Sponsors" />
       <a href="/" className="">
@@ -152,8 +188,8 @@ export function MenuItems() {
           alt="nitk racing logo"
         />
       </a>
-      <StyledLink to="/about" label="About" />
-      <StyledLink to="/contact" label="Contact" />
+      <StyledLink to="/fbharat" label="Formula Student" />
+      <StyledLink to="/achievements" label="Achievements" />
       <StyledLink to="/crowdfunding" label="Crowdfunding" />
     </div>
   );

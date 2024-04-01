@@ -2,6 +2,9 @@ import { Section } from "../components/Section";
 import * as React from "react";
 import { Masonry } from "masonic";
 import Header, { StaticHeader } from "../components/Header";
+import {ParallaxScroll} from '../components/ui/parallax-scroll'
+import MobileView from "../components/mobileview/MobileView";
+import { useStateContext } from "../context";
 
 const cats = [
   "https://cdn.pixabay.com/photo/2017/06/12/19/02/cat-2396473__480.jpg",
@@ -19,38 +22,20 @@ const cats = [
   "https://cdn.pixabay.com/photo/2014/10/01/10/46/cat-468232__480.jpg",
   "https://cdn.pixabay.com/photo/2014/04/29/13/19/cat-334383__480.jpg",
   "https://cdn.pixabay.com/photo/2014/01/17/14/53/cat-246933__480.jpg",
-  "https://cdn.pixabay.com/photo/2017/05/31/21/46/cats-2361762__480.jpg",
+  // "https://cdn.pixabay.com/photo/2017/05/31/21/46/cats-2361762__480.jpg",
 ];
 
-let i = 0;
-const items = Array.from(Array(cats.length), () => ({ id: i++, src: cats[i] }));
-
-const FakeCard = ({ data: { id, name, src } }) => (
-  <div className="">
-    <img className="" alt="kitty" src={src} />
-    <span children={name} />
-  </div>
-);
-
-const MasonryComponent = (props) => (
-  <Masonry
-    // Provides the data for our grid items
-    items={items}
-    // Adds 8px of space between the grid cells
-    columnGutter={8}
-    // Sets the minimum column width to 172px
-    columnWidth={172}
-    // Pre-renders 5 windows worth of content
-    overscanBy={5}
-    // This is the grid item component
-    render={FakeCard}
-  />
-);
-
 function GalleryPage() {
+    const {drawerOpen} = useStateContext()
   return (
+
     <Section>
-      <MasonryComponent />
+        {
+            drawerOpen ? (<MobileView />) : null
+          }
+
+      <h1 className="mx-auto mb-8 lg:text-7xl lg:text-start text-5xl text-center font-semibold leading-none tracking-tighter m-5 text-neutral-600">Gallery</h1>
+      <ParallaxScroll images={cats} />
     </Section>
   );
 }

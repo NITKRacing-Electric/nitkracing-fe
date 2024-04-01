@@ -6,6 +6,11 @@ import helmetLeft from "../../../../images/hero/helmet_left.png";
 import helmetFront from "../../../../images/hero/helmet_front.png";
 import helmetRight from "../../../../images/hero/helmet_right.png";
 import { Box, Container, Typography } from "@mui/material";
+import whiteLogo from "../../../../images/logo/logo_white.png";
+import { RxHamburgerMenu } from "react-icons/rx";
+import MobileView from "../../../../components/mobileview/MobileView";
+import { useStateContext } from "../../../../context";
+import { FiX } from "react-icons/fi";
 import {
   FiArrowRight,
   FiFacebook,
@@ -72,13 +77,69 @@ const Hero = ({ props }) => {
 };
 
 function MainItem() {
+  //taking the screen size
+  const [screenSize , setScreenSize] = useState(window.innerWidth)
+  const {drawerOpen , handleOpenAndClose} = useStateContext()
+
+  useEffect(() => {
+      const handleResize = () => {
+        setScreenSize(prevSize => {
+          const newSize = window.innerWidth;
+          // Perform additional actions if needed
+          // console.log(newSize);
+          return newSize;
+        });
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      // Cleanup the event listener on component unmount
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+  }, []);
+
+  //every time keeping the record of the screen size
+  console.log(screenSize)
   return (
-    <div className="heromain w-full p-0 md:p-16 relative">
-      <div className="w-3/4 mx-auto relative z-10">
+    <div className="heromain  w-full p-0 md:p-7 relative h-screen">
+      <div className="w-full mx-auto relative z-10">
         <div className="appbar overflow-hidden">
-          <MenuItems />
+
+
+                {
+                    screenSize < "431" ? (<div className="flex justify-around items-center">
+                    <img
+                    className="logo z-40 w-[100px] block"
+                    src={whiteLogo}
+                    alt="nitk racing logo"
+                    />
+                    {
+                    !drawerOpen ? ( <RxHamburgerMenu size={24} onClick={handleOpenAndClose}/>): (<FiX size={24} onClick={handleOpenAndClose}/>)
+                    }
+
+
+                </div>) :
+                        screenSize < "900" && screenSize > "430" ? (<div className="flex justify-around items-center">
+                        <img
+                        className="logo z-40 w-[100px] block"
+                        src={whiteLogo}
+                        alt="nitk racing logo"
+                        />
+                        {
+                    !drawerOpen ? ( <RxHamburgerMenu size={24} onClick={handleOpenAndClose}/>): (<FiX size={24} onClick={handleOpenAndClose}/>)
+                    }</div>) : (<MenuItems />)
+                    }
+
+
         </div>
-        <div className="wrapper bg-red-600 py-16 relative my-10">
+
+
+        {
+        drawerOpen ? (<MobileView />) : null
+        }
+        {
+          screenSize < "431" ? (<div className="wrapper  bg-red-600 py-2 relative my-10">
           <Marquee
             autoFill
             className="justify-center items-center gap-5"
@@ -92,12 +153,45 @@ function MainItem() {
             src={StarSVG}
             className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
           />
-        </div>
+        </div>) :
+          screenSize < "900" && screenSize > "430" ? (<div className="wrapper  bg-red-600 py-2 relative my-10">
+          <Marquee
+            autoFill
+            className="justify-center items-center gap-5"
+            speed={20}
+          >
+            <h1 className="text-9xl font-[outfit] text-black font-bold">
+              LIVE TO RACE
+            </h1>
+          </Marquee>
+          <img
+            src={StarSVG}
+            className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
+          />
+        </div>) : (<div className="wrapper bg-red-600 py-16 relative my-10">
+          <Marquee
+            autoFill
+            className="justify-center items-center gap-5"
+            speed={20}
+          >
+            <h1 className="text-9xl font-[outfit] text-black font-bold">
+              LIVE TO RACE
+            </h1>
+          </Marquee>
+          <img
+            src={StarSVG}
+            className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
+          />
+        </div>)
+        }
 
-        <div className="flex flex-row gap-10 links overflow-hidden">
-          <h1 className="text-5xl font-[prompt]">Explore</h1>
-          <h1 className="text-5xl font-[prompt]">Donate</h1>
-          <h1 className="text-5xl font-[prompt]">Follow</h1>
+
+
+
+        <div className="flex flex-col gap-y-4 sm:flex-row sm:gap-10 sm:links sm:overflow-hidden">
+          <h1 className="sm:text-5xl text-6xl font-[prompt]">Explore</h1>
+          <h1 className="sm:text-5xl text-6xl font-[prompt]">Donate</h1>
+          <h1 className="sm:text-5xl text-6xl font-[prompt]">Follow</h1>
         </div>
       </div>
     </div>

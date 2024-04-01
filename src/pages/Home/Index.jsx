@@ -20,12 +20,20 @@ import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { ScrollTrigger } from "gsap/all";
 import BackgroundSVG from "../../assets/background.svg";
+
+import Newsletter from "../About/sections/Newsletter/Index.jsx";
+import Intro from "../About/sections/Intro/Index.jsx";
+
 import {
   BlueGradient,
   RedGradient,
   WhiteGradient,
 } from "../../components/Gradient.jsx";
 import AbstracrSVG from "../../assets/abstract.svg";
+import { Link } from "react-router-dom";
+
+import newsletterPreviewImg from "../../assets/background/nkr_car_render.png"
+// import Newsletter from "../About/sections/Newsletter/Index.jsx";
 
 const Index = (props) => {
   const scrollRef = useRef(null);
@@ -34,32 +42,36 @@ const Index = (props) => {
   return (
     <Box ref={scrollRef}>
       <Hero />
+      <Intro />
       <About />
       <CallToAction />
       <Sponsors />
+      <NewsLetter/>
     </Box>
   );
 };
 
 function CallToAction() {
   return (
-    <div className="py-10 px-20 bg-black">
-      <div className="flex justify-between relative overflow-hidden  items-center sm:my-16 my-6 sm:px-16 px-6 sm:py-12 py-4 sm:flex-row flex-col rounded-3xl  box-shadow">
+    <div className="py-10 px-4 sm:px-20 bg-black">
+      <div className="flex justify-between relative overflow-hidden items-center my-6 sm:my-16 px-4 sm:px-16 py-4 sm:py-12 flex-col sm:flex-row rounded-3xl box-shadow">
         <RedGradient />
         <BlueGradient />
         <img
           src={AbstracrSVG}
-          className="absolute bottom-0 right-0 w-[400px] h-[400px]"
+          className="lg:absolute md:block block bottom-0 right-0 w-3/4 sm:w-[400px] h-3/4 sm:h-[400px]"
         />
         <div className="py-10">
-          <h1 className="text-6xl text-blue-200 font-semibold font-[prompt] mb-4">
+          <Link to={"/crowdfunding"}>
+            <h1 className="text-3xl sm:text-6xl text-blue-200 font-semibold font-[prompt] mb-4">
             Interested in <br />
-            Contrirbution?
-          </h1>
-          <p className="ffont-[prompt] opacity-50">
-            Help us grow into a team everyone want to work with and
-            <br />
-            understand how things work around in racing clubs
+            Contributing?
+            </h1>
+          </Link>
+
+          <p className="font-[prompt] opacity-50 text-sm sm:text-base">
+            Help us grow into a team everyone wants to work with and
+            understand how things work around in racing clubs.
           </p>
         </div>
         <div className="relative h-full"></div>
@@ -67,6 +79,38 @@ function CallToAction() {
     </div>
   );
 }
+
+
+function NewsLetter() {
+  const googleDriveLink = "https://drive.google.com/path_to_your_newsletter";
+
+  return (
+    <div className="newsletter py-10 px-4 sm:px-20 bg-black">
+      <div className="flex justify-between relative overflow-hidden items-center my-6 sm:my-16 px-4 sm:px-16 py-4 sm:py-12 flex-col sm:flex-row-reverse rounded-3xl box-shadow">
+        <RedGradient />
+        <div className="z-10 py-10 text-right">
+          <h1 className="text-3xl sm:text-6xl text-blue-200 font-semibold font-[prompt] mb-4">
+            Latest Newsletters
+          </h1>
+          <p className="font-[prompt] opacity-75 text-sm sm:text-lg mb-4">
+            Catch up with our latest insights and developments. Click to dive in!
+          </p>
+          <Link to="/newsletter" target="_blank" className="text-red-500 hover:underline">
+            Read More
+          </Link>
+        </div>
+        <div className="sm:w-1/2 w-full">
+          <img
+            src={newsletterPreviewImg}
+            alt="Newsletter"
+            className="rounded-xl opacity-30 hover:opacity-20 transition duration-300 absolute bottom-0 sm:right-0 w-3/4 sm:w-full h-3/4 sm:h-full"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 function RacingCard() {
   return (

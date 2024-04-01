@@ -7,59 +7,32 @@ import { BlueGradient, RedGradient, WhiteGradient } from "../Gradient";
 
 const SITEMAP = [
   {
-    title: "Main Menu",
+    title: "Navigation Menu",
     links: [
       {
-        head: "Alumni",
-        url: "#alumni",
-      },
-      {
         head: "Gallery",
-        url: "#gallery",
+        url: "/gallery",
       },
       {
         head: "Sponsors",
-        url: "#sponsors",
+        url: "/sponsors",
       },
       {
         head: "About",
-        url: "#about",
-      },
-      {
-        head: "Contact",
-        url: "#contact",
+        url: "/about",
       },
       {
         head: "Crowdfunding",
-        url: "#crowdfunding",
+        url: "/crowdfunding",
       },
-    ],
-  },
-  {
-    title: "Standings",
-    links: [
-      { head: "Blog", url: "#blog" },
-      { head: "Newsletter", url: "#newsletter" },
-      { head: "Free Products", url: "#free" },
-      { head: "Affiliate Program", url: "#affiliate" },
-    ],
-  },
-  {
-    title: "Gaming",
-    links: [
-      { head: "Blog", url: "#blog" },
-      { head: "Newsletter", url: "#newsletter" },
-      { head: "Free Products", url: "#free" },
-      { head: "Affiliate Program", url: "#affiliate" },
-    ],
-  },
-  {
-    title: "Leaderboard",
-    links: [
-      { head: "Blog", url: "#blog" },
-      { head: "Newsletter", url: "#newsletter" },
-      { head: "Free Products", url: "#free" },
-      { head: "Affiliate Program", url: "#affiliate" },
+      {
+        head: "Formula Student",
+        url: "/fbharat",
+      },
+      {
+        head: "News Letter",
+        url: "/newsletter",
+      },
     ],
   },
 ];
@@ -67,41 +40,67 @@ const SITEMAP = [
 const currentYear = new Date().getFullYear();
 
 const Footer = (props) => {
+
+
   return (
     <footer className="relative w-full bg-black overflow-hidden rounded-t-[60px] py-20">
       <RedGradient />
       <BlueGradient />
       <div className="mx-auto w-full max-w-7xl px-8">
-        <div className="mx-auto grid w-full grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
-          {SITEMAP.map(({ title, links }, key) => (
-            <div key={key} className="w-full">
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="mb-4 font-semibold uppercase opacity-50 text-sm font-[outfit] text-white"
-              >
-                {title}
-              </Typography>
-              <ul className="space-y-1">
-                {links.map(({ head, url }, key) => (
-                  <Typography
-                    key={key}
-                    as="li"
-                    color="blue-gray"
-                    className="font-normal text-sm font-[outfit]"
-                  >
-                    <a
-                      href={url}
-                      className="inline-block py-1 pr-2 hover:text-red-600 transition-all duration-200 font-[outfit] text-white"
+
+      <div className="mx-auto max-w-7xl px-8 w-full">
+        <div className="flex flex-col lg:flex-row justify-around gap-8 py-12">
+
+          <div className="col-span-1 lg:col-span-2">
+            {SITEMAP.map(({ title, links }, key) => (
+              <div key={key} className="mb-8">
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="mb-4 font-semibold uppercase opacity-50 text-sm font-[outfit] text-white"
+                >
+                  {title}
+                </Typography>
+                <ul className="space-y-1">
+                  {links.map(({ head, url }, key) => (
+                    <Typography
+                      key={key}
+                      as="li"
+                      color="blue-gray"
+                      className="font-normal text-sm font-[outfit]"
                     >
-                      {head}
-                    </a>
-                  </Typography>
-                ))}
-              </ul>
-            </div>
-          ))}
+                      <a
+                        href={url}
+                        className="inline-block py-1 pr-2 hover:text-red-600 transition-all duration-200 font-[outfit] text-white"
+                      >
+                        {head}
+                      </a>
+                    </Typography>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="col-span-1">
+            <Typography variant="h5" color="blue-gray" className="mb-4 font-semibold uppercase opacity-50 text-sm font-[outfit] text-white">
+              Find Us
+            </Typography>
+            <iframe
+              title="Our Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31693.835933654306!2d75.80972499770734!3d12.990053439227812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a4c37bf488f%3A0xf03c0b849a60af1d!2sNITK%20Surathkal!5e0!3m2!1sen!2sin!4v1649586444148!5m2!1sen!2sin"
+              width="1000"
+              height="450"
+              // style={{ border:0, width: '800px', height: '150px' }}
+              className="rounded-lg w-[178px] lg:w-[800px] h-[150px]"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
+      </div>
+
 
         <div className="flex w-full flex-col items-center justify-center border-t border-gray-300 py-4 md:flex-row md:justify-between">
           <div>
@@ -115,7 +114,7 @@ const Footer = (props) => {
           </div>
           <Typography
             variant="small"
-            className="mb-4 text-center font-normal text-gray-900 md:mb-0"
+            className="mb-4 text-center font-normal text-gray-100 md:mb-0"
           >
             &copy; {currentYear}{" "}
             <a
@@ -180,7 +179,9 @@ const Footer = (props) => {
             </Typography>
           </div>
         </div>
+
       </div>
+
     </footer>
   );
 };

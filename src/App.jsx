@@ -20,9 +20,13 @@ import {
   GalleryPage,
   SponsorsPage,
   TeamPage,
+  AchievementPage,
+  FormulaBharatPage,
 } from "./pages";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger.js";
+import NewsLetterPage from "./pages/About/sections/Newsletter/Index.jsx";
+
 
 const queryClient = new QueryClient();
 
@@ -107,6 +111,26 @@ function App() {
 
                 <CrowdfundingPage />
               </Route>
+
+              <Route exact path="/achievements">
+                <StaticHeader />
+
+                <AchievementPage />
+              </Route>
+
+              <Route exact path="/fbharat">
+                <StaticHeader />
+
+                <FormulaBharatPage />
+              </Route>
+
+              <Route exact path="/newsletter">
+                <StaticHeader />
+
+                <NewsLetterPage />
+              </Route>
+
+
               <Route exact path="/alumni">
                 <StaticHeader />
 

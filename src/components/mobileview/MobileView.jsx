@@ -7,7 +7,7 @@ const MobileView = ()=>{
     const path = location.pathname
     const {handleOpenAndClose} = useStateContext()
     return (
-        <div className=" mb-24 w-screen">
+        <div className=" mb-24 w-screen md:h-[700px]">
             <div className={`absolute top-[69px] bottom-0 ${path==="/" ? ('left-[-15px]') : ('left-[0px]')} right-0 z-50 text-white bg-black w-screen h-screen`}>
                 <ul className="flex flex-col items-center gap-y-16 p-11 font-bold text-2xl">
                     <Link to="/"><li className="hover:text-red-500 ease-in duration-300" onClick={handleOpenAndClose}>Home</li></Link>

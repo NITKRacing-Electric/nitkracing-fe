@@ -5,11 +5,17 @@ import { Section } from "../components/Section";
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "../components/ui/reveal";
 import { FiUpload } from "react-icons/fi";
+import { useStateContext } from "../context";
+import MobileView from "../components/mobileview/MobileView";
 
 function AchievementPage() {
+  const {drawerOpen} = useStateContext()
 
   return (
     <div>
+      {
+        drawerOpen ? (<MobileView />) : null
+      }
 
 
       <div className=" bg-red-700 py-10 pt-80 pl-4 md:pr-10">

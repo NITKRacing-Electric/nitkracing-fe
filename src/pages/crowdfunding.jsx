@@ -6,6 +6,7 @@ import Marquee from "react-fast-marquee";
 import { useStateContext } from "../context";
 import { drawer } from "@material-tailwind/react";
 import MobileView from "../components/mobileview/MobileView"
+import { Link } from 'react-router-dom';
 
 const features = [
   {
@@ -69,17 +70,18 @@ function CrowdfundingPage() {
       </Section>
       <div className="bg-white text-black py-14">
         <div className="w-fit m-auto relative">
-          <img
+          {/* <img
             className="w-5 sm:w-10 rotate-45 -top-10 -right-10 sm:-top-20 sm:-right-20 absolute"
             src={WheatSVG}
-          />
-          <img
+          /> */}
+          {/* <img
             className="w-5 sm:w-5 -rotate-45 bottom-0 right-[208px] sm:bottom-1 sm:-right-0 absolute"
             src={WheatSVG}
-          />
+          /> */}
           <h1 className="text-3xl sm:text-5xl leading-loose text-center">
             <HoverEffect>Achievements</HoverEffect>
           </h1>
+          
         </div>
         <div className="pt-20 grid grid-cols-2 pl-3 pr-3 gap-2 sm:flex sm:flex-row sm:gap-4 sm:justify-center">
           <Stat />
@@ -88,6 +90,11 @@ function CrowdfundingPage() {
           <Stat />
 
           <Stat />
+        </div>
+        <div className="mt-16  text-2xl flex justify-center items-center bg-red-100 p-4  hover:cursor-pointer">
+          <div>
+            <Link to= '/achievements'>Want to know more about our Achievements➡️</Link>
+          </div>
         </div>
       </div>
       <Section>

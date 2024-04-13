@@ -9,9 +9,12 @@ import { TypewriterEffectSmooth } from "../components/ui/typewriter";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d";
 import car from '../assets/background/nkr_car_render.png'
 import { Tabs } from '../components/ui/tabs';
+import { useStateContext } from "../context";
+import MobileView from "../components/mobileview/MobileView";
 
 
 function FormulaBharatPage() {
+  const {drawerOpen} = useStateContext()
     const words = [
       {
         text: "Formula",
@@ -24,6 +27,10 @@ function FormulaBharatPage() {
     ];
   return (
     <div>
+      {
+            drawerOpen ? (<MobileView />) : null
+      }
+
       <div className="bg-[#0a1621] py-10 pt-40 pl-4 md:pl-10 lg:px-20 xl:px-32">
       <div className="text-center text-xl md:text-6xl lg:text-8xl font-[outfit] font-semibold text-white flex justify-center items-center">
         <div className="hidden lg:block">

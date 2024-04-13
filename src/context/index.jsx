@@ -50,9 +50,15 @@ export const StateContextProvider = ({ children }) => {
     updateAboutData(await getAboutData());
     updateIsLoading(false);
   };
+  
+  const print = ()=>{
+    console.log(homeData)
+    console.log(aboutData)
+  }
 
   useEffect(() => {
       fetchData();
+      print()
   }, []);
 
   const value = {

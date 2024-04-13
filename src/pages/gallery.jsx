@@ -32,7 +32,7 @@ function GalleryPage() {
     <Section>
         {
             drawerOpen ? (<MobileView />) : null
-          }
+        }
 
       <h1 className="mx-auto mb-8 lg:text-7xl lg:text-start text-5xl text-center font-semibold leading-none tracking-tighter m-5 text-neutral-600">Gallery</h1>
       <ParallaxScroll images={cats} />

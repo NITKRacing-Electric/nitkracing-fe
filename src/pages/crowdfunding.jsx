@@ -7,6 +7,8 @@ import { useStateContext } from "../context";
 import { drawer } from "@material-tailwind/react";
 import MobileView from "../components/mobileview/MobileView"
 import { Link } from 'react-router-dom';
+import { GiCheckeredFlag } from "react-icons/gi";
+import CustomizedTables from "../components/utils/Table"
 
 const features = [
   {
@@ -40,6 +42,10 @@ const tiers = [
 ];
 
 function CrowdfundingPage() {
+  const redirectToForm = ()=>{
+    const URL = "https://forms.gle/QiktxhCNgMQqzUqH6"
+    window.open(URL, '_blank');
+  }
   const {drawerOpen} = useStateContext()
   return (
     
@@ -101,7 +107,7 @@ function CrowdfundingPage() {
         <h1 className="text-5xl leading-loose text-center">
           <HoverEffect>Sponsorship</HoverEffect>
         </h1>
-        <Table features={features}>
+        {/* <Table features={features}>
           <Tier
             idx={0}
             title={"Gold"}
@@ -120,7 +126,8 @@ function CrowdfundingPage() {
             pledge={"210 USD"}
             checkedFeatures={[1, 2]}
           />
-        </Table>
+        </Table> */}
+        <CustomizedTables />
 
         <div className="py-10">
           <h1 className="text-5xl leading-loose text-center">
@@ -161,6 +168,22 @@ function CrowdfundingPage() {
             <p className="px-2 text-lg mt-3">Dhruv yadav</p>
           </Marquee>
         </div>
+
+        <div className="flex flex-col justify-center items-center mt-9">
+            <p className="text-2xl font-bold bg-red-700 pt-4 pb-4 whitespace-no-wrap w-full text-center"
+            >
+            "Interested in collaboration? Tell us more by filling out our funding form."
+            </p>
+
+          
+          <div className="mt-5">
+            <button className="bg-red-700 p-4  text-white hover:bg-red-500 transition ease-in-out duration-300 font-bold text-2xl  
+            " onClick={redirectToForm}>
+              Funding Form
+            </button>
+          </div>
+        </div>
+        
       </Section>
     </div>
   );

@@ -17,9 +17,9 @@ const About = (props) => {
         {
             drawerOpen ? (<MobileView />) : null
         }
-       {/* <Intro /> */}
-       {/* <Achivements /> */}
-       {/* <Newsletter/> */}
+       <Intro />
+       <Achivements />
+       <Newsletter/>
     </div>
   );
 };

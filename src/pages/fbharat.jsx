@@ -49,23 +49,23 @@ function FormulaBharatPage() {
           During these events students must present their knowledge of the car and engineering concepts to a panel of judges. At most events, there are multiple rounds of questioning, with increasingly difficult questions and longer sessions. The primary round involves all the teams, and focuses on fundamental knowledge of vehicle.
         </p>
 
-        <div className="flex flex-wrap justify-center items-center mt-10">
-        <img
-          // src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          src={car}
-          height="2000"
-          width="1000"
-          className="h-auto w-full max-w-xs md:max-w-sm lg:max-w-md rounded-xl group-hover:card:shadow-xl mx-2"
-          alt="thumbnail"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          // src={car}
-          height="2000"
-          width="1000"
-          className="h-auto w-full max-w-xs md:max-w-sm lg:max-w-md rounded-xl group-hover:card:shadow-xl mx-2"
-          alt="thumbnail"
-        />
+        <div className="flex flex-col gap-7 sm:flex sm:flex-wrap sm:justify-center sm:items-center mt-10">
+          <img
+            // src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src={car}
+            height="2000"
+            width="1000"
+            className="h-auto w-full max-w-xs md:max-w-sm lg:max-w-md rounded-xl group-hover:card:shadow-xl mx-2"
+            alt="thumbnail"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            // src={car}
+            height="2000"
+            width="1000"
+            className="h-auto w-full max-w-xs md:max-w-sm lg:max-w-md rounded-xl group-hover:card:shadow-xl mx-2"
+            alt="thumbnail"
+          />
         </div>
         </div>
       </div>

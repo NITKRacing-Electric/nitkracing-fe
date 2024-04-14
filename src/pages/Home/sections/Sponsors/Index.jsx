@@ -20,7 +20,7 @@ import Logo from "../../../../images/logo/logo_white.png";
 
 const Sponsors = () => {
   return (
-    <Section className="px-20 mb-20">
+    <Section className="px-10 sm:px-20 mb-20">
       <div className="flex justify-center items-center gap-5 mb-10">
         <img src={Logo} className="w-[80px]" />
         <div className="h-[40px] w-[1px] bg-white" />

@@ -7,14 +7,22 @@ import { CanvasRevealEffect } from "../components/ui/reveal";
 import { FiUpload } from "react-icons/fi";
 import { TypewriterEffectSmooth } from "../components/ui/typewriter";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d";
-import car from '../assets/background/nkr_car_render.png'
+import car from '../images/fbharat/WhatsApp Image 2024-03-29 at 21.22.13_f2b0130b.jpg'
 import { Tabs } from '../components/ui/tabs';
 import { useStateContext } from "../context";
 import MobileView from "../components/mobileview/MobileView";
+import MediaCard from "../components/utils/Card";
+import i1 from '../images/fbharat/WhatsApp Image 2024-03-29 at 21.22.13_dc4a3490.jpg'
+import i2 from '../images/fbharat/WhatsApp Image 2024-03-29 at 21.22.13_f2b0130b.jpg'
+import { urlFor } from "./sponsors";
+import carImage from '../images/fbharat/WhatsApp Image 2024-03-29 at 21.22.13_dc4a3490.jpg'
+import FCard from "../components/utils/FCard";
 
 
 function FormulaBharatPage() {
   const {drawerOpen} = useStateContext()
+  
+
     const words = [
       {
         text: "Formula",
@@ -49,7 +57,13 @@ function FormulaBharatPage() {
           During these events students must present their knowledge of the car and engineering concepts to a panel of judges. At most events, there are multiple rounds of questioning, with increasingly difficult questions and longer sessions. The primary round involves all the teams, and focuses on fundamental knowledge of vehicle.
         </p>
 
-        <div className="flex flex-col gap-7 sm:flex sm:flex-wrap sm:justify-center sm:items-center mt-10">
+        <div className="mt-11 flex gap-6">
+          <img src={car} alt="car image" className="bg-cover bg-no-repeat bg-center w-[500px] h-[300px]"/>
+          <img src={carImage} alt="car image" className="bg-cover bg-no-repeat bg-center w-[500px] h-[300px]"/>
+
+        </div>
+
+        {/* <div className="flex flex-col gap-7 sm:flex sm:flex-wrap sm:justify-center sm:items-center mt-10">
           <img
             // src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             src={car}
@@ -66,9 +80,37 @@ function FormulaBharatPage() {
             className="h-auto w-full max-w-xs md:max-w-sm lg:max-w-md rounded-xl group-hover:card:shadow-xl mx-2"
             alt="thumbnail"
           />
+        </div> */}
+        <div className="mt-11">
+          <div className="text-5xl text-white font-semibold text-center">Dynamic Events</div>
+          <div className="grid grid-cols-5 gap-6 mt-6">
+            <FCard title={'Acceleration'} points={'75'} />
+            <FCard title={'Autocross'} points={'100'} />
+            <FCard title={'Endurance'} points={'325'} />
+            <FCard title={'Efficiency'} points={'100'} />
+            <FCard title={'Skid-Pad'} points={'75'} />
+            
+          </div>
+          
         </div>
+        
+        <div className="mt-11">
+          <div className="text-5xl text-white font-semibold text-center">Static Events</div>
+
+          <div className="grid grid-cols-3 gap-6 mt-6">
+            <FCard title={'Cost and Manufacturing'} points={'100'} />
+            <FCard title={'Business Plan Presentation'} points={'75'} />
+            <FCard title={'Engineering Design'} points={'150'} />
+            
+          
+        </div>
+          
+        </div>
+
+        
         </div>
       </div>
+      
 
 
       <Section>

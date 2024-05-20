@@ -65,12 +65,12 @@ function CallToAction() {
           className="lg:absolute md:block block bottom-0 right-0 w-3/4 sm:w-[400px] h-3/4 sm:h-[400px]"
         />
         <div className="py-10">
-          <Link to={"/crowdfunding"}>
+          
             <h1 className="text-3xl sm:text-6xl text-blue-200 font-semibold font-[prompt] mb-4">
               Interested in <br />
               Contributing?
             </h1>
-          </Link>
+          
 
           <p className="opacity-50 text-sm sm:text-base whitespace-nowrap">
             Help us grow into a team everyone wants to work with and <br />

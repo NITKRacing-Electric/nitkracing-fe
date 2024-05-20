@@ -177,7 +177,7 @@ export const StaticHeader = ({ ...props }) => {
 
 export function MenuItems() {
   return (
-    <div className="flex flex-row items-center gap-10 justify-between">
+    <div className="flex flex-row items-center gap-10 justify-between max-w-[1500px] mx-auto">
       <StyledLink to="/"  label="Home"/>
       <StyledLink to="/gallery" label="Gallery" />
       <StyledLink to="/sponsors" label="Sponsors" />
@@ -190,7 +190,8 @@ export function MenuItems() {
       </a>
       <StyledLink to="/fbharat" label="Formula Student" />
       <StyledLink to="/achievements" label="Achievements" />
-      <StyledLink to="/crowdfunding" label="Crowdfunding" />
+      <StyledLink to="/about" label="About" />
+      {/* <StyledLink to="/crowdfunding" label="Crowdfunding" /> */}
     </div>
   );
 }

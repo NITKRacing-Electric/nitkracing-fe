@@ -10,7 +10,23 @@ import whiteLogo from "../../../../images/logo/logo_white.png";
 import { RxHamburgerMenu } from "react-icons/rx";
 import MobileView from "../../../../components/mobileview/MobileView";
 import { useStateContext } from "../../../../context";
+import { Link } from 'react-router-dom';
 import { FiX } from "react-icons/fi";
+import blur from '../../../../images/hero/blur.jpg'
+import i1 from '../../../../images/hero/DSC03192.JPG'
+import i2 from '../../../../images/hero/DSC03276.JPG'
+import i3 from '../../../../images/hero/DSC03309.JPG'
+import i4 from '../../../../images/hero/DSC03314.JPG'
+import i5 from '../../../../images/hero/DSC03321.JPG'
+import i6 from '../../../../images/hero/DSC03347.JPG'
+import i7 from '../../../../images/hero/DSC03422.JPG'
+import i8 from '../../../../images/hero/DSC03426.JPG'
+import i9 from '../../../../images/hero/DSC03427.JPG'
+import i10 from '../../../../images/hero/DSC03433.JPG'
+import i11 from '../../../../images/hero/DSC03440.JPG'
+import i12 from '../../../../images/hero/DSC04277.JPG'
+import i13 from '../../../../images/hero/DSC04280.JPG'
+
 import {
   FiArrowRight,
   FiFacebook,
@@ -28,6 +44,7 @@ import Marquee from "react-fast-marquee";
 import DividerSVG from "../../../../assets/divider.svg";
 import StarSVG from "../../../../assets/star.svg";
 import { getHomeData } from "../../../../services/HomeDataAPI"; //sponsors from CMS
+import { div } from "three/examples/jsm/nodes/Nodes.js";
 
 const DUMMY_DATA = [
   {
@@ -65,12 +82,10 @@ const Hero = ({ props }) => {
         <div className="absolute top-0 left-0 -z-0">
           <FlowFieldCanvas />
         </div>
-        <div className="trigger">
-          <Container maxWidth="xl">
-            <Box className={properties.wrapper}>
-              <MainItem />
-            </Box>
-          </Container>
+        <div>
+          <div>
+            <MainItem />
+          </div>
         </div>
       </div>
     </section>
@@ -78,6 +93,7 @@ const Hero = ({ props }) => {
 };
 
 function MainItem() {
+  
   //taking the screen size
   const [screenSize, setScreenSize] = useState(window.innerWidth);
   const { drawerOpen, handleOpenAndClose } = useStateContext();
@@ -101,7 +117,7 @@ function MainItem() {
   }, []);
 
   return (
-    <div className="heromain p-0 md:p-7 relative h-screen w-full md:w-3/4 mx-auto">
+    <div className="heromain p-0 md:p-7 relative h-screen  w-full pl-32 pr-32">
       <div className="w-full mx-auto relative z-10">
         <div className="appbar overflow-hidden">
           {screenSize < "431" ? (
@@ -131,12 +147,53 @@ function MainItem() {
               )}
             </div>
           ) : (
-            <MenuItems />
+            <div className="pl-36 pr-36"><MenuItems /></div>
+            
+           
           )}
         </div>
 
         {drawerOpen ? <MobileView /> : null}
-        {screenSize < "431" ? (
+        {/* new hero section  */}
+        <div className="mt-11 2xl:mt-32 mx-auto flex justify-center items-center gap-32">
+          {/* left section  */}
+          <div className="flex flex-col gap-3 max-w-[500px]">
+            <span className="text-red-500 font-semibold text-xl">Welcome to</span>
+            <span className="text-8xl whitespace-nowrap font-bold">NITK Racing</span>
+            <span className="text-red-500 font-semibold text-3xl">#Live To Race</span>
+            <div className="mt-4">
+            <Link to='/achievements'><button className="bg-red-700 text-white pl-4 pr-4 pt-2 pb-2 font-bold text-2xl hover:opacity-75 duration-300 ease-in-out">Achievements</button></Link>
+            </div>
+          </div>
+          
+          {/* right section  */}
+          <div className="grid grid-cols-4 gap-2">
+            <img src={i8} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px] "/>
+            <img src={i7} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
+            <img src={i7} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px] "/>
+            <img src={i9} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
+            <img src={i10} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
+            <img src={i11} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
+            <img src={i12} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
+            <img src={i13} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
+            <img src={i13} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
+            <img src={i12} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
+            <img src={i9} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
+            <img src={i8} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
+
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+  );
+}
+
+export default Hero;
+
+
+{/* {screenSize < "431" ? (
           <div className="wrapper bg-red-600 py-2 relative my-10">
             <Marquee
               autoFill
@@ -184,16 +241,12 @@ function MainItem() {
               className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
             />
           </div>
-        )}
+        )} */}
 
-        <div className="flex flex-col gap-y-4 sm:flex-row sm:gap-10 sm:links sm:overflow-hidden">
+        {/* <div className="flex flex-col gap-y-4 sm:flex-row sm:gap-10 sm:links sm:overflow-hidden">
           <h1 className="sm:text-5xl text-6xl font-[prompt]">Explore</h1>
           <h1 className="sm:text-5xl text-6xl font-[prompt]">Donate</h1>
           <h1 className="sm:text-5xl text-6xl font-[prompt]">Follow</h1>
-        </div>
-      </div>
-    </div>
-  );
-}
+        </div> */}
 
-export default Hero;
+

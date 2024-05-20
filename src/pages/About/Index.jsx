@@ -15,7 +15,7 @@ const About = (props) => {
   return (
     <div>
         {
-            drawerOpen ? (<MobileView />) : null
+            props.drawerOpen ? (<MobileView />) : null
         }
        <Intro />
        <Achivements />

@@ -12,6 +12,11 @@ module.exports = {
   theme: {
 
     extend: {
+      boxShadow: {
+        'custom-gray': '0 4px 6px rgba(128, 128, 128, 0.5)', // Customize as needed
+        'custom-red': '0 0 40px 5px rgba(255, 0, 0, 0.5)', // Example of a custom red shadow
+        'dark-red':'0 0 80px 20px rgba(255, 0, 0, 0.5)',
+      },
       animation: {
           aurora: "aurora 60s linear infinite",
         scroll:

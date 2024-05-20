@@ -3,6 +3,11 @@ import { motion } from "framer-motion";
 import { AuroraBackground } from "../../../../components/ui/aurora-bg";
 import { CardStack } from "../../../../components/ui/card-stack";
 import { useStateContext } from "../../../../context";
+import firstImg from '../../../../images/we_are_nr/DSC03035.JPG'
+import secondImg from '../../../../images/we_are_nr/DSC03170.JPG'
+import thirdImg from '../../../../images/we_are_nr/DSC03192.JPG'
+import fourthImg from '../../../../images/we_are_nr/DSC03423.JPG'
+import fifthImg from '../../../../images/we_are_nr/DSC03433.JPG'
 
 const Intro = () => {
   const { isLoading, homeData } = useStateContext();
@@ -16,10 +21,10 @@ const Intro = () => {
       designation: "Circuit Design",
       content: (
         <img
-          src="https://source.unsplash.com/featured/?racecar,track"
+          src={firstImg}
           alt="Race Track"
           height={10}
-          className="object-cover w-full h-[200px] rounded-t-3xl rounded-b-3xl"
+          className="object-cover w-full h-[205px] rounded-t-xl rounded-b-xl"
         />
       ),
     },
@@ -29,7 +34,7 @@ const Intro = () => {
       designation: "Fastest Lap",
       content: (
         <img
-          src="https://source.unsplash.com/featured/?racecar,speed"
+          src={secondImg}
           alt="Speed Demon"
           height={10}
           className="object-cover w-full  h-[200px] rounded-t-3xl rounded-b-3xl"
@@ -42,7 +47,33 @@ const Intro = () => {
       designation: "Team Strategy",
       content: (
         <img
-          src="https://source.unsplash.com/featured/?racecar,pitstop"
+          src={thirdImg}
+          alt="Pit Stop"
+          height={10}
+          className="object-cover w-full h-[200px] rounded-t-3xl rounded-b-3xl"
+        />
+      ),
+    },
+    {
+      id: 3,
+      name: "Pit Stop",
+      designation: "Team Strategy",
+      content: (
+        <img
+          src={fourthImg}
+          alt="Pit Stop"
+          height={10}
+          className="object-cover w-full h-[200px] rounded-t-3xl rounded-b-3xl"
+        />
+      ),
+    },
+    {
+      id: 4,
+      name: "Pit Stop",
+      designation: "Team Strategy",
+      content: (
+        <img
+          src={fifthImg}
           alt="Pit Stop"
           height={10}
           className="object-cover w-full h-[200px] rounded-t-3xl rounded-b-3xl"

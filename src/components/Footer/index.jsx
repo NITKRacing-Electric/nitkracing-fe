@@ -21,10 +21,7 @@ const SITEMAP = [
         head: "About",
         url: "/about",
       },
-      {
-        head: "Crowdfunding",
-        url: "/crowdfunding",
-      },
+      
       {
         head: "Formula Student",
         url: "/fbharat",

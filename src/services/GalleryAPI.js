@@ -5,10 +5,7 @@ import client from '../config/sanity'; // Update the path based on your project 
 export async function getGalleryItems() {
     try {
         // Query to fetch gallery items
-        const query = `*[_type == 'gallery'] {
-      title,
-      images
-    }`;
+        const query = `*[_type == 'gallery']`;
 
         // Execute the query using the Sanity client
         const result = await client.fetch(query);

@@ -28,8 +28,9 @@ export function AnimatedPinDemo(sponsor) {
               Thanking {sponsor.name} for trusting us
             </span>
           </div>
-          <div className="flex flex-1 w-full rounded-lg mt-4 " >
-            <img src={urlFor(sponsor.picture)} alt="" />
+          <div className="flex flex-1 max-w-full rounded-lg mt-4 " >
+          {/* {urlFor(sponsor.picture)} */}
+            <img src={urlFor(sponsor.picture)} alt="" className="w-full h-auto"/>
           </div>
         </div>
       </PinContainer>
@@ -45,6 +46,7 @@ export function urlFor(source) {
 
 import { getSponsors } from "../services/SponsorsAPI"; //sponsors from CMS
 import { RedGradient, WhiteGradient } from "../components/Gradient";
+import { div } from "three/examples/jsm/nodes/Nodes.js";
 
 function SponsorsPage() {
   return (
@@ -60,6 +62,7 @@ function Sponsor() {
   const { drawerOpen } = useStateContext();
 
   const [sponsors, updateSponsors] = useState([]);
+  const [tierType , setTierType] = useState()
 
   useEffect(() => {
     getSponsors().then((data) => {
@@ -72,6 +75,21 @@ function Sponsor() {
   }, []);
 
   if (!sponsors) return <p>Loading...</p>;
+  const silverTier = sponsors?.filter((sponsor)=>(
+    sponsor.tier == 'silver'
+  ))
+
+  const goldTier = sponsors?.filter((sponsor)=>(
+    sponsor.tier == 'gold'
+  ))
+
+  const platinumTier = sponsors?.filter((sponsor)=>(
+    sponsor.tier == 'platinum'
+  ))
+
+  console.log('gold' , goldTier)
+  console.log('silver' , silverTier)
+  console.log('platinum' , platinumTier)
 
   const tier_list = ["Silver", "Gold", "Platinum"];
   const tierColorClass = {
@@ -86,7 +104,8 @@ function Sponsor() {
       <div class="relative items-center w-full py-12">
         <div className=" w-full gap-6 ">
           {tier_list.map((tier) => (
-            <div className="">
+            
+              <div className="">
               <h1
                 className={`mx-auto mb-8 lg:text-7xl lg:text-start text-5xl text-center font-semibold leading-none tracking-tighter m-5 ${
                   tierColorClass[tier.toLowerCase()] || "text-neutral-600"
@@ -96,25 +115,23 @@ function Sponsor() {
               </h1>
 
               <div className="grid grid-col lg:grid-cols-3 grid-cols-1 items-center gap-4 mx-auto">
-                {sponsors &&
-                  sponsors.map((sponsor) => (
-                    // <div className="w-[200px] h-[200px] rounded-md flex justify-center bg-gray-600  overflow-hidden items-center mx-auto p-2">
-                    //   <img width="100%" src={urlFor(sponsor.picture)} />
-                    // </div>
-                    // card from mui
-                    // <MediaCard sponsor={sponsor}/>
-                    // <PinContainer
-                    // image={urlFor(sponsor.picture)}
-                    // title={sponsor.name} // Optional title for hover effect
-                    // href="https://www.example.com"  // Optional link URL
-                    // children={
-                    //   <div>hi hi hi hi </div>
-                    // }/>
+                {
+                  tier === "Silver" ? silverTier.map((sponsor)=>(
                     AnimatedPinDemo(sponsor)
-                  ))}
+                  )) : (tier === 'Gold' ? goldTier.map((sponsor)=>(
+                    AnimatedPinDemo(sponsor)
+                  )) : platinumTier.map((sponsor)=>(
+                    AnimatedPinDemo(sponsor)
+                  )))
+                }
+
+
+
+                  
               </div>
             </div>
-          ))}
+            
+))}
         </div>
       </div>
     </section>
@@ -122,3 +139,16 @@ function Sponsor() {
 }
 
 export default SponsorsPage;
+
+
+// { tierType == 'Silver' && silverTier.map((sponsor)=>(
+//   AnimatedPinDemo(sponsor)
+// ))}
+
+// { tierType == 'Gold' && goldTier.map((sponsor)=>(
+//   AnimatedPinDemo(sponsor)
+// ))}
+
+// { tierType == 'Platinum' && platinumTier.map((sponsor)=>(
+//   AnimatedPinDemo(sponsor)
+// ))}

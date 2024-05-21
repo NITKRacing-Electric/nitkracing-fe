@@ -5,8 +5,9 @@ import Header, { StaticHeader } from "../components/Header";
 import {ParallaxScroll} from '../components/ui/parallax-scroll'
 import MobileView from "../components/mobileview/MobileView";
 import { useStateContext } from "../context";
+import { urlFor } from "./sponsors";
 
-const cats = [
+const images = [
   "https://cdn.pixabay.com/photo/2017/06/12/19/02/cat-2396473__480.jpg",
   "https://cdn.pixabay.com/photo/2015/06/03/13/13/cats-796437__480.jpg",
   "https://cdn.pixabay.com/photo/2012/11/26/13/58/cat-67345__480.jpg",
@@ -27,6 +28,21 @@ const cats = [
 
 function GalleryPage() {
     const {drawerOpen} = useStateContext()
+    const {isLoading , galleryData} = useStateContext()
+    if(isLoading){
+      return <div>...Loading...</div>
+    }
+    const testimonials = galleryData?.map((item)=>({
+      imageURL: urlFor(item.image)
+    }))
+    console.log(testimonials)
+
+    const testingData = testimonials.map((image)=>(
+      image.imageURL
+    ))
+
+    console.log(testingData)
+    
   return (
 
     <Section>
@@ -34,8 +50,8 @@ function GalleryPage() {
             drawerOpen ? (<MobileView />) : null
         }
 
-      <h1 className="mx-auto mb-8 lg:text-7xl lg:text-start text-5xl text-center font-semibold leading-none tracking-tighter m-5 text-neutral-600">Gallery</h1>
-      <ParallaxScroll images={cats} />
+      <h1 className="mx-auto  lg:text-7xl  text-5xl text-center font-semibold tracking-tighter text-neutral-600">Gallery</h1>
+       <ParallaxScroll images={images} />
     </Section>
   );
 }

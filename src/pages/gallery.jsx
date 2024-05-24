@@ -32,16 +32,12 @@ function GalleryPage() {
     if(isLoading){
       return <div>...Loading...</div>
     }
-    const testimonials = galleryData?.map((item)=>({
-      imageURL: urlFor(item.image)
-    }))
-    console.log(testimonials)
+    const testimonials = galleryData?.map((item)=> urlFor(item.image))
+    console.log('test:' , testimonials)
 
-    const testingData = testimonials.map((image)=>(
-      image.imageURL
-    ))
+    // const testingData = testimonials.map((image)=> urlFor(image.image))
 
-    console.log(testingData)
+    // console.log('data:',testingData)
     
   return (
 
@@ -50,7 +46,7 @@ function GalleryPage() {
             drawerOpen ? (<MobileView />) : null
         }
 
-      <h1 className="mx-auto  lg:text-7xl  text-5xl text-center font-semibold tracking-tighter text-neutral-600">Gallery</h1>
+      <h1 className="mx-auto  lg:text-7xl mt-11 text-5xl text-center font-semibold tracking-tighter text-neutral-600">Gallery</h1>
        <ParallaxScroll images={images} />
     </Section>
   );

@@ -22,12 +22,12 @@ export default function TimelineComp() {
     <Timeline position="alternate">
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineDot />
+          <TimelineDot color="error" />
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent sx={{color:'white' }}>
             <div className=''>
-                <span className='text-white font-bold text-2xl'>
+                <span className='text-white font-bold text-lg sm:text-2xl'>
                     Achievement <span className='text-red-700'>01</span>
                 </span>
                 {isLoading ? (<div>...Loading...</div>) : (
@@ -49,12 +49,12 @@ export default function TimelineComp() {
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineDot />
+          <TimelineDot color="error" />
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent sx={{color:'white'}}>
         <div className=''>
-                <span className='text-white font-bold text-2xl'>
+                <span className='text-white font-bold text-lg sm:text-2xl'>
                     Achievement <span className='text-red-700'>02</span>
                 </span>
                 {isLoading ? (<div>...Loading...</div>) : (
@@ -76,12 +76,12 @@ export default function TimelineComp() {
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineDot />
+          <TimelineDot color="error" />
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent sx={{color:'white'}}>
         <div className=''>
-                <span className='text-white font-bold text-2xl'>
+                <span className='text-white font-bold text-lg sm:text-2xl'>
                     Achievement <span className='text-red-700'>03</span>
                 </span>
                 {isLoading ? (<div>...Loading...</div>) : (
@@ -103,13 +103,13 @@ export default function TimelineComp() {
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineDot />
+          <TimelineDot color="error" />
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent sx={{color:'white'}}>
         <div className=''>
-                <span className='text-white font-bold text-2xl'>
-                    Achievement <span className='text-red-700'>04</span>
+                <span className='text-white font-bold text-lg sm:text-2xl'>
+                    Achievement <span className='text-red-700 lg:text-lg text-xl'>04</span>
                 </span>
                 {isLoading ? (<div>...Loading...</div>) : (
                     <Card title={achievementsData[3].description} icon={<AceternityIcon />} upText={achievementsData[3]?.title}>
@@ -130,15 +130,16 @@ export default function TimelineComp() {
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineDot />
+          <TimelineDot color="error" />
         </TimelineSeparator>
         <TimelineContent sx={{color:'white'}}>
         <div className=''>
-                <span className='text-white font-bold text-2xl'>
+                <span className='text-white font-bold text-lg sm:text-2xl'>
                     Achievement <span className='text-red-700'>05</span>
                 </span>
                 {isLoading ? (<div>...Loading...</div>) : (
-                    <Card title={achievementsData[4].description} icon={<AceternityIcon />} upText={achievementsData[4]?.title}>
+                    <Card title={achievementsData[4].description} icon={<AceternityIcon />} upText={achievementsData[4]?.title}
+                    >
                     <CanvasRevealEffect
                       animationSpeed={3}
                       containerClassName="bg-black"
@@ -170,7 +171,7 @@ const Card = ({
       <div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="border border-white/[0.1] mt-11 shadow-custom-red hover:shadow-dark-red duration-300 ease-in-out group/canvas-card flex items-center justify-center dark:border-white/[0.1]  max-w-sm w-full mx-auto p-4 relative h-[25rem]"
+        className="border border-white/[0.1] mt-11 shadow-custom-red hover:shadow-dark-red duration-300 ease-in-out group/canvas-card flex items-center justify-center dark:border-white/[0.1] max-w-20 sm:max-w-sm w-full mx-auto p-4 relative h-[25rem]"
       >
         <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
         <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />

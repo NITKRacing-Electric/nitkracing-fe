@@ -43,7 +43,15 @@ a {
   background: linear-gradient(90deg, #f4c4f3 0%, #ff0000 100%);
   filter: blur(900px);
 }
-
+.text-outline-only {
+  -webkit-text-stroke-fill-color: transparent;
+  -webkit-text-stroke-width: 1px yellow; /* For better support in WebKit browsers */
+  text-shadow:
+    1px 1px 0 yellow,
+    -1px -1px 0 yellow,
+    1px -1px 0 yellow,
+    -1px 1px 0 yellow;
+}
 .white__gradient {
   background: rgba(255, 255, 255, 0.6);
   filter: blur(750px);

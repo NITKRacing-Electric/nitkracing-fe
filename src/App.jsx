@@ -14,7 +14,7 @@ import useGsap from "./hooks/useGsap.js";
 import Lenis from "@studio-freight/lenis";
 import { MouseCircle, StyledDrawer } from "./components/index.js";
 import { StateContextProvider, useStateContext } from "./context/index.jsx";
-import Random from "./pages/Random.jsx";
+
 import {
   ContactPage,
   CrowdfundingPage,
@@ -135,11 +135,7 @@ function App() {
 
                 <About />
               </Route>
-              <Route exact path="/random">
-                <Random />
-
-                <About />
-              </Route>
+             
             </Switch>
 
             <Footer />

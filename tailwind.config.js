@@ -12,10 +12,21 @@ module.exports = {
   theme: {
 
     extend: {
+      screens: {
+        'ml': '410px', // Custom breakpoint named 2xl
+      },
+      textShadow: {
+        'yellow-outline': '0 0 2px yellow, 0 0 5px yellow',
+      },
+      fontSize: {
+        'tiny': '0.625rem', // 10px
+        'huge': '15rem',     
+        'medium': '12rem',     
+      },
       boxShadow: {
         'custom-gray': '0 4px 6px rgba(128, 128, 128, 0.5)', // Customize as needed
         'custom-red': '0 0 40px 5px rgba(255, 0, 0, 0.5)', // Example of a custom red shadow
-        'dark-red':'0 0 80px 20px rgba(255, 0, 0, 0.5)',
+        'dark-red':'0 0 50px 10px rgba(245, 0, 0, 0.5)',
       },
       animation: {
           aurora: "aurora 60s linear infinite",
@@ -39,7 +50,19 @@ module.exports = {
       },
     },
   },
-  plugins: [addVariablesForColors],
+  variants: {
+    extend: {},
+  },
+  plugins: [addVariablesForColors,
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.text-shadow-yellow-outline': {
+          'text-shadow': '0 0 2px yellow, 0 0 5px yellow',
+        },
+      }
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }
+  ],
 };
 
 function addVariablesForColors({ addBase, theme }) {

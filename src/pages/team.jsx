@@ -53,11 +53,11 @@ function TeamPage() {
       }
       <div className=" bg-red-700">
         <video src={bgVideo} autoPlay loop muted className="opacity-40"/>
-        <div className="absolute w-full h-full top-0 flex flex-col justify-center items-center text-white">
-          <h1 className=" text-6xl font-[outfit] font-semibold">
+        <div className="absolute w-full h-full top-[-200px] ml:top-[-300px] sm:top-[-300px] lg:top-[-300px] xl:top-0 flex flex-col justify-center items-center text-white">
+          <h1 className="text-lg lg:text-6xl font-[outfit] font-semibold">
             Who we are?
           </h1>
-          <p className="md:text-right text-left pt-2 text-white opacity-70 text-sm">
+          <p className="md:text-center text-center pt-2 text-white opacity-70 text-sm">
             We are lorem ipsum dolor ipsum dolor ipsum We are lorem ipsum dolor{" "}
             <br />
             ipsum dolor ipsum We are lorem ipsum dolor ipsum dolor ipsum
@@ -81,7 +81,7 @@ function TeamPage() {
           ))}
         </div>
         <div className="p-5" />
-        <div className="flex justify-between flex-col items-center gap-10 md:grid grid-cols-5 ">
+        <div className="flex justify-between flex-col items-center gap-10 sm:grid-cols-3 sm:grid lg:grid-cols-5 ">
           {testimonials.map((item)=>(
             <PersonCard image={item.imageUrl} name={item.name} position={item.position}/>
 

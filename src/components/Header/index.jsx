@@ -118,7 +118,7 @@ export const StaticHeader = ({ ...props }) => {
       };
   }, []);
 
-  //every time keeping the record of the screen size
+  // every time keeping the record of the screen size
   console.log(screenSize)
 
   return (
@@ -176,6 +176,7 @@ export const StaticHeader = ({ ...props }) => {
 
 
 export function MenuItems() {
+
   return (
     <div className="flex flex-row items-center gap-10 justify-between max-w-[1500px] mx-auto">
       <StyledLink to="/"  label="Home"/>

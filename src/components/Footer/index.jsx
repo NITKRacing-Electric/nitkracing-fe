@@ -99,7 +99,7 @@ const Footer = (props) => {
       </div>
 
 
-        <div className="flex w-full flex-col items-center justify-center border-t border-gray-300 py-4 md:flex-row md:justify-between">
+        <div className="flex w-full flex-col items-center justify-center border-t border-gray-300 pt-4 pb-24 md:flex-row md:justify-between relative">
           <div>
             <a href="#">
               <img
@@ -175,7 +175,11 @@ const Footer = (props) => {
               </svg>
             </Typography>
           </div>
+          <div className="text-center text-medium font-bold absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap bottom-[-170px] opacity-20 ">
+          WE ARE NR
+          </div>
         </div>
+        
 
       </div>
 

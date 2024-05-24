@@ -57,9 +57,9 @@ function FormulaBharatPage() {
           During these events students must present their knowledge of the car and engineering concepts to a panel of judges. At most events, there are multiple rounds of questioning, with increasingly difficult questions and longer sessions. The primary round involves all the teams, and focuses on fundamental knowledge of vehicle.
         </p>
 
-        <div className="mt-11 flex gap-6">
-          <img src={car} alt="car image" className="bg-cover bg-no-repeat bg-center w-[500px] h-[300px]"/>
-          <img src={carImage} alt="car image" className="bg-cover bg-no-repeat bg-center w-[500px] h-[300px]"/>
+        <div className="mt-11 flex lg:flex-row flex-col gap-6">
+          <img src={car} alt="car image" className="bg-cover bg-no-repeat bg-center w-[300px] h-[200px] sm:w-[500px] sm:h-[300px]"/>
+          <img src={carImage} alt="car image" className="bg-cover bg-no-repeat bg-center w-[300px] h-[200px] sm:w-[500px] sm:h-[300px]"/>
 
         </div>
 
@@ -83,7 +83,7 @@ function FormulaBharatPage() {
         </div> */}
         <div className="mt-11">
           <div className="text-5xl text-white font-semibold text-center">Dynamic Events</div>
-          <div className="grid grid-cols-5 gap-6 mt-6">
+          <div className="flex flex-col items-center lg:items-start sm:grid sm:grid-cols-3 2xl:grid-cols-5 gap-6 mt-6">
             <FCard title={'Acceleration'} points={'75'} />
             <FCard title={'Autocross'} points={'100'} />
             <FCard title={'Endurance'} points={'325'} />
@@ -97,7 +97,7 @@ function FormulaBharatPage() {
         <div className="mt-11">
           <div className="text-5xl text-white font-semibold text-center">Static Events</div>
 
-          <div className="grid grid-cols-3 gap-6 mt-6">
+          <div className="flex flex-col items-center sm:items-start sm:grid sm:grid-cols-3 gap-6 mt-6">
             <FCard title={'Cost and Manufacturing'} points={'100'} />
             <FCard title={'Business Plan Presentation'} points={'75'} />
             <FCard title={'Engineering Design'} points={'150'} />

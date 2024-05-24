@@ -26,7 +26,8 @@ import i10 from '../../../../images/hero/DSC03433.JPG'
 import i11 from '../../../../images/hero/DSC03440.JPG'
 import i12 from '../../../../images/hero/DSC04277.JPG'
 import i13 from '../../../../images/hero/DSC04280.JPG'
-
+import car from '../../../../images/hero/jeff-cooper-TsQfovTCM8E-unsplash-removebg.png'
+import { Car } from "../../../../components/Car Animation/Car";
 import {
   FiArrowRight,
   FiFacebook,
@@ -119,7 +120,7 @@ function MainItem() {
   return (
     <div className="heromain p-0 md:p-7 relative h-screen  w-full pl-32 pr-32">
       <div className="w-full mx-auto relative z-10">
-        <div className="appbar overflow-hidden">
+        {/* <div className="appbar overflow-hidden">
           {screenSize < "431" ? (
             <div className="flex justify-around items-center">
               <img
@@ -128,9 +129,9 @@ function MainItem() {
                 alt="nitk racing logo"
               />
               {!drawerOpen ? (
-                <RxHamburgerMenu size={24} onClick={handleOpenAndClose} />
+                <RxHamburgerMenu size={24} onClick={()=>handleOpenAndClose()} />
               ) : (
-                <FiX size={24} onClick={handleOpenAndClose} />
+                <FiX size={24} onClick={()=>handleOpenAndClose()} />
               )}
             </div>
           ) : screenSize < "900" && screenSize > "430" ? (
@@ -151,37 +152,14 @@ function MainItem() {
             
            
           )}
-        </div>
+        </div> */}
 
-        {drawerOpen ? <MobileView /> : null}
+        {drawerOpen ? <MobileView /> : <div className="pl-36 pr-36"><MenuItems /></div>}
         {/* new hero section  */}
-        <div className="mt-11 2xl:mt-32 mx-auto flex justify-center items-center gap-32">
-          {/* left section  */}
-          <div className="flex flex-col gap-3 max-w-[500px]">
-            <span className="text-red-500 font-semibold text-xl">Welcome to</span>
-            <span className="text-8xl whitespace-nowrap font-bold">NITK Racing</span>
-            <span className="text-red-500 font-semibold text-3xl">#Live To Race</span>
-            <div className="mt-4">
-            <Link to='/achievements'><button className="bg-red-700 text-white pl-4 pr-4 pt-2 pb-2 font-bold text-2xl hover:opacity-75 duration-300 ease-in-out">Achievements</button></Link>
-            </div>
-          </div>
-          
-          {/* right section  */}
-          <div className="grid grid-cols-4 gap-2">
-            <img src={i8} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px] "/>
-            <img src={i7} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
-            <img src={i7} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px] "/>
-            <img src={i9} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
-            <img src={i10} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
-            <img src={i11} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
-            <img src={i12} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
-            <img src={i13} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
-            <img src={i13} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
-            <img src={i12} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
-            <img src={i9} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
-            <img src={i8} alt="hero image" className="bg-center bg-no-repeat bg-cover w-[120px] h-[140px]"/>
-
-          </div>
+        <div className=" ">
+          <div className=" lg:text-huge font-bold text-center ">NITKR</div>
+         <img src={car} alt="car" className="w-[1700px] h-[1000px] absolute top-[-190px] left-1/2 transform -translate-x-1/2 bg-cover bg-no-repeat bg-center"/>
+         {/* <Car /> */}
         </div>
         
         
@@ -189,6 +167,8 @@ function MainItem() {
     </div>
   );
 }
+
+
 
 export default Hero;
 

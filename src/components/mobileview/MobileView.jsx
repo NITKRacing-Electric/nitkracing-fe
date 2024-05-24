@@ -15,7 +15,7 @@ const MobileView = ()=>{
                     <Link to="/sponsors"><li className="hover:text-red-500 ease-in duration-300" onClick={handleOpenAndClose}>Sponsors</li></Link>
                     <Link to="/about"><li className="hover:text-red-500 ease-in duration-300" onClick={handleOpenAndClose}>About</li></Link>
                     <Link to="/fbharat"><li className="hover:text-red-500 ease-in duration-300" onClick={handleOpenAndClose}>Formula Bharat</li></Link>
-                    <Link to="/crowdfunding"><li className="hover:text-red-500 ease-in duration-300" onClick={handleOpenAndClose}>Crowdfunding</li></Link>
+                    {/* <Link to="/crowdfunding"><li className="hover:text-red-500 ease-in duration-300" onClick={handleOpenAndClose}>Crowdfunding</li></Link> */}
                     <Link to="/achievements"><li className="hover:text-red-500 ease-in duration-300" onClick={handleOpenAndClose}>Achievements</li></Link>
                 </ul>
             </div>

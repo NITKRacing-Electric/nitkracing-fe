@@ -9,6 +9,8 @@ import { FiUpload } from "react-icons/fi";
 import { useStateContext } from "../context";
 import MobileView from "../components/mobileview/MobileView";
 import TimelineComp from "../components/Timeline/Timleline";
+import { drawer } from "@material-tailwind/react";
+import { div } from "three/examples/jsm/nodes/Nodes.js";
 
 
 function AchievementPage() {
@@ -25,10 +27,10 @@ function AchievementPage() {
         <img src={teamImage} alt="team image" className="bg-no-repeat bg-cover bg-center opacity-30  "/>
 
 
-      <div className="absolute w-full h-full top-0 flex flex-col justify-center items-center text-white gap-6"> <h1 className="md:text-left text-left text-7xl font-[outfit] font-semibold ">
+      <div className="absolute w-full h-full top-[-180px] ml:top-[-250px] sm:top-[-200px] lg:top-[-300px] xl:top-0 flex flex-col justify-center items-center text-white gap-6"> <h1 className="md:text-left text-center lg:text-5xl text-4xl xl:text-7xl font-[outfit] font-semibold ">
           Our Achievements
         </h1>
-        <p className="md:text-left text-left pt-2 text-white opacity-70 text-xl">
+        <p className="md:text-left text-center text-sm pt-2 text-white opacity-70 sm:text-xl whitespace-normal">
           We are lorem ipsum dolor ipsum dolor ipsum We are lorem ipsum dolor{" "}
           <br />
           ipsum dolor ipsum We are lorem ipsum dolor ipsum dolor ipsum
@@ -41,8 +43,9 @@ function AchievementPage() {
 
       <div className="mt-24">
         {/* here goes the timeline */}
-        <div className="text-red-700 font-bold text-7xl text-center mb-11">Timeline</div>
+        <div className="text-red-700 font-bold text-5xl sm:text-7xl text-center mb-11">Timeline</div>
         <TimelineComp />
+        
       </div>
 
 

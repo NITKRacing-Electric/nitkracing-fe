@@ -111,7 +111,7 @@ const Intro = () => {
         initial="hidden"
         animate="visible"
       >
-        <div className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8 w-full max-w-7xl mx-auto p-10">
+        <div className="flex mt-11 flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8 w-full max-w-7xl mx-auto p-10">
           <motion.div className="md:w-1/2" variants={itemVariants}>
             <motion.h1
               className="font-[prompt] text-4xl md:text-5xl font-extrabold mb-6"

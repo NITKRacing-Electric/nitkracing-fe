@@ -47,7 +47,7 @@ function GalleryPage() {
         }
 
       <h1 className="mx-auto  lg:text-7xl mt-11 text-5xl text-center font-semibold tracking-tighter text-neutral-600">Gallery</h1>
-       <ParallaxScroll images={images} />
+       <ParallaxScroll images={testimonials} />
     </Section>
   );
 }

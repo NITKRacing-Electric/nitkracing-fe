@@ -40,7 +40,7 @@ const Footer = (props) => {
 
 
   return (
-    <footer className="relative w-full bg-black overflow-hidden rounded-t-[60px] py-20">
+    <footer className="relative w-full bg-black overflow-hidden rounded-t-[60px] py-0">
       <RedGradient />
       <BlueGradient />
       <div className="mx-auto w-full max-w-7xl px-8">
@@ -175,7 +175,7 @@ const Footer = (props) => {
               </svg>
             </Typography>
           </div>
-          <div className="text-center text-medium font-bold absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap bottom-[-170px] opacity-20 ">
+          <div className="texl-lg text-center lg:text-medium font-bold absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap md:bottom-[-29px] opacity-5 ">
           WE ARE NR
           </div>
         </div>

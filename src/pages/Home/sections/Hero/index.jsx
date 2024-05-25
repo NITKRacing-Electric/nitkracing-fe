@@ -28,6 +28,7 @@ import i12 from '../../../../images/hero/DSC04277.JPG'
 import i13 from '../../../../images/hero/DSC04280.JPG'
 import car from '../../../../images/hero/jeff-cooper-TsQfovTCM8E-unsplash-removebg.png'
 import { Car } from "../../../../components/Car Animation/Car";
+import { StaticHeader } from "../../../../components/Header";
 import {
   FiArrowRight,
   FiFacebook,
@@ -98,6 +99,11 @@ function MainItem() {
   //taking the screen size
   const [screenSize, setScreenSize] = useState(window.innerWidth);
   const { drawerOpen, handleOpenAndClose } = useStateContext();
+  const [mobile , setView] = useState(false)
+
+  const handleClick = ()=>{
+    setView((prev)=>!prev)
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -118,7 +124,7 @@ function MainItem() {
   }, []);
 
   return (
-    <div className="heromain p-0 md:p-7 relative h-screen  w-full pl-32 pr-32">
+    <div className="heromain p-0 md:p-7 relative sm:h-screen  sm:w-full sm:pl-32 sm:pr-32">
       <div className="w-full mx-auto relative z-10">
         {/* <div className="appbar overflow-hidden">
           {screenSize < "431" ? (
@@ -154,13 +160,21 @@ function MainItem() {
           )}
         </div> */}
 
-        {drawerOpen ? <MobileView /> : <div className="pl-36 pr-36"><MenuItems /></div>}
+        {drawerOpen ? <MobileView /> : <div className="pl-36 pr-36"><MenuItems /> </div>
+}
         {/* new hero section  */}
-        <div className=" ">
+        <div className="hidden lg:block ">
+          
           <div className=" lg:text-huge font-bold text-center ">NITKR</div>
          {/* <img src={car} alt="car" className="w-[1700px] h-[1000px] absolute top-[-190px] left-1/2 transform -translate-x-1/2 bg-cover bg-no-repeat bg-center"/> */}
          <Car />
         </div>
+        {/* <div className="flex items-center justify-between pl-7 pr-7 sm:hidden mt-5 relative">
+          <img src={whiteLogo} alt="logo" className="w-[100px] h-[50px] flex-shrink-0 "/>
+         <RxHamburgerMenu  className="text-3xl relative  flex-shrink-0 " onClick={handleClick}/>{mobile ? (<MobileView className='absolute left-1/2 transform -translate-x-1/2 w-full'/>) : (null)}
+          
+
+        </div> */}
         
         
       </div>

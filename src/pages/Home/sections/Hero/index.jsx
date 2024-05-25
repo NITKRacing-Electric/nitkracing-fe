@@ -158,8 +158,8 @@ function MainItem() {
         {/* new hero section  */}
         <div className=" ">
           <div className=" lg:text-huge font-bold text-center ">NITKR</div>
-         <img src={car} alt="car" className="w-[1700px] h-[1000px] absolute top-[-190px] left-1/2 transform -translate-x-1/2 bg-cover bg-no-repeat bg-center"/>
-         {/* <Car /> */}
+         {/* <img src={car} alt="car" className="w-[1700px] h-[1000px] absolute top-[-190px] left-1/2 transform -translate-x-1/2 bg-cover bg-no-repeat bg-center"/> */}
+         <Car />
         </div>
         
         

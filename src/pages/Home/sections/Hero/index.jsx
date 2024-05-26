@@ -10,7 +10,25 @@ import whiteLogo from "../../../../images/logo/logo_white.png";
 import { RxHamburgerMenu } from "react-icons/rx";
 import MobileView from "../../../../components/mobileview/MobileView";
 import { useStateContext } from "../../../../context";
+import { Link } from 'react-router-dom';
 import { FiX } from "react-icons/fi";
+import blur from '../../../../images/hero/blur.jpg'
+import i1 from '../../../../images/hero/DSC03192.JPG'
+import i2 from '../../../../images/hero/DSC03276.JPG'
+import i3 from '../../../../images/hero/DSC03309.JPG'
+import i4 from '../../../../images/hero/DSC03314.JPG'
+import i5 from '../../../../images/hero/DSC03321.JPG'
+import i6 from '../../../../images/hero/DSC03347.JPG'
+import i7 from '../../../../images/hero/DSC03422.JPG'
+import i8 from '../../../../images/hero/DSC03426.JPG'
+import i9 from '../../../../images/hero/DSC03427.JPG'
+import i10 from '../../../../images/hero/DSC03433.JPG'
+import i11 from '../../../../images/hero/DSC03440.JPG'
+import i12 from '../../../../images/hero/DSC04277.JPG'
+import i13 from '../../../../images/hero/DSC04280.JPG'
+import car from '../../../../images/hero/jeff-cooper-TsQfovTCM8E-unsplash-removebg.png'
+import { Car } from "../../../../components/Car Animation/Car";
+import { StaticHeader } from "../../../../components/Header";
 import {
   FiArrowRight,
   FiFacebook,
@@ -28,6 +46,7 @@ import Marquee from "react-fast-marquee";
 import DividerSVG from "../../../../assets/divider.svg";
 import StarSVG from "../../../../assets/star.svg";
 import { getHomeData } from "../../../../services/HomeDataAPI"; //sponsors from CMS
+import { div } from "three/examples/jsm/nodes/Nodes.js";
 
 const DUMMY_DATA = [
   {
@@ -65,12 +84,10 @@ const Hero = ({ props }) => {
         <div className="absolute top-0 left-0 -z-0">
           <FlowFieldCanvas />
         </div>
-        <div className="trigger">
-          <Container maxWidth="xl">
-            <Box className={properties.wrapper}>
-              <MainItem />
-            </Box>
-          </Container>
+        <div>
+          <div>
+            <MainItem />
+          </div>
         </div>
       </div>
     </section>
@@ -78,9 +95,15 @@ const Hero = ({ props }) => {
 };
 
 function MainItem() {
+  
   //taking the screen size
   const [screenSize, setScreenSize] = useState(window.innerWidth);
   const { drawerOpen, handleOpenAndClose } = useStateContext();
+  const [mobile , setView] = useState(false)
+
+  const handleClick = ()=>{
+    setView((prev)=>!prev)
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -101,9 +124,9 @@ function MainItem() {
   }, []);
 
   return (
-    <div className="heromain p-0 md:p-7 relative h-screen w-full md:w-3/4 mx-auto">
+    <div className="heromain p-0 md:p-7 relative sm:h-screen  sm:w-full sm:pl-32 sm:pr-32">
       <div className="w-full mx-auto relative z-10">
-        <div className="appbar overflow-hidden">
+        {/* <div className="appbar overflow-hidden">
           {screenSize < "431" ? (
             <div className="flex justify-around items-center">
               <img
@@ -112,9 +135,9 @@ function MainItem() {
                 alt="nitk racing logo"
               />
               {!drawerOpen ? (
-                <RxHamburgerMenu size={24} onClick={handleOpenAndClose} />
+                <RxHamburgerMenu size={24} onClick={()=>handleOpenAndClose()} />
               ) : (
-                <FiX size={24} onClick={handleOpenAndClose} />
+                <FiX size={24} onClick={()=>handleOpenAndClose()} />
               )}
             </div>
           ) : screenSize < "900" && screenSize > "430" ? (
@@ -131,12 +154,40 @@ function MainItem() {
               )}
             </div>
           ) : (
-            <MenuItems />
+            <div className="pl-36 pr-36"><MenuItems /></div>
+            
+           
           )}
-        </div>
+        </div> */}
 
-        {drawerOpen ? <MobileView /> : null}
-        {screenSize < "431" ? (
+        {drawerOpen ? <MobileView /> : <div className="pl-36 pr-36"><MenuItems /> </div>
+}
+        {/* new hero section  */}
+        <div className="hidden lg:block ">
+          
+          <div className=" lg:text-huge font-bold text-center ">NITKR</div>
+         {/* <img src={car} alt="car" className="w-[1700px] h-[1000px] absolute top-[-190px] left-1/2 transform -translate-x-1/2 bg-cover bg-no-repeat bg-center"/> */}
+         <Car />
+        </div>
+        {/* <div className="flex items-center justify-between pl-7 pr-7 sm:hidden mt-5 relative">
+          <img src={whiteLogo} alt="logo" className="w-[100px] h-[50px] flex-shrink-0 "/>
+         <RxHamburgerMenu  className="text-3xl relative  flex-shrink-0 " onClick={handleClick}/>{mobile ? (<MobileView className='absolute left-1/2 transform -translate-x-1/2 w-full'/>) : (null)}
+          
+
+        </div> */}
+        
+        
+      </div>
+    </div>
+  );
+}
+
+
+
+export default Hero;
+
+
+{/* {screenSize < "431" ? (
           <div className="wrapper bg-red-600 py-2 relative my-10">
             <Marquee
               autoFill
@@ -184,16 +235,12 @@ function MainItem() {
               className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
             />
           </div>
-        )}
+        )} */}
 
-        <div className="flex flex-col gap-y-4 sm:flex-row sm:gap-10 sm:links sm:overflow-hidden">
+        {/* <div className="flex flex-col gap-y-4 sm:flex-row sm:gap-10 sm:links sm:overflow-hidden">
           <h1 className="sm:text-5xl text-6xl font-[prompt]">Explore</h1>
           <h1 className="sm:text-5xl text-6xl font-[prompt]">Donate</h1>
           <h1 className="sm:text-5xl text-6xl font-[prompt]">Follow</h1>
-        </div>
-      </div>
-    </div>
-  );
-}
+        </div> */}
 
-export default Hero;
+

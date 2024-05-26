@@ -7,7 +7,7 @@ import { Box, Typography } from "@mui/material";
 import { useQuery } from "react-query";
 import fetchAchievements from "../../../../assets/data/achievements.js";
 
-import {getAchievements} from "../../../../services/AchievementsAPI" //achievements from CMS
+// import {getAchievements} from "../../../../services/AchievementsAPI" //achievements from CMS
 
 
 

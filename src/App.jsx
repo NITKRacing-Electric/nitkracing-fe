@@ -14,6 +14,7 @@ import useGsap from "./hooks/useGsap.js";
 import Lenis from "@studio-freight/lenis";
 import { MouseCircle, StyledDrawer } from "./components/index.js";
 import { StateContextProvider, useStateContext } from "./context/index.jsx";
+
 import {
   ContactPage,
   CrowdfundingPage,
@@ -134,6 +135,7 @@ function App() {
 
                 <About />
               </Route>
+             
             </Switch>
 
             <Footer />

@@ -65,14 +65,14 @@ function CallToAction() {
           className="lg:absolute md:block block bottom-0 right-0 w-3/4 sm:w-[400px] h-3/4 sm:h-[400px]"
         />
         <div className="py-10">
-          <Link to={"/crowdfunding"}>
+          
             <h1 className="text-3xl sm:text-6xl text-blue-200 font-semibold font-[prompt] mb-4">
               Interested in <br />
               Contributing?
             </h1>
-          </Link>
+          
 
-          <p className="opacity-50 text-sm sm:text-base">
+          <p className="opacity-50 text-sm sm:text-base whitespace-nowrap">
             Help us grow into a team everyone wants to work with and <br />
             understand how things work around in racing clubs.
           </p>
@@ -92,10 +92,10 @@ function NewsLetter() {
         <div className="flex justify-between relative overflow-hidden items-end my-6 sm:my-16 px-4 sm:px-16 py-4 sm:py-12 flex-col sm:flex-row-reverse rounded-3xl box-shadow min-h-[400px]">
           <RedGradient />
           <div className="z-10 py-10 ">
-            <h1 className=" text-3xl sm:text-4xl text-right  font-semibold font-[prompt]">
+            <h1 className=" text-3xl sm:text-4xl text-right pt-16 sm:pt-0 font-semibold font-[prompt] whitespace-nowrap">
               Newsletter
             </h1>
-            <p className="text-right opacity-50 font-extralight text-sm sm:text-lg mb-4 flex">
+            <p className="text-right opacity-50 font-extralight text-sm pt-4 sm:pt-0 sm:text-lg mb-4 flex whitespace-nowrap">
               Catch up with our latest insights <br />
               and developments{" "}
             </p>
@@ -108,7 +108,7 @@ function NewsLetter() {
             <img
               src={newsletterPreviewImg}
               alt="Newsletter"
-              className="rounded-xl z-10 opacity-30 hover:opacity-20 transition duration-300 absolute bottom-0 sm:right-0 w-3/4 sm:w-full h-3/4 sm:h-full object-cover"
+              className="rounded-xl z-10 opacity-30 hover:opacity-20 transition duration-300 absolute bottom-0 sm:right-0 w-full sm:w-full md:w-full h-3/4 sm:h-full object-cover"
             />
           </div>
         </div>

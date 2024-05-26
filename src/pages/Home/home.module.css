@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
     flex-direction: row;
-    padding-top: 80px;
+    padding-top: 8px;
     color: white;
     position: relative;
     justify-content: space-between;

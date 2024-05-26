@@ -6,6 +6,9 @@ import Marquee from "react-fast-marquee";
 import { useStateContext } from "../context";
 import { drawer } from "@material-tailwind/react";
 import MobileView from "../components/mobileview/MobileView"
+import { Link } from 'react-router-dom';
+import { GiCheckeredFlag } from "react-icons/gi";
+import CustomizedTables from "../components/utils/Table"
 
 const features = [
   {
@@ -39,6 +42,10 @@ const tiers = [
 ];
 
 function CrowdfundingPage() {
+  const redirectToForm = ()=>{
+    const URL = "https://forms.gle/QiktxhCNgMQqzUqH6"
+    window.open(URL, '_blank');
+  }
   const {drawerOpen} = useStateContext()
   return (
     
@@ -69,17 +76,18 @@ function CrowdfundingPage() {
       </Section>
       <div className="bg-white text-black py-14">
         <div className="w-fit m-auto relative">
-          <img
+          {/* <img
             className="w-5 sm:w-10 rotate-45 -top-10 -right-10 sm:-top-20 sm:-right-20 absolute"
             src={WheatSVG}
-          />
-          <img
+          /> */}
+          {/* <img
             className="w-5 sm:w-5 -rotate-45 bottom-0 right-[208px] sm:bottom-1 sm:-right-0 absolute"
             src={WheatSVG}
-          />
+          /> */}
           <h1 className="text-3xl sm:text-5xl leading-loose text-center">
             <HoverEffect>Achievements</HoverEffect>
           </h1>
+          
         </div>
         <div className="pt-20 grid grid-cols-2 pl-3 pr-3 gap-2 sm:flex sm:flex-row sm:gap-4 sm:justify-center">
           <Stat />
@@ -89,12 +97,17 @@ function CrowdfundingPage() {
 
           <Stat />
         </div>
+        <div className="mt-16  text-2xl flex justify-center items-center bg-red-100 p-4  hover:cursor-pointer">
+          <div>
+            <Link to= '/achievements'>Want to know more about our Achievements➡️</Link>
+          </div>
+        </div>
       </div>
       <Section>
         <h1 className="text-5xl leading-loose text-center">
           <HoverEffect>Sponsorship</HoverEffect>
         </h1>
-        <Table features={features}>
+        {/* <Table features={features}>
           <Tier
             idx={0}
             title={"Gold"}
@@ -113,7 +126,8 @@ function CrowdfundingPage() {
             pledge={"210 USD"}
             checkedFeatures={[1, 2]}
           />
-        </Table>
+        </Table> */}
+        <CustomizedTables />
 
         <div className="py-10">
           <h1 className="text-5xl leading-loose text-center">
@@ -154,6 +168,22 @@ function CrowdfundingPage() {
             <p className="px-2 text-lg mt-3">Dhruv yadav</p>
           </Marquee>
         </div>
+
+        <div className="flex flex-col justify-center items-center mt-9">
+            <p className="text-2xl font-bold bg-red-700 pt-4 pb-4 whitespace-no-wrap w-full text-center"
+            >
+            "Interested in collaboration? Tell us more by filling out our funding form."
+            </p>
+
+          
+          <div className="mt-5">
+            <button className="bg-red-700 p-4  text-white hover:bg-red-500 transition ease-in-out duration-300 font-bold text-2xl  
+            " onClick={redirectToForm}>
+              Funding Form
+            </button>
+          </div>
+        </div>
+        
       </Section>
     </div>
   );

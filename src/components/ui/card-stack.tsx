@@ -23,6 +23,7 @@ export const CardStack = ({
   const CARD_OFFSET = offset || 10;
   const SCALE_FACTOR = scaleFactor || 0.06;
   const [cards, setCards] = useState<Card[]>(items);
+  cards.map((card)=>(console.log(card.content)))
 
   useEffect(() => {
     startFlipping();

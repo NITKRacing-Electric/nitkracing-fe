@@ -47,6 +47,7 @@ import DividerSVG from "../../../../assets/divider.svg";
 import StarSVG from "../../../../assets/star.svg";
 import { getHomeData } from "../../../../services/HomeDataAPI"; //sponsors from CMS
 import { div } from "three/examples/jsm/nodes/Nodes.js";
+import { Grok } from "../../../../components/Grok Animation/Grok";
 
 const DUMMY_DATA = [
   {
@@ -82,7 +83,7 @@ const Hero = ({ props }) => {
     <section id="home" className="overflow-hidden relative bg-black">
       <div className="root">
         <div className="absolute top-0 left-0 -z-0">
-          <FlowFieldCanvas />
+          {/* <FlowFieldCanvas /> */}
         </div>
         <div>
           <div>
@@ -124,8 +125,8 @@ function MainItem() {
   }, []);
 
   return (
-    <div className="heromain p-0 md:p-7 relative sm:h-screen  sm:w-full sm:pl-32 sm:pr-32">
-      <div className="w-full mx-auto relative z-10">
+    <div className=" p-0 md:p-7 relative sm:h-screen sm:w-full sm:pl-32 sm:pr-32">
+      <div className="w-full mx-auto flex flex-col items-center justify-center">
         {/* <div className="appbar overflow-hidden">
           {screenSize < "431" ? (
             <div className="flex justify-around items-center">
@@ -160,15 +161,21 @@ function MainItem() {
           )}
         </div> */}
 
-        {drawerOpen ? <MobileView /> : <div className="pl-36 pr-36"><MenuItems /> </div>
-}
+        {drawerOpen ? <MobileView /> : <div className="pl-36 pr-36"><MenuItems /></div>}
+
         {/* new hero section  */}
-        <div className="hidden lg:block ">
-          
-          <div className=" lg:text-huge font-bold text-center ">NITKR</div>
-         {/* <img src={car} alt="car" className="w-[1700px] h-[1000px] absolute top-[-190px] left-1/2 transform -translate-x-1/2 bg-cover bg-no-repeat bg-center"/> */}
-         <Car />
+      
+        <div className="">
+          <Grok />
         </div>
+
+
+         {/* <img src={car} alt="car" className="w-[1700px] h-[1000px] absolute top-[-190px] left-1/2 transform -translate-x-1/2 bg-cover bg-no-repeat bg-center"/> */}
+         
+         <div className="hidden lg:block">
+          <Car />
+         </div>
+        
         {/* <div className="flex items-center justify-between pl-7 pr-7 sm:hidden mt-5 relative">
           <img src={whiteLogo} alt="logo" className="w-[100px] h-[50px] flex-shrink-0 "/>
          <RxHamburgerMenu  className="text-3xl relative  flex-shrink-0 " onClick={handleClick}/>{mobile ? (<MobileView className='absolute left-1/2 transform -translate-x-1/2 w-full'/>) : (null)}

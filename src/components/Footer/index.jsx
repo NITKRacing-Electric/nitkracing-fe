@@ -176,7 +176,7 @@ const Footer = (props) => {
             </Typography>
           </div>
           <div className="texl-lg text-center lg:text-medium font-bold absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap md:bottom-[-29px] opacity-5 ">
-          WE ARE NR
+          LIVE TO RACE
           </div>
         </div>
         

@@ -127,9 +127,9 @@ function MainItem() {
   return (
     <div className=" p-0 md:p-7 relative sm:h-screen sm:w-full sm:pl-32 sm:pr-32">
       <div className="w-full mx-auto flex flex-col items-center justify-center">
-        {/* <div className="appbar overflow-hidden">
+        <div className="appbar overflow-hidden">
           {screenSize < "431" ? (
-            <div className="flex justify-around items-center">
+            <div className="flex justify-around items-center gap-40">
               <img
                 className="logo z-40 w-[100px] block"
                 src={whiteLogo}
@@ -142,7 +142,7 @@ function MainItem() {
               )}
             </div>
           ) : screenSize < "900" && screenSize > "430" ? (
-            <div className="flex justify-around items-center">
+            <div className="flex justify-around items-center gap-80">
               <img
                 className="logo z-40 w-[100px] block"
                 src={whiteLogo}
@@ -159,9 +159,9 @@ function MainItem() {
             
            
           )}
-        </div> */}
+        </div>
 
-        {drawerOpen ? <MobileView /> : <div className="pl-36 pr-36"><MenuItems /></div>}
+        {drawerOpen ? <MobileView /> : <div className="pl-36 pr-36"></div>}
 
         {/* new hero section  */}
       
@@ -193,56 +193,55 @@ function MainItem() {
 
 export default Hero;
 
-
-{/* {screenSize < "431" ? (
-          <div className="wrapper bg-red-600 py-2 relative my-10">
-            <Marquee
-              autoFill
-              className="justify-center items-center gap-5"
-              speed={20}
-            >
-              <h1 className="text-9xl font-[outfit] text-black font-bold">
-                LIVE TO RACE
-              </h1>
-            </Marquee>
-            <img
-              src={StarSVG}
-              className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
-            />
-          </div>
-        ) : screenSize < "900" && screenSize > "430" ? (
-          <div className="wrapper  bg-red-600 py-2 relative my-10">
-            <Marquee
-              autoFill
-              className="justify-center items-center gap-5"
-              speed={20}
-            >
-              <h1 className="text-9xl font-[outfit] text-black font-bold">
-                LIVE TO RACE
-              </h1>
-            </Marquee>
-            <img
-              src={StarSVG}
-              className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
-            />
-          </div>
-        ) : (
-          <div className="wrapper bg-red-600 py-16 relative my-10">
-            <Marquee
-              autoFill
-              className="justify-center items-center gap-5"
-              speed={20}
-            >
-              <h1 className="text-9xl font-[outfit] text-black font-bold">
-                LIVE TO RACE
-              </h1>
-            </Marquee>
-            <img
-              src={StarSVG}
-              className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
-            />
-          </div>
-        )} */}
+// {screenSize < "431" ? (
+//           <div className="wrapper bg-red-600 py-2 relative my-10">
+//             <Marquee
+//               autoFill
+//               className="justify-center items-center gap-5"
+//               speed={20}
+//             >
+//               <h1 className="text-9xl font-[outfit] text-black font-bold">
+//                 LIVE TO RACE
+//               </h1>
+//             </Marquee>
+//             <img
+//               src={StarSVG}
+//               className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
+//             />
+//           </div>
+//         ) : screenSize < "900" && screenSize > "430" ? (
+//           <div className="wrapper  bg-red-600 py-2 relative my-10">
+//             <Marquee
+//               autoFill
+//               className="justify-center items-center gap-5"
+//               speed={20}
+//             >
+//               <h1 className="text-9xl font-[outfit] text-black font-bold">
+//                 LIVE TO RACE
+//               </h1>
+//             </Marquee>
+//             <img
+//               src={StarSVG}
+//               className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
+//             />
+//           </div>
+//         ) : (
+//           <div className="wrapper bg-red-600 py-16 relative my-10">
+//             <Marquee
+//               autoFill
+//               className="justify-center items-center gap-5"
+//               speed={20}
+//             >
+//               <h1 className="text-9xl font-[outfit] text-black font-bold">
+//                 LIVE TO RACE
+//               </h1>
+//             </Marquee>
+//             <img
+//               src={StarSVG}
+//               className="star absolute -bottom-[115px] -right-[115px] -z-10 rotating"
+//             />
+//           </div>
+//         )} 
 
         {/* <div className="flex flex-col gap-y-4 sm:flex-row sm:gap-10 sm:links sm:overflow-hidden">
           <h1 className="sm:text-5xl text-6xl font-[prompt]">Explore</h1>

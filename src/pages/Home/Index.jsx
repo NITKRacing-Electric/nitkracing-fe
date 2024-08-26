@@ -56,23 +56,23 @@ const Index = (props) => {
 
 function CallToAction() {
   return (
-    <div className="py-10 px-4 sm:px-20 bg-black">
-      <div className="flex justify-between relative overflow-hidden items-center my-6 sm:my-16 px-4 sm:px-16 py-4 sm:py-12 flex-col sm:flex-row rounded-3xl box-shadow">
+    <div className="py-10 px-4 sm:px-20 bg-black p-5">
+      <div className="flex justify-between relative overflow-hidden items-center my-6 sm:my-16 px-4 sm:px-16 py-4 sm:py-12 flex-col lg:flex-row rounded-3xl box-shadow">
         <RedGradient />
         <BlueGradient />
         <img
           src={AbstracrSVG}
           className="lg:absolute md:block block bottom-0 right-0 w-3/4 sm:w-[400px] h-3/4 sm:h-[400px]"
         />
-        <div className="py-10">
+        <div className="py-12">
           
-            <h1 className="text-3xl sm:text-6xl text-blue-200 font-semibold font-[prompt] mb-4">
+            <h1 className="text-3xl sm:text-6xl text-blue-200 font-semibold font-[prompt] mb-4 ">
               Interested in <br />
               Contributing?
             </h1>
           
 
-          <p className="opacity-50 text-sm sm:text-base whitespace-nowrap">
+          <p className="opacity-50 text-sm sm:text-base ">
             Help us grow into a team everyone wants to work with and <br />
             understand how things work around in racing clubs.
           </p>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { PersonCard } from "../components";
 import { Section } from "../components/Section";
 import { getTeamLeads } from "../services/TeamLeadsAPI"; //Fetch team leads from the service
-import {getTeamMembers} from "../services/TeamMembersAPI" //Fetch team members from the service
+import { getTeamMembers } from "../services/TeamMembersAPI" //Fetch team members from the service
 import { useStateContext } from "../context";
 import MobileView from "../components/mobileview/MobileView";
 import bgVideo from "../assets/background/background video .mp4"
@@ -11,25 +11,10 @@ import { urlFor } from "../pages/sponsors";
 
 function TeamPage() {
 
-  const {isLoading , membersData} = useStateContext()
-  if(isLoading){
-    return (<div>...Loading...</div>)
-
-  }
-  const testimonials = membersData.map((member) => ({
-    imageUrl: urlFor(member.image),
-    name: member.memberName,
-    position: member?.heading
-}));
-  const {drawerOpen} = useStateContext()
-  const [activeYear, setActiveYear] = useState(2020);
+  const { isLoading, membersData, drawerOpen } = useStateContext();
+  const [activeYear, setActiveYear] = useState(2023);
   const [teamLeads, setTeamLeads] = useState([]);
   const [teamMembers, setTeamMembers] = useState([]);
-
-  const handleChangeActiveYear = (activeYear) => () => {
-    console.log(activeYear);
-    setActiveYear(activeYear);
-  };
 
   useEffect(() => {
     // Fetch team leads and team members when the component mounts
@@ -46,47 +31,51 @@ function TeamPage() {
       console.log("Fetched Team Members", teamMembers);
   }, []);
 
+  if (isLoading) {
+    return <div className="flex justify-center items-center h-screen bg-black text-white">Loading...</div>;
+  }
+
+  const testimonials = membersData.map((member) => ({
+    imageUrl: urlFor(member.image),
+    name: member.memberName,
+    position: member?.heading
+}));
+
+  const handleChangeActiveYear = (year) => () => {
+    setActiveYear(year);
+  };
+
   return (
-    <div>
-      {
-            drawerOpen ? (<MobileView />) : null
-      }
-      <div className=" bg-red-700">
-        <video src={bgVideo} autoPlay loop muted className="opacity-40"/>
-        <div className="absolute w-full h-full top-[-200px] ml:top-[-300px] sm:top-[-300px] lg:top-[-300px] xl:top-0 flex flex-col justify-center items-center text-white">
-          <h1 className="text-lg lg:text-6xl font-[outfit] font-semibold">
+    <div className="bg-black text-white min-h-screen">
+      {drawerOpen && <MobileView />}
+      <div className="relative h-screen">
+        <video src={bgVideo} autoPlay loop muted className="absolute inset-0 w-full h-full object-cover opacity-40" />
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4">
+          <h1 className="text-4xl md:text-6xl font-[outfit] font-semibold mb-4">
             Who we are?
           </h1>
-          <p className="md:text-center text-center pt-2 text-white opacity-70 text-sm">
-            We are lorem ipsum dolor ipsum dolor ipsum We are lorem ipsum dolor{" "}
-            <br />
-            ipsum dolor ipsum We are lorem ipsum dolor ipsum dolor ipsum
+          <p className="max-w-2xl mx-auto text-sm md:text-base opacity-70">
+            We are a passionate team dedicated to pushing the boundaries of automotive engineering and racing technology. Our diverse group of talented individuals works tirelessly to innovate, design, and compete at the highest levels of motorsport.
           </p>
         </div>
-        
       </div>
-      <Section>
-        <div className="flex">
-          <div className="">
-            <div className=""></div>
-          </div>
-        </div>
-        <div className="flex items-end justify-end">
-          {[2020, 2021, 2022, 2023].map((_) => (
+      
+      <Section className="py-16">
+        <div className="flex justify-end mb-8">
+          {[2020, 2021, 2022, 2023].map((year) => (
             <Chip
-              onClick={handleChangeActiveYear(_)}
-              label={_}
-              active={activeYear === _}
+              key={year}
+              onClick={handleChangeActiveYear(year)}
+              label={year}
+              active={activeYear === year}
             />
           ))}
         </div>
-        <div className="p-5" />
-        <div className="flex justify-between flex-col items-center gap-10 sm:grid-cols-3 sm:grid lg:grid-cols-5 ">
-          {testimonials.map((item)=>(
-            <PersonCard image={item.imageUrl} name={item.name} position={item.position}/>
-
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+          {testimonials.map((item, index) => (
+            <PersonCard key={index} image={item.imageUrl} name={item.name} position={item.position} />
           ))}
-          
         </div>
       </Section>
     </div>
@@ -94,21 +83,16 @@ function TeamPage() {
 }
 
 function Chip({ label, active, onClick }) {
-  const activeStyles = `bg-red-700`;
   return (
     <button
       onClick={onClick}
-      className={`inline-block px-4 py-2 font-bold fon-[outfit] rounded ${
-        active && activeStyles
+      className={`px-4 py-2 font-bold font-[outfit] rounded-full text-sm transition-colors duration-300 ${
+        active ? 'bg-red-700 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
       }`}
     >
-      <p className="text-sm">{label}</p>
+      {label}
     </button>
   );
-}
-
-function YearSelection() {
-  return <div></div>;
 }
 
 export default TeamPage;

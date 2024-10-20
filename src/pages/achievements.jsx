@@ -22,36 +22,25 @@ function AchievementPage() {
         drawerOpen ? (<MobileView />) : null
       }
 
-
       <div className="bg-black">
         <img src={teamImage} alt="team image" className="bg-no-repeat bg-cover bg-center opacity-30  "/>
 
-
-      <div className="absolute w-full h-full top-[-180px] ml:top-[-250px] sm:top-[-200px] lg:top-[-300px] xl:top-0 flex flex-col justify-center items-center text-white gap-6"> <h1 className="md:text-left text-center lg:text-5xl text-4xl xl:text-7xl font-[outfit] font-semibold ">
-          Our Achievements
-        </h1>
-        <p className="md:text-left text-center text-sm pt-2 text-white opacity-70 sm:text-xl whitespace-normal">
-          We are lorem ipsum dolor ipsum dolor ipsum We are lorem ipsum dolor{" "}
-          <br />
-          ipsum dolor ipsum We are lorem ipsum dolor ipsum dolor ipsum
-        </p></div>
-        
-
-
-
+        <div className="absolute w-full h-full top-[-180px] ml:top-[-250px] sm:top-[-200px] lg:top-[-300px] xl:top-0 flex flex-col justify-center items-center text-white gap-6">
+          <h1 className="md:text-left text-center lg:text-5xl text-4xl xl:text-7xl font-[outfit] font-semibold ">
+            Our Achievements
+          </h1>
+          <p className="md:text-left text-center text-sm pt-2 text-white opacity-70 sm:text-xl whitespace-normal">
+            We have won numerous awards and accolades for our outstanding performance and dedication. 
+          </p>
+        </div>
       </div>
 
       <div className="mt-24">
-        {/* here goes the timeline */}
-        <div className="text-red-700 font-bold text-5xl sm:text-7xl text-center mb-11">Timeline</div>
+        <div className="text-red-700 font-bold text-5xl sm:text-7xl text-center mb-11">Achievements</div>
         <TimelineComp />
-        
       </div>
 
-
       <Section>
-
-      {/* <CanvasRevealEffectDemo/> */}
       </Section>
     </div>
   );

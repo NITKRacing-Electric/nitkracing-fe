@@ -10,6 +10,8 @@ export async function getTeamMembers() {
     // Execute the query using the Sanity client
     const result = await client.fetch(query);
 
+    console.log("Fetched team members from Sanity:", result);
+
     // Return the fetched team members
     return result;
   } catch (error) {

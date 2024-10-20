@@ -2,7 +2,7 @@ import { LuCrown, LuLinkedin } from "react-icons/lu";
 import { useStateContext } from "../context";
 import { div } from "three/examples/jsm/nodes/Nodes.js";
 
-function Person({ position, name , image }) {
+function Person({ position, name , image, link }) {
   
   return (
     <div className="w-[250px] relative">
@@ -16,8 +16,7 @@ function Person({ position, name , image }) {
       <p className="text-center pt-5 text-lg">{name}</p>
       <p className="text-center text-md text-red-400">{position}</p>
       <p className="text-sm flex items-center gap-3 justify-center pt-2">
-        Follow
-        <LuLinkedin />
+        <LuLinkedin className="cursor-pointer" onClick={() => window.open(link, '_blank')} />
       </p>
     </div>
   );

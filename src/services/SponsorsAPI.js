@@ -7,7 +7,9 @@ export async function getSponsors() {
     const query = `*[_type == 'sponsor'] {
       name,
       tier,
-      picture
+      picture,
+      sponsorLink,
+      sponsorDescription
     }`;
 
     // Execute the query using the Sanity client

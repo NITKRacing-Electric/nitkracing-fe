@@ -34,29 +34,31 @@ const Index = () => {
 
 function CallToAction() {
   return (
-    <section className="py-20 px-4 sm:px-8 lg:px-16 bg-black">
-      <div className="max-w-7xl mx-auto relative overflow-hidden rounded-3xl shadow-2xl">
-        <RedGradient />
-        <BlueGradient />
-        <div className="flex flex-col lg:flex-row items-center justify-between p-8 lg:p-16 relative z-10">
-          <div className="lg:w-1/2 mb-8 lg:mb-0 text-center lg:text-left">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 font-[prompt] text-blue-200">
-              Interested in <br className="hidden sm:inline" />
-              Contributing?
-            </h2>
-            <p className="text-gray-300 text-sm sm:text-base max-w-lg mx-auto lg:mx-0">
-              Help us grow into a team everyone wants to work with and
-              understand how things work around in racing clubs.
-            </p>
+    <Link to="/crowdfunding" className="block">
+      <section className="py-20 px-4 sm:px-8 lg:px-16 bg-black">
+        <div className="max-w-7xl mx-auto relative overflow-hidden rounded-3xl shadow-2xl">
+          <RedGradient />
+          <BlueGradient />
+          <div className="flex flex-col lg:flex-row items-center justify-between p-8 lg:p-16 relative z-10">
+            <div className="lg:w-1/2 mb-8 lg:mb-0 text-center lg:text-left">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 font-[prompt] text-blue-200">
+                Interested in <br className="hidden sm:inline" />
+                Contributing?
+              </h2>
+              <p className="text-gray-300 text-sm sm:text-base max-w-lg mx-auto lg:mx-0">
+                Help us grow into a team everyone wants to work with and
+                understand how things work around in racing clubs.
+              </p>
+            </div>
+            <img
+              src={AbstracrSVG}
+              className="w-full max-w-md lg:max-w-lg"
+              alt="Abstract design"
+            />
           </div>
-          <img
-            src={AbstracrSVG}
-            className="w-full max-w-md lg:max-w-lg"
-            alt="Abstract design"
-          />
         </div>
-      </div>
-    </section>
+      </section>
+    </Link>
   );
 }
 

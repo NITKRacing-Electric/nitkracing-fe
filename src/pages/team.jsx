@@ -10,36 +10,36 @@ import { urlFor } from "../pages/sponsors";
 
 
 function TeamPage() {
-
-  const { isLoading, membersData, drawerOpen } = useStateContext();
-  const [activeYear, setActiveYear] = useState(2023);
+  const { isLoading, drawerOpen } = useStateContext();
+  const [activeYear, setActiveYear] = useState('2025'); // Default to 2025
   const [teamLeads, setTeamLeads] = useState([]);
   const [teamMembers, setTeamMembers] = useState([]);
 
   useEffect(() => {
-    // Fetch team leads and team members when the component mounts
+    // Fetch all team leads and team members
     getTeamLeads()
       .then((result) => setTeamLeads(result))
-      .catch((error) => console.error('Error:', error));
+      .catch((error) => console.error('Error fetching team leads:', error));
 
-    // Fetch team members when the component mounts
     getTeamMembers()
       .then((result) => setTeamMembers(result))
-      .catch((error) => console.error('Error:', error));
-
-      console.log("Fetched Team Leads", teamLeads);
-      console.log("Fetched Team Members", teamMembers);
+      .catch((error) => console.error('Error fetching team members:', error));
   }, []);
 
   if (isLoading) {
     return <div className="flex justify-center items-center h-screen bg-black text-white">Loading...</div>;
   }
 
-  const testimonials = membersData.map((member) => ({
+  const allMembers = [...teamLeads, ...teamMembers];
+  const years = [...new Set(allMembers.map(member => member.year))].sort((a, b) => a - b);
+
+  const filteredMembers = allMembers.filter(member => member.year === activeYear);
+  const testimonials = filteredMembers.map((member) => ({
     imageUrl: urlFor(member.image),
     name: member.memberName,
-    position: member?.heading
-}));
+    position: member?.heading,
+    link: member?.socialLink
+  }));
 
   const handleChangeActiveYear = (year) => () => {
     setActiveYear(year);
@@ -62,7 +62,7 @@ function TeamPage() {
       
       <Section className="py-16">
         <div className="flex justify-end mb-8">
-          {[2020, 2021, 2022, 2023].map((year) => (
+          {years.map((year) => (
             <Chip
               key={year}
               onClick={handleChangeActiveYear(year)}
@@ -74,7 +74,7 @@ function TeamPage() {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
           {testimonials.map((item, index) => (
-            <PersonCard key={index} image={item.imageUrl} name={item.name} position={item.position} />
+            <PersonCard key={index} image={item.imageUrl} name={item.name} position={item.position} link={item.link}/>
           ))}
         </div>
       </Section>

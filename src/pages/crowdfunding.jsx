@@ -42,149 +42,156 @@ const tiers = [
 ];
 
 function CrowdfundingPage() {
+
   const redirectToForm = ()=>{
     const URL = "https://forms.gle/QiktxhCNgMQqzUqH6"
     window.open(URL, '_blank');
   }
   const {drawerOpen} = useStateContext()
+
+
   return (
     
-    <div>
-      {
-        drawerOpen ? (<MobileView />) : null
-      }
-      <Section>
-        <div className="py-10"></div>
+    // <div>
+    //   {
+    //     drawerOpen ? (<MobileView />) : null
+    //   }
+    //   <Section>
+    //     <div className="py-10"></div>
 
-        <div className="flex flex-col gap-y-4 items-center justify-center sm:grid sm:grid-cols-2">
-          <div>
-            <img src="http://www.orion-racing.com/assets/img/Team%20Images/Crowdfunding%20checkpoint%20100k.png" />
-          </div>
-          <div className="">
-            <h1 className="text-5xl leading-loose text-center sm:text-right">
-              <HoverEffect>Crowdfunding</HoverEffect>
-            </h1>
+    //     <div className="flex flex-col gap-y-4 items-center justify-center sm:grid sm:grid-cols-2">
+    //       <div>
+    //         <img src="http://www.orion-racing.com/assets/img/Team%20Images/Crowdfunding%20checkpoint%20100k.png" />
+    //       </div>
+    //       <div className="">
+    //         <h1 className="text-5xl leading-loose text-center sm:text-right">
+    //           <HoverEffect>Crowdfunding</HoverEffect>
+    //         </h1>
 
-            <p className="text-md text-center sm:text-right text-gray-400">
-              Orion Racing India is the official Formula SAE team of K. J.
-              Somaiya College of Engineering, Mumbai. The team is formed by 60+
-              undergraduate students from various engineering departments whose
-              vision is to achieve something tangible at an undergraduate level.
-            </p>
-          </div>
-        </div>
-      </Section>
-      <div className="bg-white text-black py-14">
-        <div className="w-fit m-auto relative">
-          {/* <img
-            className="w-5 sm:w-10 rotate-45 -top-10 -right-10 sm:-top-20 sm:-right-20 absolute"
-            src={WheatSVG}
-          /> */}
-          {/* <img
-            className="w-5 sm:w-5 -rotate-45 bottom-0 right-[208px] sm:bottom-1 sm:-right-0 absolute"
-            src={WheatSVG}
-          /> */}
-          <h1 className="text-3xl sm:text-5xl leading-loose text-center">
-            <HoverEffect>Achievements</HoverEffect>
-          </h1>
+    //         <p className="text-md text-center sm:text-right text-gray-400">
+    //           Orion Racing India is the official Formula SAE team of K. J.
+    //           Somaiya College of Engineering, Mumbai. The team is formed by 60+
+    //           undergraduate students from various engineering departments whose
+    //           vision is to achieve something tangible at an undergraduate level.
+    //         </p>
+    //       </div>
+    //     </div>
+    //   </Section>
+    //   <div className="bg-white text-black py-14">
+    //     <div className="w-fit m-auto relative">
+    //       {/* <img
+    //         className="w-5 sm:w-10 rotate-45 -top-10 -right-10 sm:-top-20 sm:-right-20 absolute"
+    //         src={WheatSVG}
+    //       /> */}
+    //       {/* <img
+    //         className="w-5 sm:w-5 -rotate-45 bottom-0 right-[208px] sm:bottom-1 sm:-right-0 absolute"
+    //         src={WheatSVG}
+    //       /> */}
+    //       <h1 className="text-3xl sm:text-5xl leading-loose text-center">
+    //         <HoverEffect>Achievements</HoverEffect>
+    //       </h1>
           
-        </div>
-        <div className="pt-20 grid grid-cols-2 pl-3 pr-3 gap-2 sm:flex sm:flex-row sm:gap-4 sm:justify-center">
-          <Stat />
-          <Stat />
-          <Stat />
-          <Stat />
+    //     </div>
+    //     <div className="pt-20 grid grid-cols-2 pl-3 pr-3 gap-2 sm:flex sm:flex-row sm:gap-4 sm:justify-center">
+    //       <Stat />
+    //       <Stat />
+    //       <Stat />
+    //       <Stat />
 
-          <Stat />
-        </div>
-        <div className="mt-16  text-2xl flex justify-center items-center bg-red-100 p-4  hover:cursor-pointer">
-          <div>
-            <Link to= '/achievements'>Want to know more about our Achievements➡️</Link>
-          </div>
-        </div>
-      </div>
-      <Section>
-        <h1 className="text-5xl leading-loose text-center">
-          <HoverEffect>Sponsorship</HoverEffect>
-        </h1>
-        {/* <Table features={features}>
-          <Tier
-            idx={0}
-            title={"Gold"}
-            pledge={"210 USD"}
-            checkedFeatures={[0, 2]}
-          />
-          <Tier
-            idx={1}
-            title={"Platinum"}
-            pledge={"210 USD"}
-            checkedFeatures={[0, 4]}
-          />
-          <Tier
-            idx={2}
-            title={"Silver"}
-            pledge={"210 USD"}
-            checkedFeatures={[1, 2]}
-          />
-        </Table> */}
-        <CustomizedTables />
+    //       <Stat />
+    //     </div>
+    //     <div className="mt-16  text-2xl flex justify-center items-center bg-red-100 p-4  hover:cursor-pointer">
+    //       <div>
+    //         <Link to= '/achievements'>Want to know more about our Achievements➡️</Link>
+    //       </div>
+    //     </div>
+    //   </div>
+    //   <Section>
+    //     <h1 className="text-5xl leading-loose text-center">
+    //       <HoverEffect>Sponsorship</HoverEffect>
+    //     </h1>
+    //     {/* <Table features={features}>
+    //       <Tier
+    //         idx={0}
+    //         title={"Gold"}
+    //         pledge={"210 USD"}
+    //         checkedFeatures={[0, 2]}
+    //       />
+    //       <Tier
+    //         idx={1}
+    //         title={"Platinum"}
+    //         pledge={"210 USD"}
+    //         checkedFeatures={[0, 4]}
+    //       />
+    //       <Tier
+    //         idx={2}
+    //         title={"Silver"}
+    //         pledge={"210 USD"}
+    //         checkedFeatures={[1, 2]}
+    //       />
+    //     </Table> */}
+    //     <CustomizedTables />
 
-        <div className="py-10">
-          <h1 className="text-5xl leading-loose text-center">
-            <HoverEffect>Supporters</HoverEffect>
-          </h1>
-          <Marquee speed={40}>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-            <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
-          </Marquee>
-          <Marquee direction="right" speed={20}>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-            <p className="px-2 text-lg mt-3">Dhruv yadav</p>
-          </Marquee>
-        </div>
+    //     <div className="py-10">
+    //       <h1 className="text-5xl leading-loose text-center">
+    //         <HoverEffect>Supporters</HoverEffect>
+    //       </h1>
+    //       <Marquee speed={40}>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //         <p className="px-2 text-3xl mt-5">Dhruv yadav</p>
+    //       </Marquee>
+    //       <Marquee direction="right" speed={20}>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //         <p className="px-2 text-lg mt-3">Dhruv yadav</p>
+    //       </Marquee>
+    //     </div>
 
-        <div className="flex flex-col justify-center items-center mt-9">
-            <p className="text-2xl font-bold bg-red-700 pt-4 pb-4 whitespace-no-wrap w-full text-center"
-            >
-            "Interested in collaboration? Tell us more by filling out our funding form."
-            </p>
+    //     <div className="flex flex-col justify-center items-center mt-9">
+    //         <p className="text-2xl font-bold bg-red-700 pt-4 pb-4 whitespace-no-wrap w-full text-center"
+    //         >
+    //         "Interested in collaboration? Tell us more by filling out our funding form."
+    //         </p>
 
           
-          <div className="mt-5">
-            <button className="bg-red-700 p-4  text-white hover:bg-red-500 transition ease-in-out duration-300 font-bold text-2xl  
-            " onClick={redirectToForm}>
-              Funding Form
-            </button>
-          </div>
-        </div>
+    //       <div className="mt-5">
+    //         <button className="bg-red-700 p-4  text-white hover:bg-red-500 transition ease-in-out duration-300 font-bold text-2xl  
+    //         " onClick={redirectToForm}>
+    //           Funding Form
+    //         </button>
+    //       </div>
+    //     </div>
         
-      </Section>
+    //   </Section>
+    // </div>
+// uncomment above to see the crowdfunding page
+    <div className="flex justify-center items-center h-screen bg-black text-white">
+      <h1 className="text-5xl font-bold">Coming Soon...</h1>
     </div>
   );
 }

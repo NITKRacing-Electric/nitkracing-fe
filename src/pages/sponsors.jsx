@@ -13,27 +13,28 @@ import imageUrlBuilder from "@sanity/image-url";
 
 //function for the card
 export function AnimatedPinDemo(sponsor) {
+  console.log(sponsor)
   return (
-    <div className="h-[25rem] w-full flex items-center justify-center ">
-      <PinContainer
-        title={sponsor.name}
-        href="https://google.com"
-      >
-        <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-          <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
-            {sponsor.name}
-          </h3>
-          <div className="text-base !m-0 !p-0 font-normal">
-            <span className="text-slate-500 ">
-              Thanking {sponsor.name} for trusting us
-            </span>
+    <div className="h-[25rem] w-full flex items-center justify-center">
+      <a href={sponsor.sponsorLink || "#"} target="_blank" rel="noopener noreferrer" className="w-full h-full">
+        <PinContainer
+          title={sponsor.name}
+        >
+          <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+            <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
+              {sponsor.name}
+            </h3>
+            <div className="text-base !m-0 !p-0 font-normal">
+              <span className="text-slate-500 ">
+                {sponsor.sponsorDescription || `Thanking ${sponsor.name} for trusting us`}
+              </span>
+            </div>
+            <div className="flex flex-1 max-w-full rounded-lg mt-4 " >
+              <img src={urlFor(sponsor.picture)} alt="" className="w-full h-auto"/>
+            </div>
           </div>
-          <div className="flex flex-1 max-w-full rounded-lg mt-4 " >
-          {/* {urlFor(sponsor.picture)} */}
-            <img src={urlFor(sponsor.picture)} alt="" className="w-full h-auto"/>
-          </div>
-        </div>
-      </PinContainer>
+        </PinContainer>
+      </a>
     </div>
   );
 }
@@ -91,7 +92,7 @@ function Sponsor() {
   console.log('silver' , silverTier)
   console.log('platinum' , platinumTier)
 
-  const tier_list = ["Silver", "Gold", "Platinum"];
+  const tier_list = ["Gold", "Silver", "Platinum"];
   const tierColorClass = {
     gold: "text-yellow-400",
     silver: "text-gray-400",

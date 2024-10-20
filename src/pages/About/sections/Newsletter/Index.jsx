@@ -2,7 +2,7 @@ import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import magazineImage1 from '../../../../images/magasie.jpeg';
 
-// Example newsletter data - you can fetch this data from an API or your state management store
+
 const newsletters = [
   {
     id: 1,
@@ -11,15 +11,7 @@ const newsletters = [
       "Get unparalleled access to the thrilling world of NR Racing. Discover exclusive updates, thrilling race analyses, and in-depth team strategies with our NR Newsletter. Tailored for true NR aficionados.",
     image: magazineImage1,
     alt: "Exclusive F1 Insights",
-  },
-  {
-    id: 2,
-    title: "Pitstop",
-    description:
-      "Get unparalleled access to the thrilling world of NR Racing. Discover exclusive updates, thrilling race analyses, and in-depth team strategies with our NR Newsletter. Tailored for true NR aficionados.",
-    image: magazineImage1,
-    alt: "Exclusive F1 Insights",
-  },
+  }
 ];
 
 const NewsLetterPage = () => {

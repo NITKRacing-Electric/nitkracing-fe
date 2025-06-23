@@ -7,30 +7,38 @@ import client from "../config/sanity";
 import MobileView from "../components/mobileview/MobileView";
 import { useStateContext } from "../context";
 import MediaCard from "../components/utils/Card";
-import {PinContainer} from "../components/ui/3d-pin"
+import { PinContainer } from "../components/ui/3d-pin";
 
 import imageUrlBuilder from "@sanity/image-url";
 
 //function for the card
 export function AnimatedPinDemo(sponsor) {
-  console.log(sponsor)
+  console.log(sponsor);
   return (
     <div className="h-[25rem] w-full flex items-center justify-center">
-      <a href={sponsor.sponsorLink || "#"} target="_blank" rel="noopener noreferrer" className="w-full h-full">
-        <PinContainer
-          title={sponsor.name}
-        >
+      <a
+        href={sponsor.sponsorLink || "#"}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full h-full"
+      >
+        <PinContainer title={sponsor.name}>
           <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
             <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
               {sponsor.name}
             </h3>
             <div className="text-base !m-0 !p-0 font-normal">
               <span className="text-slate-500 ">
-                {sponsor.sponsorDescription || `Thanking ${sponsor.name} for trusting us`}
+                {sponsor.sponsorDescription ||
+                  `Thanking ${sponsor.name} for trusting us`}
               </span>
             </div>
-            <div className="flex flex-1 max-w-full rounded-lg mt-4 " >
-              <img src={urlFor(sponsor.picture)} alt="" className="w-full h-auto"/>
+            <div className="flex flex-1 max-w-full rounded-lg mt-4 ">
+              <img
+                src={urlFor(sponsor.picture)}
+                alt=""
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </PinContainer>
@@ -63,36 +71,36 @@ function Sponsor() {
   const { drawerOpen } = useStateContext();
 
   const [sponsors, updateSponsors] = useState([]);
-  const [tierType , setTierType] = useState()
+  const [tierType, setTierType] = useState();
 
   useEffect(() => {
     getSponsors().then((data) => {
       updateSponsors(data);
-      console.log(sponsors)
-      sponsors.map((sponsor)=>{
-        console.log(urlFor(sponsor.picture))
-      })
+      console.log(sponsors);
+      sponsors.map((sponsor) => {
+        console.log(urlFor(sponsor.picture));
+      });
     });
   }, []);
 
   if (!sponsors) return <p>Loading...</p>;
-  const silverTier = sponsors?.filter((sponsor)=>(
-    sponsor.tier == 'silver'
-  ))
+  const bronzeTier = sponsors?.filter((sponsor) => sponsor.tier == "bronze");
 
-  const goldTier = sponsors?.filter((sponsor)=>(
-    sponsor.tier == 'gold'
-  ))
+  const goldTier = sponsors?.filter((sponsor) => sponsor.tier == "gold");
 
-  const platinumTier = sponsors?.filter((sponsor)=>(
-    sponsor.tier == 'platinum'
-  ))
+  const platinumTier = sponsors?.filter(
+    (sponsor) => sponsor.tier == "platinum"
+  );
 
-  console.log('gold' , goldTier)
-  console.log('silver' , silverTier)
-  console.log('platinum' , platinumTier)
+  const softwareSponsors = sponsors?.filter(
+    (sponsor) => sponsor.tier == "software"
+  );
 
-  const tier_list = ["Gold", "Silver", "Platinum"];
+  console.log("gold", goldTier);
+  console.log("silver", bronzeTier);
+  console.log("platinum", platinumTier);
+
+  const tier_list = ["Platinum", "Gold", "Bronze", "Software"];
   const tierColorClass = {
     gold: "text-yellow-400",
     silver: "text-gray-400",
@@ -105,34 +113,26 @@ function Sponsor() {
       <div class="relative items-center w-full py-12">
         <div className=" w-full gap-6 ">
           {tier_list.map((tier) => (
-            
-              <div className="">
+            <div className="">
               <h1
                 className={`mx-auto mb-8 lg:text-7xl lg:text-start text-5xl text-center font-semibold leading-none tracking-tighter m-5 ${
                   tierColorClass[tier.toLowerCase()] || "text-neutral-600"
                 } `}
               >
-                {tier} Tier
+                {tier} Sponsors
               </h1>
 
               <div className="grid grid-col md:grid-cols-2 xl:grid-cols-3 grid-cols-1 items-center gap-4 mx-auto">
-                {
-                  tier === "Silver" ? silverTier.map((sponsor)=>(
-                    AnimatedPinDemo(sponsor)
-                  )) : (tier === 'Gold' ? goldTier.map((sponsor)=>(
-                    AnimatedPinDemo(sponsor)
-                  )) : platinumTier.map((sponsor)=>(
-                    AnimatedPinDemo(sponsor)
-                  )))
-                }
-
-
-
-                  
+                {tier === "Platinum"
+                  ? platinumTier.map((sponsor) => AnimatedPinDemo(sponsor))
+                  : tier === "Gold"
+                  ? goldTier.map((sponsor) => AnimatedPinDemo(sponsor))
+                  : tier === "Bronze"
+                  ? bronzeTier.map((sponsor) => AnimatedPinDemo(sponsor))
+                  : softwareSponsors.map((sponsor) => AnimatedPinDemo(sponsor))}
               </div>
             </div>
-            
-))}
+          ))}
         </div>
       </div>
     </section>
@@ -140,7 +140,6 @@ function Sponsor() {
 }
 
 export default SponsorsPage;
-
 
 // { tierType == 'Silver' && silverTier.map((sponsor)=>(
 //   AnimatedPinDemo(sponsor)
